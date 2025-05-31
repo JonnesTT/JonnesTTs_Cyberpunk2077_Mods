@@ -1,40 +1,28 @@
-@addField(PlayerPuppet)
-let configurable_sTaSt : ref<Configurable_sTaSt>;
-
-@wrapMethod(PlayerPuppet)
-protected cb func OnGameAttached() -> Bool {
-    wrappedMethod();
-    this.configurable_sTaSt = new Configurable_sTaSt();
-}
-
 public class Configurable_sTaSt extends ScriptableService 
 {
-    protected let config : ref<ConfigurableShorterTaStConfig>;
-    protected let allguns : array<ref<WeaponItem_Record>>;
-    protected let techGuns : array<ref<WeaponItem_Record>>;
-    protected let chargeTimeBonus : TweakDBID = t"ConfigurableTaSTimers.ChargeBonus";
-    protected let smartGuns : array<ref<WeaponItem_Record>>;
-    protected let lockOnBonusADS : TweakDBID = t"ConfigurableTaSTimers.LockOnTimeAds";
-    protected let lockOnBonusHip : TweakDBID = t"ConfigurableTaSTimers.LockOnTimeHip";
-    protected let BoltWindowMult : TweakDBID = t"ConfigurableTaSTimers.PerfectChargeWindow";
-    protected let targetAqusitionRangeMult: TweakDBID = t"ConfigurableTaSTimers.AquisitionRange";
+    protected persistent let config : ref<ConfigurableShorterTaStConfig>;
+    protected persistent let allguns : array<ref<WeaponItem_Record>>;
+    protected persistent let techGuns : array<ref<WeaponItem_Record>>;
+    protected persistent let chargeTimeBonus : TweakDBID = t"ConfigurableTaSTimers.ChargeBonus";
+    protected persistent let smartGuns : array<ref<WeaponItem_Record>>;
 
-    protected let BoltBaseRecordID : TweakDBID = t"NewPerks.Tech_Right_Milestone_3_inline17";
-    protected let BoltBoostRecordID : TweakDBID = t"NewPerks.Tech_Right_Perk_3_2_inline4";
-    protected let chargeTimeMinID : TweakDBID = t"BaseStats.ChargeTime";
-    protected let baseChargeTimeMinID : TweakDBID = t"BaseStats.BaseChargeTime";
-    protected let lockOnTimeADS : TweakDBID = t"BaseStats.SmartGunAdsTimeToLock";
-    protected let lockOnTimeHip : TweakDBID = t"BaseStats.SmartGunHipTimeToLock";
+    protected persistent let lockOnBonusADS : TweakDBID = t"ConfigurableTaSTimers.LockOnTimeAds";
+    protected persistent let lockOnBonusHip : TweakDBID = t"ConfigurableTaSTimers.LockOnTimeHip";
+    protected persistent let BoltWindowMult : TweakDBID = t"ConfigurableTaSTimers.PerfectChargeWindow";
+    protected persistent let targetAqusitionRangeMult: TweakDBID = t"ConfigurableTaSTimers.AquisitionRange";
+
+    protected persistent let BoltBaseRecordID : TweakDBID = t"NewPerks.Tech_Right_Milestone_3_inline17";
+    protected persistent let BoltBoostRecordID : TweakDBID = t"NewPerks.Tech_Right_Perk_3_2_inline4";
+    protected persistent let chargeTimeMinID : TweakDBID = t"BaseStats.ChargeTime";
+    protected persistent let baseChargeTimeMinID : TweakDBID = t"BaseStats.BaseChargeTime";
+    protected persistent let lockOnTimeADS : TweakDBID = t"BaseStats.SmartGunAdsTimeToLock";
+    protected persistent let lockOnTimeHip : TweakDBID = t"BaseStats.SmartGunHipTimeToLock";
 
     private cb func OnLoad() 
     {
     GameInstance.GetCallbackSystem()
       .RegisterCallback(n"Session/BeforeStart", this, n"OnLoadSave");
-    }
 
-
-    private cb func OnLoadSave( event : ref<GameSessionEvent> ) -> Void
-    {
         this.config = new ConfigurableShorterTaStConfig();
 
         this.allguns = this.GetAllGunRecords();
@@ -42,8 +30,12 @@ public class Configurable_sTaSt extends ScriptableService
         this.techGuns = this.GetTechGunRecords(this.allguns);
         this.smartGuns = this.GetSmartGunRecords(this.allguns);
 
-        this.allguns = [];
+        ArrayClear(this.allguns);
+    }
 
+
+    private cb func OnLoadSave( event : ref<GameSessionEvent> ) -> Void
+    {
         if this.config.isEnabled
         {  
             this.AddTaSRecords();
@@ -67,7 +59,7 @@ public class Configurable_sTaSt extends ScriptableService
 
     private func RemoveTaSRecords() -> Void
     {
-        //Charge Speed
+        // Charge Speed
         for gun in this.techGuns
         {
             this.RemoveItemfromArrayRecord(this.GetTechnicalStatsListRecord(gun)+t".statModifiers", this.chargeTimeBonus);
