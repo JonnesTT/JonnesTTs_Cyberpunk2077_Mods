@@ -1,3 +1,0 @@
-base\localization\en-us\perksapplytoall.json
-base\localization\en-us\perksapplytoevenmore.json
-base\localization\en-us\perksapplytomore.json

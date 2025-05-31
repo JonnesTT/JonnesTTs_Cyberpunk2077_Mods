@@ -86,11 +86,13 @@ private class NoRNGTweakPatcher extends ScriptableService
             floatValues[0] = floatValues[0]/2.0;
 
             batch.SetFlat(uIData + t".floatValues", floatValues );
+            // this where it breaks down. I can't get the text to display. Everything else works.
             batch.SetFlat(uIData + t".localizedDescription", n"chipwareExpansion_neuralware_zetatech_description_3-NoRNGOverride" );
             batch.UpdateRecord(uIData + t".localizedDescription");
             batch.UpdateRecord(uIData);
             LogChannel(n"DEBUG", "Overwrote description with " + GetLocalizedTextByKey(n"chipwareExpansion_neuralware_zetatech_description_3-NoRNGOverride") );
             // above gives no text in console
+            // the above SHOULD give text to console
           }
         }
       }
