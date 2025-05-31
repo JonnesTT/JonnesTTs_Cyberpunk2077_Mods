@@ -1,0 +1,727 @@
+#Assault Rifles
+#Overal suited to fill the role of a precision rifle, but within the assault rifle group
+#buffed DPS to compensate for non-optimal fire rate usage in semi. Also might make it stealth viable
+Items.Base_Kyubi_Damage_Stats_inline0:
+  value: 69 #base 55
+#buffed headshot mult. See above for reason
+Items.Base_Kyubi_Constant_Stats_inline6:
+  value: 0.50 #base 25
+
+Items.Base_Kyubi_Krausser_Constant_Stats:
+  statModifiers:
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      value: 0.25
+      modifierType: Additive
+      statType: BaseStats.HeadshotDamageMultiplier
+
+#to set it appart
+Items.Base_Kyubi_Legendary_Constant_Stats_inline4:
+  value: 0.75 #base 50
+
+
+
+#Ajax
+#Nerf DPS. It's just too good atm
+Items.Base_Ajax_Damage_Stats_inline0:
+  value: 53 #base 58
+
+#Copperhead
+# Too similar to Umbra. Decrease firerate, increase headshot mult
+#cycle time = (1/firerate)
+Items.Base_Copperhead_Technical_Stats_inline1:
+  value: 0.12 #base 0.09
+
+Items.Base_Copperhead_Krausser_Technical_Stats_inline1:
+  value: 0.011 #base 0.08
+
+Items.Base_Copperhead_Constant_Stats:
+  statModifiers:
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      value: 0.25
+      modifierType: Additive
+      statType: BaseStats.HeadshotDamageMultiplier
+
+Items.Base_Copperhead_Krausser_Constant_Stats:
+  statModifiers:
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      value: 0.25
+      modifierType: Additive
+      statType: BaseStats.HeadshotDamageMultiplier
+
+
+#Umbra
+# too similar to copperhead.
+# speedy aesthetic and cheap production value
+# so Increase firerate, lower armor pen, 
+# slight dps boost to make it usable
+
+#Cycle Time
+Items.Base_Umbra_Technical_Stats_inline1:
+  value: 0.07 #base 0.08
+
+Items.Base_Umbra_Collectible_Technical_Stats_inline1:
+  value: 0.08 #base 0.09
+
+#dps
+Items.Base_Umbra_Damage_Stats_inline0:
+  value: 60 #base 57
+
+Items.Base_Umbra_Constant_Stats.statModifiers:
+  - !remove AttackModifier.WeaponArmorPenetrationLow
+
+Items.Base_Umbra_Collectible_Constant_Stats.statModifiers:
+  - !remove AttackModifier.WeaponArmorPenetrationLow
+
+#SMG
+#Guillutine
+#more DPS than I feel comfi with, light nerf
+Items.Base_Guillotine_Damage_Stats_inline0.value: 68 #base 70
+
+
+#Saratoga
+#a bit too stronk, nerfed dps
+Items.Base_Saratoga_Damage_Stats_inline0.value: 58 #base 63
+
+#Shigure
+#Even higher firerate to fully buy into it's identity
+Items.Base_Saratoga_Arasaka_2020_Technical_Stats_inline1:
+  value: 0.05 #0.06
+
+#Some Stamina Cost reduction to counterbalance
+Items.Base_Saratoga_Arasaka_2020_Constant_Stats:
+  statModifiers:
+    - !append
+      $type: gamedataConstantStatModifier_Record
+      value: 0.30
+      modifierType: Additive
+      statType: BaseStats.SubMachinegunStaminaCostReduction
+
+#increasing the damage back up, cuz apparently it mainly it uses saratoga stats
+Items.Preset_Saratoga_Arasaka_2020:
+  statModifierGroups:
+  - !remove Items.Base_Saratoga_Damage_Stats
+  - !append-once 
+    $base: Items.Base_Saratoga_Damage_Stats
+    statModifiers:
+      - !append-once
+        $base: Items.Base_Saratoga_Damage_Stats_inline0
+        value: 63
+
+
+
+#Pulsar
+# long barrel = high muzzle velocity =/= low range
+#Better Range
+Items.Base_Pulsar_Constant_Stats_inline9:
+  value: 0.75 #base 0.875
+
+Items.Base_Pulsar_Constant_Stats:
+  statModifiers:
+    - !append-once AttackModifier.WeaponArmorPenetrationLow
+
+#this is now on base
+Items.PulsarBuzzsawWeaponMod.statModifiers:
+  - !remove AttackModifier.WeaponArmorPenetrationLow
+
+
+#weirdly weak. Likely an accuracy issue... keep the accuracy problems for personality, increase DPS
+Items.Base_Pulsar_Damage_Stats_inline0.value: 75 #base 71 (this is already really high... did they want us to use it like a shotty?)
+
+
+Items.PulsarBuzzsawWeaponMod.statModifiers:
+  - !remove AttackModifier.WeaponArmorPenetrationLow
+
+
+#LMGs
+#Defender
+# LMGs are already rather weak and carry get a movement speed nerf. Let's turn this into a weapon you want to use. increase DPS
+# Buff to DPS
+Items.Base_Defender_Damage_Stats_inline0:
+  value: 73 #base 65
+
+#Let's make it use rifle scopes again
+Items.Base_Defender:
+  blueprint: Items.Base_Power_AR_SMG_LMG_NoMuzzle_Blueprint
+
+Items.Base_Defender.slotPartList:
+  - !append-once Items.RiflePossibleScopesList
+
+#MA70
+# LMG. Get's buff too
+# Buff to DPS
+Items.Base_MA70_Damage_Stats_inline0:
+  value: 69 #base 60
+
+#Defender currently wins out on usability due to it's more comfi firerate. Let's give this one an edge in a different way with extra armour pen.
+Items.Base_MA70_Constant_Stats.statModifiers:
+  - !remove AttackModifier.WeaponArmorPenetrationLow
+  - !append-once AttackModifier.WeaponArmorPenetrationMedium
+
+# can now attach rifle scopes
+Items.Base_MA70:
+  blueprint: Items.Base_Power_AR_SMG_LMG_NoMuzzle_Blueprint
+
+Items.Base_MA70.slotPartList:
+  - !append-once Items.RiflePossibleScopesList
+
+
+
+#HMG
+# Should be a short but sweet powertrip
+# increase dmg greatly
+Items.Base_HMG_Damage_Stats_inline0:
+  value: 233 #base 133 #change: +75%
+
+# decrease ammo greatly
+Items.Base_HMG_Technical_Stats_inline3:
+  value: 50 #base 200 #change: -75%
+
+
+
+#Pistols
+#liberty, basically a reskin of the unity. Give it a 2 round burst for personality.
+Items.Base_Liberty:
+  primaryTriggerMode: TriggerMode.Burst
+  triggerModes:
+    - TriggerMode.Burst
+
+#make it VERY fast to keep it stealthable.
+#actually, I might reduce recoil too.
+Items.Base_Liberty_Technical_Stats:
+  statModifiers:
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      value: 0.005
+      modifierType: Additive
+      statType: BaseStats.CycleTime_Burst
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      value: 2
+      modifierType: Additive
+      statType: BaseStats.NumShotsInBurst
+
+Items.Base_Liberty_Dex_Technical_Stats:
+  statModifiers:
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      value: 0.005
+      modifierType: Additive
+      statType: BaseStats.CycleTime_Burst
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      value: 2
+      modifierType: Additive
+      statType: BaseStats.NumShotsInBurst
+
+Items.Base_Liberty_Rogue_Technical_Stats:
+  statModifiers:
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      value: 0.005
+      modifierType: Additive
+      statType: BaseStats.CycleTime_Burst
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      value: 2
+      modifierType: Additive
+      statType: BaseStats.NumShotsInBurst
+
+
+#dps doesn't seem to take the burst into account, so we have to decrease it. Overall this is still a buff
+Items.Base_Liberty_Damage_Stats_inline0:
+  value: 27 #base 50
+
+
+Items.Base_Liberty_NPC_Damage_Stats_inline0:
+  value: 21 #base 40
+
+#Chao
+#damage criminally too low
+Items.Base_Chao_Damage_Stats_inline0.value: 38 #base25
+
+#ok, I said I wasn't gonna go for realism, but this is a volley gun with 4 barrels each loaded with 5 bullets. Except one, which carries a sixth. Y'know cuz the gun with 4 barrels has 3 round burst like ALL OTHER SMORT PISTOLS.
+# so we turn it into a propper volley gun that shoots very fast 4 round bursts (like a mini shotgun)
+Items.Base_Chao_Technical_Stats_inline4:
+  value: 4 #base 3
+
+Items.Base_Chao_Technical_Stats_inline3:
+  value: 0.01 #base 0.1
+
+
+#edit. Nope. Decrease DPS accordingly. This thing has a completely disposable barrel assembly. It does not give a fuck about any of the downsides of a high firerate >:D
+# # to counteract the burstability, we nerf the firerate for now
+# Items.Base_Chao_Technical_Stats_inline2:
+#   value: 0.4 #base 0.4
+
+#make mag size divisible by 4. I think the chao deserves a buff so increase. Has 6 Bursts
+Items.Base_Chao_Technical_Stats_inline5:
+  value: 24 #base 21
+
+
+#Revolvers
+# Nova
+# this is just a reskin of the overture so I'll use it's MASSIVE calliber in a fun way
+# by turning it into a shotgun
+# to be fair we could've also given it the carnage treatment but I really like the idea of a cross-type
+# it does be better at bodyshots and car wrecking though
+Items.Base_Nova:
+  effectiveRangeFalloffCurve: ShotgunRange
+  fxPackage: WeaponFxPackage.PowerShotgun
+  crosshair: Crosshairs.Hex
+  shootingPatternPackages:
+    - ShootingPatterns.ShotgunShootingPackage
+  rangedAttacks: Attacks.PowerBuckshotsBulletPackage
+  useForcedTBHZOffset: True
+  # ammo: Ammo.ShotgunAmmo # optional for immersion. Gameplaywise, it's fine as is.
+
+#Player Projectiles
+Items.Base_Nova_Technical_Stats_inline3:
+  value: 6
+
+#jitter spreads pellets around a central point. Makes shotties more intuitive.
+Items.Base_Nova_Spread_Stats:
+  statModifiers:
+    - !append-once 
+      $type: gamedataConstantStatModifier_Record
+      value: 0
+      modifierType: Additive
+      statType: BaseStats.SpreadUseEvenDistribution
+    - !append-once 
+      $type: gamedataConstantStatModifier_Record
+      value: 3
+      modifierType: Additive
+      statType: BaseStats.SpreadEvenDistributionRowCount
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      value: 0.3
+      modifierType: Additive
+      statType: BaseStats.SpreadEvenDistributionJitterSize
+
+Items.Base_Nova_Doom_Doom_Spread_Stats:
+  statModifiers:
+    - !append-once 
+      $type: gamedataConstantStatModifier_Record
+      value: 0
+      modifierType: Additive
+      statType: BaseStats.SpreadUseEvenDistribution
+    - !append-once 
+      $type: gamedataConstantStatModifier_Record
+      value: 3
+      modifierType: Additive
+      statType: BaseStats.SpreadEvenDistributionRowCount
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      value: 0.3
+      modifierType: Additive
+      statType: BaseStats.SpreadEvenDistributionJitterSize
+
+
+#ADS accuracy -> a bit lower
+# base version
+#min
+Items.Base_Nova_Constant_Stats_inline1:
+  value: 1.5
+#max
+Items.Base_Nova_Constant_Stats_inline3:
+  value: 4
+
+Items.Base_Nova_Constant_Stats:
+  statModifiers:
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      value: 0.3
+      modifierType: Additive
+      statType: BaseStats.WeaponVehicleDamagePercentBonus
+
+
+Items.Base_Nova_Doom_Doom_Constant_Stats_inline1:
+  value: 1.5
+
+Items.Base_Nova_Doom_Doom_Constant_Stats_inline3:
+  value: 1.5
+
+
+Items.Base_Nova_Hitman_Constant_Stats_inline1:
+  value: 0.5
+
+Items.Base_Nova_Hitman_Constant_Stats_inline3:
+  value: 2
+
+#make heavy hitter with no need to crit
+#dps a good bit lower than the good shotguns to account for fast fire and reload
+Items.Base_Nova_Damage_Stats_inline0:
+  value: 83 #base 45
+
+#headshot damage
+Items.Base_Nova_Constant_Stats:
+  statModifiers:
+    - !append
+      $type: gamedataConstantStatModifier_Record
+      value: -1.15
+      modifierType: Additive
+      statType: BaseStats.HeadshotDamageMultiplier
+
+
+#Doom Doom
+# headshot mult reduction removed, already on base variant
+# 2x (total) damage mult removed, already on base variant
+Items.DoomDoomWeaponMod.statModifiers:
+  - !remove Items.DoomDoomWeaponMod_inline5
+  - !remove Items.DoomDoomWeaponMod_inline4
+
+#I'm not sure I should keep the projectile per shot bonus. But for now
+
+
+
+
+#Overture
+#Can now equip muzzle breaks. Because why does not in vanilla? Not silencers though. We've seen what happens if it get's silencers. (Technically possible btw. It needs to be built for it then though)
+Items.Base_Overture:
+  blueprint: Items.Base_Power_Handgun_Blueprint
+
+Items.Base_Overture.slotPartList:
+  - !remove Items.RangedWeaponPossibleMuzzleList
+
+
+#Shotguns
+#Igla 
+#this clashed with tactician. Might still make it slightly more usable at medium range.
+#-> made more accurate and stronger.
+# #spread
+# #horizontal
+# Items.Base_Igla_Spread_Stats_inline0:
+#   value: 1.0
+# #vertical
+# Items.Base_Igla_Spread_Stats_inline1:
+#   value: 0.62
+
+#Tactician 
+# buff DPS almost as high as Igla. The 1b1 reload is very slow. So this thing should last almost an entire engagement and then be swapped off/taken cover
+Items.Base_Tactician_Damage_Stats_inline0:
+  value: 91 #base 81
+
+#make more accurate to fit the fantasy of a hunting shotty
+#nonADS
+#SpreadMinX
+Items.Base_Tactician_Spread_Stats_inline0:
+  value: 0.3
+#SpreadMinY
+Items.Base_Tactician_Spread_Stats_inline1:
+  value: 0.3
+
+#max
+#SpreadMaxX
+Items.Base_Tactician_Constant_Stats_inline2:
+  value: 2.0
+
+#ADS
+#Min
+#SpreadAdsMinX
+Items.Base_Tactician_Spread_Stats_inline3:
+  value: 0.3
+#SpreadAdsMinY
+Items.Base_Tactician_Spread_Stats_inline4:
+  value: 0.2
+
+#max
+#SpreadAdsMaxX
+Items.Base_Tactician_Constant_Stats_inline3:
+  value: 0.8
+
+#Default?
+#SpreadDefaultX base
+Items.Base_Tactician_Constant_Stats_inline0:
+  value: 2.0
+#SpreadAdsDefaultX base
+Items.Base_Tactician_Constant_Stats_inline1:
+  value: 0.2
+
+
+#Unedited atm. but likely to come into play
+# #SpreadUseInAds
+# Items.Base_Tactician_Spread_Stats_inline2:
+#   value: 1
+# #SpreadResetSpeed
+# Items.Base_Tactician_Spread_Stats_inline5:
+#   value: 1.5
+# #SpreadResetTimeThreshold
+# Items.Base_Tactician_Spread_Stats_inline6:
+#   value: 0.300000012
+
+Items.Base_Tactician_Spread_Stats:
+  statModifiers:
+    - !append-once 
+      $type: gamedataConstantStatModifier_Record
+      value: 0
+      modifierType: Additive
+      statType: BaseStats.SpreadUseEvenDistribution
+    - !append-once 
+      $type: gamedataConstantStatModifier_Record
+      value: 3
+      modifierType: Additive
+      statType: BaseStats.SpreadEvenDistributionRowCount
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      value: 0.1
+      modifierType: Additive
+      statType: BaseStats.SpreadEvenDistributionJitterSize
+
+
+#might increase range as well. IRL these kinds of shotties do still hit at range
+
+
+
+
+# #Palica
+# this change was outsourced to Configurable Shorter Tech and Smart Timers because all smort and tech weapons needed it.
+# #As a shotgun, it needs to lock on fast to be actually useful
+# Items.Base_Palica_SmartGun_Stats_inline12:
+#   value: .6
+
+# Items.Base_Palica_SmartGun_Stats_inline13:
+#   value: 0.4
+
+
+
+#precision rifles
+# as a class their fast firerate and, most of the time, equal ttk, makes them just better snipers ATM. That's why the game didn't need the Kolac so far
+# I wanna turn them into the classic video game snipers, while turning "snipers" into realistic snipers.
+# so for Vidjagame ppl that means Precision Rifles oneshot on headshot, snipers one or two shot on bodyshot.
+Items.Base_Precision_Rifle_RPG_Stats_inline1:
+  $type: gamedataConstantStatModifier_Record
+  value: 3
+  modifierType: Additive
+  statType: BaseStats.HeadshotDamageMultiplier
+
+#the weapon class is also missing a bit of variety. So It'd be best to make the Kolac avalilbe as a full auto variant and the SOR as single shot
+
+#Kolac
+# make availible
+# scavs should hold it regularily
+# and drop it when they hold it
+# no archetype but they all inherit from this
+Character.ep1_scavenger_elite3_sniper2_grad_ma_inline5:
+  pool:
+  - !append-once
+    $base: Character.ep1_scavenger_elite3_sniper2_grad_ma_inline14
+    minLevel: 0
+    weight: 2 #basically x:Sum(weightOfWeapons) chance to drop. Please check the actual code to finetine
+    items:
+      - !append-once
+        $base: Character.ep1_scavenger_elite3_sniper2_grad_ma_inline15
+        item: Items.Preset_Kolac_Default
+
+# wraiths sometimes
+# no archetype but they all inherit from that one Character.wraiths_ghost2_sniper2_achilles_ma_rare and they inherit militech
+#MilitechSniperRiflePool
+# militech dudes are coded to have an achilees almost every time with a 999 drop weight. 
+# So if we want the Wraiths to have the Kolac more often, we need to modify this
+
+BalancedGuns.KolacDropRegular:
+  $base: Character.ep1_scavenger_elite3_sniper2_grad_ma_inline14
+  minLevel: 0
+  weight: 1
+  items:
+    - !append-once
+      $base: Character.ep1_scavenger_elite3_sniper2_grad_ma_inline15
+      item: Items.Preset_Kolac_Default
+
+Character.wraiths_ghost2_sniper2_achilles_ma_rare_inline5:
+  pool:
+  - !remove BalancedGuns.KolacDropRegular
+  - !append
+      $base: BalancedGuns.KolacDropRegular
+      weight: 253 #gives it a ratio of aprox 1:4
+
+
+#everyone else rarely
+
+Character.MilitechSniperRiflePool.pool:
+  - !append-once BalancedGuns.KolacDropRegular
+
+#I'll drop arasaka because they only use tech and smort (i.e. high tech)
+
+#6th street are 33:39 scewed towards nekomata with weights of 2 and 4 in SOR and grad respectively
+# I feel like it fits if it's incredibly rare here
+Character.SixthStreetSniperRiflePool.pool:
+  - !append-once BalancedGuns.KolacDropRegular
+
+# Tygers only use real snipers. I'll skip them for now.
+
+#valentinos would though, wouldn't they?
+# Their weight add up to 10 though, so we increase the weight to make it a 1:6 chance
+Character.ValentinosSniperRiflePool:
+  pool:
+  - !append
+    $base: BalancedGuns.KolacDropRegular
+    weight: 2
+
+#Bhargest absolutely would love that thing.
+Character.KurtzSniperRiflePool.pool:
+  - !append-once BalancedGuns.KolacDropRegular
+
+
+# vendors should sell it rarely as well
+# for now all vendors will have it from time to time. I want to give each a specific rarity, but their names are a bit unclear. Need to make a list
+Vendors.Gunsmith:
+  itemStock:
+  - !append
+      $type: gamedataVendorItem_Record
+      item: Items.Preset_Kolac_Default
+      generationPrereqs:
+        - LootPrereqs.PlayerLevel_Tier_1_Start_Prereq
+      quantity:
+        - Vendors.Rarely_Present
+#vendor item based on record for SOR
+
+
+
+
+# make full auto
+Items.Preset_Kolac_Default:
+  primaryTriggerMode: TriggerMode.FullAuto
+  triggerModes:
+    - TriggerMode.FullAuto
+
+    
+# #so snipers already have a high vehicle damage I might boost this even higher to fully make them anti material weapons
+# Items.Base_Sniper_Rifle_RPG_Stats_inline3:
+#   value: 1.20000005
+
+
+
+#SOR and Achilles are fiiiine. should work with these class changes. Might slightly buff it's damage though.
+
+
+
+#sniper
+# remove headshot mult
+Items.Base_Sniper_Rifle_RPG_Stats_inline1:
+  value: 1 #base 3
+
+#counteract ReTTK loss with a damage boost and armour pen increase
+Items.Base_Sniper_Rifle_RPG_Stats:
+  statModifiers:
+  - !append AttackModifier.WeaponArmorPenetrationLow
+  - !append 
+    $type: gamedataConstantStatModifier_Record
+    value: 2
+    modifierType: Multiplier
+    statType: BaseStats.DPS
+
+
+BalancedGuns.WeaponArmorPenetrationTechSniperBonus:
+  $type: gamedataConstantStatModifier_Record
+  value: 0.15
+  modifierType: Additive
+  statType: BaseStats.CanWeaponIgnoreArmor
+
+
+# and oh cmon. The railgun sniper has the same armour pen as the grad?! This is an anti material weapon! (results in a total of 90% pen)
+# also increase vehicle damage.
+Items.Base_Nekomata_Constant_Stats.statModifiers:
+  - !append-once BalancedGuns.WeaponArmorPenetrationTechSniperBonus
+
+
+#Rasetsu
+# gets the nekomata treatment. It's mechanically just a spin on that
+Items.Base_Rasetsu_Prototype_Constant_Stats.statModifiers:
+  - !append-once BalancedGuns.WeaponArmorPenetrationTechSniperBonus
+
+#Osprey
+# not sure what to do with this. It's stats say precision rifle, it's modifier says anti material.
+# I'm feeling anti material to synergise a bit better with some of the newer mods
+
+#not sure if I should keep the armour pen got a feeling it should have some too
+
+
+# and I want this to be an anti material weapon
+Items.Base_Osprey_Constant_Stats:
+  statModifiers:
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      value: 0.3
+      modifierType: Additive
+      statType: BaseStats.WeaponVehicleDamagePercentBonus
+
+#melee: won't handle those until I do at least ONE melee only playthrough. Which may take a few months.
+
+
+#silencers
+# at vanilla they only apply to the first shot
+# while yea, silent silencers extends that I think I should also target people who think that mod makes stealth too easy (<- me)
+# So to buff SMG/ARs in stealth, silencers now give a brief (0.5s) window during which stealth attacks remain stealthy after detection.
+Items.SilencerBase:
+  OnAttach:
+  - !append-once
+    $type: gamedataGameplayLogicPackage_Record
+    stackable: False
+    UIData: ''
+    animationWrapperOverrides: []
+    effectors:
+      - $type: gamedataApplyStatusEffectEffector_Record
+        applicationTarget: Player
+        count: 1
+        instigator: ''
+        inverted: False
+        removeWithEffector: False
+        statusEffect:         
+          $type: gamedataStatusEffect_Record
+          duration: 
+            $type: gamedataStatModifierGroup_Record
+            drawBasedOnStatType: False
+            optimiseCombinedModifiers: False
+            saveBasedOnStatType: False
+            statModsLimit: -1
+            relatedModifierGroups: []
+            statModifiers:
+              - $type: gamedataConstantStatModifier_Record
+                value: 0.5
+                modifierType: Additive
+                statType: BaseStats.MaxDuration
+              - $type: gamedataCombinedStatModifier_Record
+                opSymbol: '*'
+                refObject: Player
+                refStat: BaseStats.ExtendedStealthDuration
+                value: 1
+                modifierType: Additive
+                statType: BaseStats.MaxDuration
+          dynamicDuration: False
+          isAffectedByTimeDilationNPC: True
+          isAffectedByTimeDilationPlayer: True
+          maxStacks: RTDB.StatusEffect_inline0
+          reapplyPackagesOnMaxStacks: False
+          removeAllStacksWhenDurationEnds: False
+          removeOnStoryTier: False
+          replicated: False
+          savable: True
+          statusEffectType: BaseStatusEffectTypes.Misc
+          stopActiveSfxOnDeactivate: True
+          uiData: ''
+          debugTags: []
+          gameplayTags:
+            - Buff
+            - ExtendedStealth
+          immunityStats: []
+          packages:
+            - $type: gamedataGameplayLogicPackage_Record
+              stackable: False
+              animationWrapperOverrides: []
+              effectors: []
+              items: []
+              statPools: []
+              stats: []
+          SFX: []
+          VFX: []
+        useCountWhenRemoving: False
+        effectorClassName: ApplyStatusEffectEffector
+        prereqRecord: Items.HitmanNovaWeaponModAbility_inline1
+        removeAfterActionCall: False
+        removeAfterPrereqCheck: False
+        statModifierGroups: []
+    items: []
+    statPools: []
+    stats: []
