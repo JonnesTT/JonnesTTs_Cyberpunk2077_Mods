@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CP77Mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>Lethal Pax</Name>
+  <ModName>Lethal Pax</ModName>
+  <Author>JonnesTT</Author>
+  <Email />
+  <Version>1.0</Version>
+  <OpenProjectFiles>localization\en-us\onscreens.json</OpenProjectFiles>
+</CP77Mod>

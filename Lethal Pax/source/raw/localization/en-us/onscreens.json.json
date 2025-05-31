@@ -1,0 +1,41 @@
+{
+  "Header": {
+    "WolvenKitVersion": "8.14.0",
+    "WKitJsonVersion": "0.0.8",
+    "GameVersion": 2120,
+    "ExportedDateTime": "2024-07-08T11:05:06.6173981Z",
+    "DataType": "CR2W",
+    "ArchiveFileName": "D:\\Cyberpunk2077_Mod_Projects\\Lethal Pax\\source\\archive\\base\\localization\\en-us\\onscreens\\onscreens_final.json"
+  },
+  "Data": {
+    "Version": 195,
+    "BuildVersion": 0,
+    "RootChunk": {
+      "$type": "JsonResource",
+      "cookingPlatform": "PLATFORM_PC",
+      "root": {
+        "HandleId": "0",
+        "Data": {
+          "$type": "localizationPersistenceOnScreenEntries",
+          "entries": [
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "\u002B{float_0}% damage outside of combat\\n-{stat_0}% damage",
+              "maleVariant": "",
+              "primaryKey": "89259",
+              "secondaryKey": "Gameplay-Parts-WeaponMods-AbilityDescription-GenericMod1_LowTier"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "\u002B{float_0}% damage outside of combat.",
+              "maleVariant": "",
+              "primaryKey": "89260",
+              "secondaryKey": "Gameplay-Parts-WeaponMods-AbilityDescription-GenericMod1_HighTier"
+            }
+          ]
+        }
+      }
+    },
+    "EmbeddedFiles": []
+  }
+}

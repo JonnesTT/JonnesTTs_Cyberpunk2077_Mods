@@ -1,0 +1,396 @@
+TaserMod.NonLethalMod_Base:
+  $base: Items.GenericMod1_Base
+  icon: 
+    atlasResourcePath: icon\inventoryicon.inkatlas
+    atlasPartName: TaserMod_Icon
+  quality: Quality.Common
+  displayName: LocKey#taserweaponmod_loc_name
+  OnAttach: [ TaserMod.AttachModifiers_Base ]
+  statModifiers:
+    - !remove Items.GenericMod1_Base_inline0
+    - !remove Items.GenericMod1_Base_inline1
+    - !remove Items.GenericMod1_Base_inline2
+    - !append Items.PowerMod1_Base_inline2
+    - !append Items.PowerMod1_Base_inline3
+    - !append 
+      $base: Items.PowerMod1_Base_inline5
+      value: 1
+      statType: BaseStats.ElectricDamage
+    - !append
+      $base: Items.PowerMod1_Base_inline4
+      value: -1
+      statType: BaseStats.PhysicalDamage
+    - !append 
+      $base: Items.PowerMod1_Base_inline0
+      value: 100
+      statType: BaseStats.ElectrocutedApplicationRate
+    # - !append 
+    #   $base: Items.PowerMod1_Base_inline1
+    #   value: 15
+    #   statType: BaseStats.ElectrocutedApplicationRate
+
+TaserMod.AttachModifiers_Base:
+  $type: gamedataGameplayLogicPackage_Record
+  stackable: False
+  UIData: TaserMod.UIData
+
+  effectors: 
+    - Items.GenericMod1_Base_inline4
+    - $base: Items.SaratogaMaelstromWeaponModAbility_inline1
+      uploadChance: 0.05
+    - $base: Items.SaratogaMaelstromWeaponModAbility_inline7
+      uploadChance: 0.0005
+    - $base: Items.SaratogaMaelstromWeaponModAbility_inline13
+      uploadChance: 0.0005
+
+TaserMod.UIData:
+  $type: gamedataGameplayLogicPackageUIData_Record
+  localizedDescription: LocKey#taserweaponmod_loc_description
+  floatValues:
+    - 15
+  stats:
+  - BaseStats.ElectrocutedApplicationRate
+#DMG convert
+# Items.PowerMod1_Base_inline2
+# reads out dmg to convert
+
+#Items.PowerMod1_Base_inline3:
+# applies quality multi
+
+
+TaserMod.NonLethalMod_Common:
+  $base: TaserMod.NonLethalMod_Base
+  quality: Quality.Common
+  OnLooted: 
+    - $type: gamedataGameplayLogicPackage_Record
+      items: 
+        - $type: gamedataInventoryItem_Record
+          chanceInCrowd: 0
+          item: 
+            $base: Items.WeaponMod_Recipe
+            craftingResult: 
+              $type: gamedataCraftingResult_Record
+              amount: 1
+              item: TaserMod.NonLethalMod_Uncommon
+          quantity: 1
+  tags:
+  - !append-once Common
+
+#Uncommon
+TaserMod.NonLethalMod_Uncommon:
+  $base: TaserMod.NonLethalMod_Base
+  quality: Quality.Uncommon
+  OnLooted: 
+    - $type: gamedataGameplayLogicPackage_Record
+      items: 
+        - $type: gamedataInventoryItem_Record
+          chanceInCrowd: 0
+          item: 
+            $base: Items.WeaponMod_Recipe
+            craftingResult: 
+              $type: gamedataCraftingResult_Record
+              amount: 1
+              item: TaserMod.NonLethalMod_Rare
+          quantity: 1
+  OnAttach: 
+    - $base: TaserMod.AttachModifiers_Base
+      UIData: 
+        $base: TaserMod.UIData
+        floatValues:
+          - 20
+  CraftingData: 
+    craftingExpModifier: 1
+    overcraftPenaltyModifier: 1
+    craftingRecipe: 
+      - $type: gamedataRecipeElement_Record
+        amount: 2
+        ingredient: TaserMod.NonLethalMod_Common
+  tags:
+  - !append-once Uncommon
+
+#Rare
+TaserMod.NonLethalMod_Rare:
+  $base: TaserMod.NonLethalMod_Base
+  quality: Quality.Rare
+  OnLooted: 
+    - $type: gamedataGameplayLogicPackage_Record
+      items: 
+        - $type: gamedataInventoryItem_Record
+          chanceInCrowd: 0
+          item: 
+            $base: Items.WeaponMod_Recipe
+            craftingResult: 
+              $type: gamedataCraftingResult_Record
+              amount: 1
+              item: TaserMod.NonLethalMod_Epic
+          quantity: 1
+  OnAttach: 
+    - $base: TaserMod.AttachModifiers_Base
+      UIData: 
+        $base: TaserMod.UIData
+        floatValues:
+          - 25
+  CraftingData: 
+    craftingExpModifier: 1
+    overcraftPenaltyModifier: 1
+    craftingRecipe:
+    - $type: gamedataRecipeElement_Record
+      amount: 2
+      ingredient: TaserMod.NonLethalMod_Uncommon
+  tags:
+  - !append-once Rare
+
+#Epic
+TaserMod.NonLethalMod_Epic:
+  $base: TaserMod.NonLethalMod_Base
+  quality: Quality.Epic
+  OnLooted: 
+    - $type: gamedataGameplayLogicPackage_Record
+      items: 
+        - $type: gamedataInventoryItem_Record
+          chanceInCrowd: 0
+          item:
+            $base: Items.WeaponMod_Recipe
+            craftingResult: 
+              $type: gamedataCraftingResult_Record
+              amount: 1
+              item: TaserMod.NonLethalMod_Legendary
+          quantity: 1
+  OnAttach: 
+    - $base: TaserMod.AttachModifiers_Base
+      UIData: 
+        $base: TaserMod.UIData
+        floatValues:
+          - 30
+  CraftingData: 
+    craftingExpModifier: 1
+    overcraftPenaltyModifier: 1
+    craftingRecipe: 
+      - $type: gamedataRecipeElement_Record
+        amount: 2
+        ingredient: TaserMod.NonLethalMod_Rare
+  tags:
+  - !append-once Epic
+
+#Legendaddy
+TaserMod.NonLethalMod_Legendary:
+  $base: TaserMod.NonLethalMod_Base
+  quality: Quality.Legendary
+  OnAttach: 
+    - $base: TaserMod.AttachModifiers_Base
+      UIData: 
+          $base: TaserMod.UIData
+          floatValues:
+            - 50
+  CraftingData: 
+    craftingExpModifier: 1
+    overcraftPenaltyModifier: 1
+    craftingRecipe: 
+      - $type: gamedataRecipeElement_Record
+        amount: 2
+        ingredient: TaserMod.NonLethalMod_Epic
+  tags:
+  - !append-once Legendary
+
+
+#may be on a generated weapon
+Items.GenericRangedModList_Base.itemPartList:
+  - !append-once TaserMod.ModListEntry_CommonOnUncommon
+  - !append-once TaserMod.ModListEntry_CommonOnRare
+  - !append-once TaserMod.ModListEntry_UncommonOnRare
+  - !append-once TaserMod.ModListEntry_UncommonOnEpic
+  - !append-once TaserMod.ModListEntry_UncommonOnLegendary
+  - !append-once TaserMod.ModListEntry_RareOnLegendary
+
+Items.GenericMeleeModList_Base.itemPartList:
+  - !append-once TaserMod.ModListEntry_CommonOnUncommon
+  - !append-once TaserMod.ModListEntry_CommonOnRare
+  - !append-once TaserMod.ModListEntry_UncommonOnRare
+  - !append-once TaserMod.ModListEntry_UncommonOnEpic
+  - !append-once TaserMod.ModListEntry_UncommonOnLegendary
+  - !append-once TaserMod.ModListEntry_RareOnLegendary
+
+#entries 
+TaserMod.ModListEntry_CommonOnUncommon:
+    $type: gamedataItemPartListElement_Record
+    item: TaserMod.NonLethalMod_Common
+    statModifierWeight:
+      - Items.VendorItemModGenerationChanceNullifier
+      - Items.OccupiedSlot_ModPartListElement_inline0
+      - Items.OccupiedSlot_ModPartListElement_inline1
+      - Items.Tier1_Mod_In_Tier2_Weapon_PartListElement_inline0
+      - Items.Tier1_Mod_In_Tier2_Weapon_PartListElement_inline1
+      - Items.Tier1_Mod_In_Tier2_Weapon_PartListElement_inline2
+
+TaserMod.ModListEntry_CommonOnRare:
+    $type: gamedataItemPartListElement_Record
+    item: TaserMod.NonLethalMod_Common
+    statModifierWeight:
+      - Items.VendorItemModGenerationChanceNullifier
+      - Items.OccupiedSlot_ModPartListElement_inline0
+      - Items.OccupiedSlot_ModPartListElement_inline1
+      - Items.Tier1_Mod_In_Tier3_Weapon_PartListElement_inline0
+      - Items.Tier1_Mod_In_Tier3_Weapon_PartListElement_inline1
+      - Items.Tier1_Mod_In_Tier3_Weapon_PartListElement_inline2
+
+TaserMod.ModListEntry_UncommonOnRare:
+    $type: gamedataItemPartListElement_Record
+    item: TaserMod.NonLethalMod_Uncommon
+    statModifierWeight:
+      - Items.VendorItemModGenerationChanceNullifier
+      - Items.OccupiedSlot_ModPartListElement_inline0
+      - Items.OccupiedSlot_ModPartListElement_inline1
+      - Items.Tier2_Mod_In_Tier3_Weapon_PartListElement_inline0
+      - Items.Tier2_Mod_In_Tier3_Weapon_PartListElement_inline1
+      - Items.Tier2_Mod_In_Tier3_Weapon_PartListElement_inline2
+
+TaserMod.ModListEntry_UncommonOnEpic:
+    $type: gamedataItemPartListElement_Record
+    item: TaserMod.NonLethalMod_Uncommon
+    statModifierWeight:
+      - Items.VendorItemModGenerationChanceNullifier
+      - Items.OccupiedSlot_ModPartListElement_inline0
+      - Items.OccupiedSlot_ModPartListElement_inline1
+      - Items.Tier2_Mod_In_Tier4_Weapon_PartListElement_inline0
+      - Items.Tier2_Mod_In_Tier4_Weapon_PartListElement_inline1
+      - Items.Tier2_Mod_In_Tier4_Weapon_PartListElement_inline2
+
+TaserMod.ModListEntry_UncommonOnLegendary:
+    $type: gamedataItemPartListElement_Record
+    item: TaserMod.NonLethalMod_Uncommon
+    statModifierWeight:
+      - Items.VendorItemModGenerationChanceNullifier
+      - Items.OccupiedSlot_ModPartListElement_inline0
+      - Items.OccupiedSlot_ModPartListElement_inline1
+      - Items.Tier2_Mod_In_Tier5_Weapon_PartListElement_inline0
+      - Items.Tier2_Mod_In_Tier5_Weapon_PartListElement_inline1
+      - Items.Tier2_Mod_In_Tier5_Weapon_PartListElement_inline2
+
+TaserMod.ModListEntry_RareOnLegendary:
+    $type: gamedataItemPartListElement_Record
+    item: TaserMod.NonLethalMod_Rare
+    statModifierWeight:
+      - Items.VendorItemModGenerationChanceNullifier
+      - Items.OccupiedSlot_ModPartListElement_inline0
+      - Items.OccupiedSlot_ModPartListElement_inline1
+      - Items.Tier3_Mod_In_Tier5_Weapon_PartListElement_inline0
+      - Items.Tier3_Mod_In_Tier5_Weapon_PartListElement_inline1
+      - Items.Tier3_Mod_In_Tier5_Weapon_PartListElement_inline2
+
+
+
+#may be at a vendor
+Vendors.Gunsmith.itemStock:
+  - !append-once Tasermod.VendorOffer_Common
+  - !append-once Tasermod.VendorOffer_Uncommon
+  - !append-once Tasermod.VendorOffer_Rare
+
+Tasermod.VendorOffer_Common:
+  $type: gamedataVendorItem_Record
+  item: TaserMod.NonLethalMod_Common
+  quantity: [ Vendors.Always_Present ]
+  generationPrereqs: [ LootPrereqs.PlayerLevelCommonWeaponModsPrereq ]
+
+Tasermod.VendorOffer_Uncommon:
+  $type: gamedataVendorItem_Record
+  item: TaserMod.NonLethalMod_Uncommon
+  quantity: [ Vendors.Always_Present ]
+  generationPrereqs: [ LootPrereqs.PlayerLevelUncommonWeaponModsPrereq ]
+
+Tasermod.VendorOffer_Rare:
+  $type: gamedataVendorItem_Record
+  item: TaserMod.NonLethalMod_Rare
+  quantity: [ Vendors.Always_Present ]
+  generationPrereqs: [ LootPrereqs.PlayerLevelRareWeaponModsPrereq ]
+
+#loot item records
+Tasermod.ControlledLootRecord_Common_Base:
+  $type: gamedataLootItem_Record
+  itemID: TaserMod.NonLethalMod_Common
+  dropChance: 1
+  playerPrereqID: LootPrereqs.PlayerLevelCommonWeaponModsPrereq
+
+Tasermod.ControlledLootRecord_Uncommon_Base:
+  $type: gamedataLootItem_Record
+  itemID: TaserMod.NonLethalMod_Uncommon
+  dropChance: 1
+  playerPrereqID: LootPrereqs.PlayerLevelUncommonWeaponModsPrereq
+
+Tasermod.ControlledLootRecord_Rare_Base:
+  $type: gamedataLootItem_Record
+  itemID: TaserMod.NonLethalMod_Rare
+  dropChance: 1
+  playerPrereqID: LootPrereqs.PlayerLevelNormalTierPrereq
+
+Tasermod.ControlledLootRecord_Epic_Base:
+  $type: gamedataLootItem_Record
+  itemID: TaserMod.NonLethalMod_Epic
+  dropChance: 1
+  playerPrereqID: LootPrereqs.PlayerLevel_Tier_3_to_4_Exclusion_Prereq
+
+Tasermod.ControlledLootRecord_Legendary_Base:
+  $type: gamedataLootItem_Record
+  itemID: TaserMod.NonLethalMod_Legendary
+  dropChance: 1
+  playerPrereqID: LootPrereqs.PlayerLevel_Tier_5_Start_Prereq
+
+
+#Loot Limiter?
+ControlledLoot.NPCWeaponModsLimiterLootSet.lootItems:
+  - !append-once Tasermod.ControlledLootRecord_Common_Limiter
+  - !append-once Tasermod.ControlledLootRecord_Uncommon_Limiter
+  - !append-once Tasermod.ControlledLootRecord_Rare_Limiter
+
+Tasermod.ControlledLootRecord_Common_Limiter:
+  $base: Tasermod.ControlledLootRecord_Common_Base
+  itemID: TaserMod.NonLethalMod_Common
+  playerPrereqID: None
+  
+Tasermod.ControlledLootRecord_Uncommon_Limiter:
+  $base: Tasermod.ControlledLootRecord_Uncommon_Base
+  itemID: TaserMod.NonLethalMod_Common
+  playerPrereqID: None
+
+Tasermod.ControlledLootRecord_Rare_Limiter:
+  $base: Tasermod.ControlledLootRecord_Rare_Base
+  itemID: TaserMod.NonLethalMod_Common
+  playerPrereqID: None
+
+
+
+#Cyberpsycho Quests
+LootTables.cyberpsychos_reward.lootItems:
+  - !append-once Tasermod.ControlledLootRecord_Rare_Cyberpsycho
+  - !append-once Tasermod.ControlledLootRecord_Epic_Base
+  - !append-once Tasermod.ControlledLootRecord_Legendary_Base
+
+Tasermod.ControlledLootRecord_Rare_Cyberpsycho:
+  $base: Tasermod.ControlledLootRecord_Rare_Base
+  playerPrereqID: LootTables.cyberpsychos_reward_inline1
+
+#Generic Treasure Chest
+LootTables.GenericTreasureChest.lootItems:
+  - !append-once Tasermod.ControlledLootRecord_Rare_GenericChest
+  - !append-once Tasermod.ControlledLootRecord_Epic_GenericChest
+  - !append-once Tasermod.ControlledLootRecord_Legendary_GenericChest
+
+Tasermod.ControlledLootRecord_Rare_GenericChest:
+  $base: Tasermod.ControlledLootRecord_Rare_Base
+  dropChance: .01
+  playerPrereqID: LootTables.cyberpsychos_reward_inline1
+
+Tasermod.ControlledLootRecord_Epic_GenericChest:
+  $base: Tasermod.ControlledLootRecord_Epic_Base
+  dropChance: .01
+
+Tasermod.ControlledLootRecord_Legendary_GenericChest:
+  $base: Tasermod.ControlledLootRecord_Legendary_Base
+  dropChance: .01
+
+
+#Airdrops
+LootTables.sa_ep1_34_mq304.lootItems:
+  - !append Tasermod.ControlledLootRecord_Rare_Base
+  - !append Tasermod.ControlledLootRecord_Epic_Base
+  - !append Tasermod.ControlledLootRecord_Legendary_Base
+

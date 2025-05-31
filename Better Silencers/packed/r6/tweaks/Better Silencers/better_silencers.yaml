@@ -1,0 +1,71 @@
+Items.SilencerBase:
+  OnAttach:
+  - !append-once
+    $type: gamedataGameplayLogicPackage_Record
+    stackable: False
+    UIData: ''
+    animationWrapperOverrides: []
+    effectors:
+      - $type: gamedataApplyStatusEffectEffector_Record
+        applicationTarget: Player
+        count: 1
+        instigator: ''
+        inverted: False
+        removeWithEffector: False
+        statusEffect:         
+          $type: gamedataStatusEffect_Record
+          duration: 
+            $type: gamedataStatModifierGroup_Record
+            drawBasedOnStatType: False
+            optimiseCombinedModifiers: False
+            saveBasedOnStatType: False
+            statModsLimit: -1
+            relatedModifierGroups: []
+            statModifiers:
+              - $type: gamedataConstantStatModifier_Record
+                value: 0.5
+                modifierType: Additive
+                statType: BaseStats.MaxDuration
+              - $type: gamedataCombinedStatModifier_Record
+                opSymbol: '*'
+                refObject: Player
+                refStat: BaseStats.ExtendedStealthDuration
+                value: 1
+                modifierType: Additive
+                statType: BaseStats.MaxDuration
+          dynamicDuration: False
+          isAffectedByTimeDilationNPC: True
+          isAffectedByTimeDilationPlayer: True
+          maxStacks: RTDB.StatusEffect_inline0
+          reapplyPackagesOnMaxStacks: False
+          removeAllStacksWhenDurationEnds: False
+          removeOnStoryTier: False
+          replicated: False
+          savable: True
+          statusEffectType: BaseStatusEffectTypes.Misc
+          stopActiveSfxOnDeactivate: True
+          uiData: ''
+          debugTags: []
+          gameplayTags:
+            - Buff
+            - ExtendedStealth
+          immunityStats: []
+          packages:
+            - $type: gamedataGameplayLogicPackage_Record
+              stackable: False
+              animationWrapperOverrides: []
+              effectors: []
+              items: []
+              statPools: []
+              stats: []
+          SFX: []
+          VFX: []
+        useCountWhenRemoving: False
+        effectorClassName: ApplyStatusEffectEffector
+        prereqRecord: Items.HitmanNovaWeaponModAbility_inline1
+        removeAfterActionCall: False
+        removeAfterPrereqCheck: False
+        statModifierGroups: []
+    items: []
+    statPools: []
+    stats: []

@@ -1,0 +1,32 @@
+ConfigurableTaSTimers.ChargeBonus:
+  $type: gamedataConstantStatModifier_Record
+  value: 1.0
+  modifierType: Multiplier
+  statType: BaseStats.BaseChargeTime
+
+ConfigurableTaSTimers.LockOnTimeAds:
+  $type: gamedataConstantStatModifier_Record
+  value: 1.0
+  modifierType: Multiplier
+  statType: BaseStats.SmartGunAdsTimeToLock
+
+ConfigurableTaSTimers.LockOnTimeHip:
+  $type: gamedataConstantStatModifier_Record
+  value: 1.0
+  modifierType: Multiplier
+  statType: BaseStats.SmartGunHipTimeToLock
+
+
+# # BaseStats.PerfectChargeWindow does not seem to allow for multipliers :(
+# #Base Charge Window
+# ConfigurableTaSTimers.PerfectChargeWindow:
+#   $type: gamedataConstantStatModifier_Record
+#   value: 1.0
+#   modifierType: Multiplier
+#   statType: BaseStats.PerfectChargeWindow
+
+ConfigurableTaSTimers.AquisitionRange:
+  $type: gamedataConstantStatModifier_Record
+  value: 1.0
+  modifierType: Multiplier
+  statType: BaseStats.SmartGunTargetAcquisitionRange

@@ -1,0 +1,6 @@
+Items.ArmsCyberwareStatGroupBase:
+  $type: gamedataStatModifierGroup_Record
+  drawBasedOnStatType: False
+  statModsLimit: -1
+  statModifiers:
+    - Items.ArmsCyberwareStatGroupBase_inline0

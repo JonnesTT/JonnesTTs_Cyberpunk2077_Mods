@@ -1,0 +1,5 @@
+Query.ArmsCyberwareFragment:
+  $type: gamedataItemQuery_Record
+  recordType: Items.ArmsCyberwarePartBase
+  tags: []
+  tagsToExclude: []

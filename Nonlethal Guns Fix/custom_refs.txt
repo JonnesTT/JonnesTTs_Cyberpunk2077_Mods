@@ -1,0 +1,16 @@
+base\gameplay\curves\statcurves\items\weapons\weapon_mods\tasermod.curveset
+base\translations\en-us\onscreens.json
+base\translations\en-us\unityanswer.json
+en-us\onscreens.json
+icon\inventoryicon_1080.xbm
+icon\inventoryicon.inkatlas
+icon\inventoryicon.xbm
+none
+null
+seijax\highdoom\icon\inventoryicon_1080.xbm
+seijax\highdoom\icon\inventoryicon.xbm
+seijax\highdoom\icon\item_icons1.inkatlas
+taserweaponmod\icon\inventoryicon_1080.xbm
+taserweaponmod\icon\inventoryicon.inkatlas
+taserweaponmod\icon\inventoryicon.xbm
+wallpiercerpowermod\icons\wallpiercerpowermod-icon.inkatlas

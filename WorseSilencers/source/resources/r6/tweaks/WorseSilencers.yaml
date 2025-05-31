@@ -1,0 +1,157 @@
+Items.w_silencer_01_inline0:
+  $type: gamedataConstantStatModifier_Record
+  value: 1.5
+  modifierType: Additive
+  statType: BaseStats.StealthHitDamageMultiplier
+
+Items.w_silencer_01_inline5:
+  $type: gamedataConstantStatModifier_Record
+  value: 0.5
+  modifierType: Additive
+  statType: BaseStats.AdditionalStealthDamage
+
+
+Items.w_silencer_02_inline0:
+  $type: gamedataConstantStatModifier_Record
+  value: 2.0
+  modifierType: Additive
+  statType: BaseStats.StealthHitDamageMultiplier
+
+Items.w_silencer_02_inline3:
+  $type: gamedataConstantStatModifier_Record
+  value: 1.0
+  modifierType: Additive
+  statType: BaseStats.AdditionalStealthDamage
+
+
+Items.w_silencer_03_inline0:
+  $type: gamedataConstantStatModifier_Record
+  value: 2.0
+  modifierType: Additive
+  statType: BaseStats.StealthHitDamageMultiplier
+
+Items.w_silencer_03_inline4:
+  $type: gamedataConstantStatModifier_Record
+  value: 1.0
+  modifierType: Additive
+  statType: BaseStats.AdditionalStealthDamage
+
+
+Items.w_silencer_03_legendary_inline0:
+  $type: gamedataConstantStatModifier_Record
+  value: 2.0
+  modifierType: Additive
+  statType: BaseStats.StealthHitDamageMultiplier
+
+Items.w_silencer_03_legendary_inline3:
+  $type: gamedataConstantStatModifier_Record
+  value: 1.0
+  modifierType: Additive
+  statType: BaseStats.AdditionalStealthDamage
+
+
+Items.w_silencer_04_inline0:
+  $type: gamedataConstantStatModifier_Record
+  value: 1.5
+  modifierType: Additive
+  statType: BaseStats.StealthHitDamageMultiplier
+
+Items.w_silencer_04_inline6:
+  $type: gamedataConstantStatModifier_Record
+  value: 0.5
+  modifierType: Additive
+  statType: BaseStats.AdditionalStealthDamage
+
+
+
+#Weapons with stealth bonuses
+Items.Base_Lexington_Rook_Constant_Stats_inline15:
+  $type: gamedataConstantStatModifier_Record
+  value: 1.5 #base 2.0
+  modifierType: Additive
+  statType: BaseStats.StealthHitDamageMultiplier
+
+Items.Base_Lexington_Rook_Constant_Stats:
+  statModifiers:
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      value: 0.5
+      modifierType: Additive
+      statType: BaseStats.AdditionalStealthDamage
+
+
+Items.UnityAgentWeaponMod_inline0:
+  $type: gamedataConstantStatModifier_Record
+  value: 2.0 #base 2.5
+  modifierType: Additive
+  statType: BaseStats.StealthHitDamageMultiplier
+
+Items.UnityAgentWeaponMod:
+  statModifiers:
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      value: 1.0
+      modifierType: Additive
+      statType: BaseStats.AdditionalStealthDamage
+
+
+Items.ReedTiconWeaponMod_inline3:
+  $type: gamedataConstantStatModifier_Record
+  value: 1.5 #base 2.0
+  modifierType: Additive
+  statType: BaseStats.StealthHitDamageMultiplier
+
+Items.ReedTiconWeaponMod:
+  statModifiers:
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      value: 0.5
+      modifierType: Additive
+      statType: BaseStats.AdditionalStealthDamage
+
+
+Items.BorisWardenWeaponMod_inline0:
+  $type: gamedataConstantStatModifier_Record
+  value: 1.715 #base 2.215
+  modifierType: Additive
+  statType: BaseStats.StealthHitDamageMultiplier
+
+Items.BorisWardenWeaponMod:
+  statModifiers:
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      value: 0.715
+      modifierType: Additive
+      statType: BaseStats.AdditionalStealthDamage
+
+
+Items.HitmanNovaWeaponMod_inline1:
+  $type: gamedataConstantStatModifier_Record
+  value: 2.0 #base 2.5
+  modifierType: Additive
+  statType: BaseStats.StealthHitDamageMultiplier
+
+Items.HitmanNovaWeaponMod:
+  statModifiers:
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      value: 1.0
+      modifierType: Additive
+      statType: BaseStats.AdditionalStealthDamage
+
+
+
+# add some to the kyubi to make it a viable stealth weapon
+Items.Base_Kyubi_Constant_Stats:
+  statModifiers:
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      value: 1.75
+      modifierType: Additive
+      statType: BaseStats.StealthHitDamageMultiplier
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      value: 0.75
+      modifierType: Additive
+      statType: BaseStats.AdditionalStealthDamage
+      

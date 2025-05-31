@@ -1,0 +1,2 @@
+Louder Locomotion\localization\en-us.json
+LouderLocomotion\localization\en-us.json

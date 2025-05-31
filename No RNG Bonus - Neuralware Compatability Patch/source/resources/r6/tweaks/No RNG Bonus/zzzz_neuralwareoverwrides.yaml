@@ -1,0 +1,21 @@
+ChipwareExpansion.ZetatechNeuralware$(tier):
+  $instances:
+  - { tier: Rare, statModBonus: 4, cyberBonus: 0.04 }
+  - { tier: RarePlus, statModBonus: 5, cyberBonus: 0.05 }
+  - { tier: Epic, statModBonus: 6, cyberBonus: 0.06 }
+  - { tier: EpicPlus, statModBonus: 7, cyberBonus: 0.07 }    
+  - { tier: Legendary, statModBonus: 8, cyberBonus: 0.08 }
+  - { tier: LegendaryPlus, statModBonus: 9, cyberBonus: 0.09 }   
+  - { tier: LegendaryPlusPlus, statModBonus: 10, cyberBonus: 0.1 }   
+  OnEquip: 
+    - !append 
+      $type: GameplayLogicPackage
+      stats:
+        - $type: ConstantStatModifier
+          modifierType: Additive
+          statType: BaseStats.CyberwareCooldownReduction
+          value: $(cyberBonus)
+      UIData: 
+        $type: GameplayLogicPackageUIData
+        floatValues: [$(statModBonus)]
+        localizedDescription: LocKey#chipwareExpansion_neuralware_zetatech_description_3-NoRNGOverride

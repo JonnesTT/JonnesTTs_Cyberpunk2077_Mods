@@ -1,0 +1,48 @@
+{
+  "Header": {
+    "WolvenKitVersion": "8.13.0",
+    "WKitJsonVersion": "0.0.8",
+    "GameVersion": 2120,
+    "ExportedDateTime": "2024-03-31T01:51:48.9881304Z",
+    "DataType": "CR2W",
+    "ArchiveFileName": "D:\\Cyberpunk2077_Mod_Projects\\The Answer\\source\\archive\\base\\translations\\en-us\\unityanswer.json"
+  },
+  "Data": {
+    "Version": 195,
+    "BuildVersion": 0,
+    "RootChunk": {
+      "$type": "JsonResource",
+      "cookingPlatform": "PLATFORM_PC",
+      "root": {
+        "HandleId": "0",
+        "Data": {
+          "$type": "localizationPersistenceOnScreenEntries",
+          "entries": [
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "The Answer",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "unityanswer_loc_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "In Night City, there\u0027s a price on everything. Question is who\u0027s gonna foot the bill, you or them?",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "unityanswer_loc_description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Wilson did a hell of a job on Vs Unity... and added a bonus by making it pierce both armor and cover by converting it to shoot rifle rounds.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "unityanswer_iconicmod_loc_description"
+            }
+          ]
+        }
+      }
+    },
+    "EmbeddedFiles": []
+  }
+}

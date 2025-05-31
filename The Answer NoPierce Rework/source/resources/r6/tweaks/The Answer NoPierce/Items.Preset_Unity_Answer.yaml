@@ -1,0 +1,202 @@
+Items.Preset_Unity_Answer:
+  $base: Items.Preset_Unity_Default
+  baseEmptyReloadTime: 0.75
+  baseReloadTime: 0.75
+  uninterruptibleEmptyReloadStart: 0.5
+  uninterruptibleReloadStart: 0.5
+  blueprint: Items.Iconic_Ranged_Weapon_Blueprint
+  npcRPGData: Items.Preset_Unity_Agent_inline7
+  buyPrice:
+    - !append-once Price.IsFree
+  displayName: LocKey#unityanswer_loc_name
+  localizedDescription: LocKey#unityanswer_loc_description
+  OnLooted:
+  - Items.Preset_Answer_Bought
+  slotPartListPreset:
+    - !append-once Items.Preset_Unity_Answer_Iconic_modPart
+  tags:
+    - !append-once IconicWeapon
+  statModifierGroups:
+    - !remove Items.QualityRandomization
+    - !append-once Items.IconicQualityRandomization
+    - !remove Items.Base_Unity_Technical_Stats
+    - !append-once Items.Base_Unity_Answer_Technical_Stats
+    - !remove Items.Base_Unity_Recoil_Stats
+    - !append-once Items.Base_Overture_Recoil_Stats
+    - !remove Items.Base_Unity_Constant_Stats
+    - !append-once Items.Base_Unity_Answer_Constant_Stats
+    - !remove Items.Base_Unity_Damage_Stats
+    - !append-once Items.Base_Unity_Answer_Damage_Stats
+  statModifiers:
+    - !append-once Quality.IconicItem
+
+
+
+#buyability
+Vendors.wat_lch_gunsmith_01:
+  itemStock:
+  - !append-once
+    $type: gamedataVendorItem_Record
+    item: Items.Preset_Unity_Answer
+    generationPrereqs: [Vendors.UnityAnswer_Aquired_Check]
+    quantity: [Vendors.Always_Present]
+
+Vendors.UnityAnswer_Aquired_Check:
+  $base: Vendors.wat_lch_gunsmith_01_inline3
+  fact: Answer_wilson_acquired
+
+Items.Preset_Answer_Bought:
+  $base: Items.Preset_Lexington_Wilson_inline5
+  effectors:
+    - Items.Preset_Answer_Bought_effector
+
+Items.Preset_Answer_Bought_effector:
+  $base: Items.Preset_Lexington_Wilson_inline6
+  prereqRecord: Items.Preset_Answer_Bought_value0
+  fact: Answer_wilson_acquired
+
+
+Items.Preset_Answer_Bought_value0:
+  $base: Items.Preset_Lexington_Wilson_inline7
+  fact: Answer_wilson_acquired
+
+#price mod
+Price.IsFree:
+  $type: gamedataConstantStatModifier_Record
+  value: 0
+  modifierType: Multiplier
+  statType: BaseStats.Price
+
+#tech stats
+
+Items.Base_Unity_Answer_Technical_Stats:
+  $base: Items.Base_Unity_Technical_Stats
+  statModifiers:
+    - Items.Base_Unity_Answer_Technical_Stats_inline_NumShotsToFire
+    - Items.Base_Unity_Answer_Technical_Stats_inline_CycleTimeBase
+    - Items.Base_Unity_Answer_Technical_Stats_inline_MagazineCapacityBase
+    - Items.Base_Unity_Technical_Stats_inline3
+    - BaseStats.ProjectilesPerShotCombinedModifier
+
+
+Items.Base_Unity_Answer_Technical_Stats_inline_NumShotsToFire:
+  $type: gamedataConstantStatModifier_Record
+  value: 1
+  modifierType: Additive
+  statType: BaseStats.NumShotsToFire
+
+Items.Base_Unity_Answer_Technical_Stats_inline_CycleTimeBase:
+  $type: gamedataConstantStatModifier_Record
+  value: 0.3371
+  modifierType: Additive
+  statType: BaseStats.CycleTimeBase
+
+Items.Base_Unity_Answer_Technical_Stats_inline_MagazineCapacityBase:
+  $type: gamedataConstantStatModifier_Record
+  value: 8
+  modifierType: Additive
+  statType: BaseStats.MagazineCapacityBase
+
+Items.Base_Unity_Answer_Technical_Stats_inline_ProjectilesPerShotBase:
+  $type: gamedataConstantStatModifier_Record
+  value: 1
+  modifierType: Additive
+  statType: BaseStats.ProjectilesPerShotBase
+
+# dmg stats
+Items.Base_Unity_Answer_Damage_Stats:
+  $base: Items.Base_Unity_Damage_Stats
+  statModifiers:
+    - !remove Items.Base_Unity_Damage_Stats_inline0
+    - !append-once
+      $base: Items.Base_Unity_Damage_Stats_inline0
+      value: 59
+
+
+#handling, as balance for the overpowered pistol. Yes I am aware. :D
+
+Items.Base_Unity_Answer_Constant_Stats:
+  $base: Items.Base_Unity_Constant_Stats
+  statModifiers:
+    - Items.Base_Unity_Answer_DefaultSpreadX
+    - Items.Base_Unity_Answer_SpreadAdsDefaultX
+    - Items.Base_Unity_Answer_SpreadMaxX
+    - Items.Base_Unity_Answer_SpreadAdsMaxX
+    - Items.Base_Unity_Answer_SpreadChangePerShot
+    - Items.Base_Unity_Constant_Stats_inline5
+    - Items.Base_Unity_Answer_RecoilMin
+    - Items.Base_Unity_Answer_RecoilMax
+    - Items.Base_Unity_Answer_FirePower
+    - AttackModifier.WeaponArmorPenetrationMedium
+
+
+Items.Base_Unity_Answer_DefaultSpreadX:
+  $type: gamedataConstantStatModifier_Record
+  value: 0.5
+  modifierType: Additive
+  statType: BaseStats.SpreadDefaultX
+
+Items.Base_Unity_Answer_SpreadAdsDefaultX:
+  $type: gamedataConstantStatModifier_Record
+  value: 0.1
+  modifierType: Additive
+  statType: BaseStats.SpreadAdsDefaultX
+
+Items.Base_Unity_Answer_SpreadMaxX:
+  $type: gamedataConstantStatModifier_Record
+  value: 3.5
+  modifierType: Additive
+  statType: BaseStats.SpreadMaxX
+  
+Items.Base_Unity_Answer_SpreadChangePerShot:
+  $type: gamedataConstantStatModifier_Record
+  value: 0.5
+  modifierType: Additive
+  statType: BaseStats.SpreadChangePerShot
+
+Items.Base_Unity_Answer_SpreadAdsMaxX:
+  $type: gamedataConstantStatModifier_Record
+  value: 0.4
+  modifierType: Additive
+  statType: BaseStats.SpreadAdsMaxX
+
+Items.Base_Unity_Answer_FirePower:
+  $type: gamedataConstantStatModifier_Record
+  value: 1.75
+  modifierType: Additive
+  statType: BaseStats.FirePower
+
+Items.Base_Unity_Answer_RecoilMax:
+  $type: gamedataConstantStatModifier_Record
+  value: 4
+  modifierType: Additive
+  statType: BaseStats.RecoilKickMax
+
+Items.Base_Unity_Answer_RecoilMin:
+  $type: gamedataConstantStatModifier_Record
+  value: 3
+  modifierType: Additive
+  statType: BaseStats.RecoilKickMin
+
+#modpart n stuff
+
+Items.Preset_Unity_Answer_Iconic_modPart:
+  $type: gamedataSlotItemPartPreset_Record
+  itemPartPreset: Items.UnityAnswerIconicWeaponMod
+  slot: AttachmentSlots.IconicWeaponModLegendary
+  itemPartList: []
+
+Items.UnityAnswerIconicWeaponMod:
+  $base: Items.IconicWeaponModBase
+  buyPrice:
+    - !append-once Price.IsFree
+  OnAttach: [ Items.UnityAnswerWeaponModAbility ]
+
+Items.UnityAnswerWeaponModAbility:
+  $base: Items.IconicWeaponModAbilityBase
+  UIData: Items.Unity_Answer_mod_loc_desc
+
+
+Items.Unity_Answer_mod_loc_desc:
+  $base: Items.WilsonWeaponModAbility_inline0
+  localizedDescription: LocKey#unityanswer_iconicmod_loc_description

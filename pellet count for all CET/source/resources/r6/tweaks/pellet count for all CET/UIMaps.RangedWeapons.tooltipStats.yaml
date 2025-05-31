@@ -1,0 +1,2 @@
+UIMaps.RangedWeapons.tooltipStats:
+  - !append-once BaseStats.ProjectilesPerShot

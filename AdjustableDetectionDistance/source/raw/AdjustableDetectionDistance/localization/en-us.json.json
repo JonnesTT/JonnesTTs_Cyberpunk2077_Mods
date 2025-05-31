@@ -1,0 +1,83 @@
+{
+  "Header": {
+    "WolvenKitVersion": "8.15.0",
+    "WKitJsonVersion": "0.0.9",
+    "GameVersion": 2120,
+    "ExportedDateTime": "2024-11-24T09:30:32.4082538Z",
+    "DataType": "CR2W",
+    "ArchiveFileName": "D:\\Cyberpunk2077_Mod_Projects\\ConfigurableLongerLookDistance\\source\\archive\\AdjustableDetectionDistance\\localization\\en-us.json"
+  },
+  "Data": {
+    "Version": 195,
+    "BuildVersion": 0,
+    "RootChunk": {
+      "$type": "JsonResource",
+      "cookingPlatform": "PLATFORM_PC",
+      "root": {
+        "HandleId": "0",
+        "Data": {
+          "$type": "localizationPersistenceOnScreenEntries",
+          "entries": [
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Detection Distance Config",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "AdjustableDetectionDistance"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Technical Settings",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "AdjustableDetectionDistance-technical"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Enabled",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "AdjustableDetectionDistance-IsEnabled_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Toggle Off to Remove all changes implemented this mod. (requires reload)",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "AdjustableDetectionDistance-IsEnabled_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Detection Distance",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "AdjustableDetectionDistance"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Detection Distance Multipliers",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "AdjustableDetectionDistance-multiplier"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Detection Distance",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "AdjustableDetectionDistance-Mult_name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Multiplies the distance at which enemies can see you. (requires reload)",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "AdjustableDetectionDistance-Mult_desc"
+            }
+          ]
+        }
+      }
+    },
+    "EmbeddedFiles": []
+  }
+}

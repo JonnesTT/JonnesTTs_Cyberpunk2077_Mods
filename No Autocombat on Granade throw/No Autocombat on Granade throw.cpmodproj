@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CP77Mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>No Autocombat on Granade throw</Name>
+  <ModName>No Autocombat on Granade throw</ModName>
+  <Author />
+  <Email />
+  <Version />
+  <OpenProjectFiles>immersive_components\translations\en-us.json</OpenProjectFiles>
+</CP77Mod>

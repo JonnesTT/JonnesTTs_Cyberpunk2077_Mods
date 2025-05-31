@@ -1,0 +1,273 @@
+Items.Preset_Unity_Answer:
+  $base: Items.Preset_Unity_Default
+  ammo: Ammo.HandgunAmmo
+  fxPackage: WeaponFxPackage.TechHandgun
+  previewEffectTag: pierce
+  blueprint: Items.Iconic_Power_Handgun_Blueprint
+  gameplayDescription: unityanswer_loc_description
+  buyPrice:
+  !remove Price.MediumManufactureQuality
+  !append Price.TopManufactureQuality
+  !append Price.IsFree
+  displayName: unityanswer_loc_name
+  localizedDescription: unityanswer_loc_name
+  OnLooted:
+  - Items.Preset_Answer_Bought
+  sellPrice:
+    !remove Price.MediumManufactureQuality
+    !append Price.LowManufactureQuality
+  slotPartListPreset:
+    !remove Items.Preset_Unity_Default_inline4
+    !remove Items.Preset_Unity_Default_inline5
+  tags:
+    !append IconicWeapon
+  statModifierGroups:
+    !remove Items.Base_Unity_Technical_Stats
+    !append Items.Preset_Unity_Answer_Technical_Stats
+    !remove Items.Base_Unity_Handling_Stats
+    !append Items.Preset_Unity_Answer_Handling_Stats
+    !remove Items.Base_Unity_Recoil_Stats
+    !append Items.Base_Overture_Recoil_Stats
+    !remove Items.Base_Unity_Constant_Stats
+    !append Items.Preset_Unity_Answer_Constant_Stats
+    !remove Items.Base_Unity_Damage_Stats
+    !append Items.Preset_Unity_Answer_Damage_Stats
+    !remove Items.IconicQualityRandomization
+    !append Items.IconicQualityCommon
+  statModifiers:
+  !append Quality.IconicItem
+
+
+#buyability and price
+
+Vendors.wat_lch_gunsmith_01:
+  itemStock:
+  - !append
+    item: Items.Preset_Unity_Answer
+    generationPrereqs: [Vendors.answer_aquired_check]
+    quantity: [Vendors.Always_Present]
+
+Vendors.answer_aquired_check:
+  $type: gamedataIPrereq_Record
+  prereqClassName: FactValuePrereq
+  fact: Answer_wilson_acquired
+  comparisonType: Less
+  value: 1
+  repeated: False
+
+
+Items.Preset_Answer_Bought:
+  $type: gamedataGameplayLogicPackage_Record
+  stackable: False
+  animationWrapperOverrides: []
+  effectors:
+    - Items.Preset_Answer_Bought_effector
+  items: []
+  statPools: []
+  stats: []
+
+Items.Preset_Answer_Bought_effector:
+  $type: gamedataEffector_Record
+  effectorClassName: SetFactEffector
+  prereqRecord: Items.Preset_Answer_Bought_value0
+  removeAfterActionCall: False
+  removeAfterPrereqCheck: False
+  statModifierGroups: []
+  fact: Answer_wilson_acquired
+  value: 1
+
+
+Items.Preset_Answer_Bought_value0:
+  $type: gamedataIPrereq_Record
+  prereqClassName: FactValuePrereq
+  fact: Answer_wilson_acquired
+  comparisonType: Equal
+  value: 0
+  repeated: False
+
+
+Price.IsFree:
+  $type: gamedataConstantStatModifier_Record
+  value: 0
+  modifierType: Multiplier
+  statType: BaseStats.Price
+
+
+#tech stats, apparently breaks if you only edit one... classic for modding.
+Items.Preset_Unity_Answer_Technical_Stats:
+  $base: Items.Base_Unity_Technical_Stats
+  drawBasedOnStatType: False
+  optimiseCombinedModifiers: False
+  saveBasedOnStatType: False
+  statModsLimit: -1
+  relatedModifierGroups: []
+  statModifiers:
+    !remove Items.Base_Unity_Technical_Stats_inline1
+    !append Items.Preset_Unity_Answer_Technical_Stats_CycleTimeBase
+    !remove Items.Base_Unity_Technical_Stats_inline2
+    !append Items.Preset_Unity_Answer_Technical_Stats_MagazineCapacityBase
+    !append Items.Base_Tech_Stats_Inline7
+
+Items.Preset_Unity_Answer_Technical_Stats_CycleTimeBase:
+  $type: gamedataConstantStatModifier_Record
+  value: 0.45
+  modifierType: Additive
+  statType: BaseStats.CycleTimeBase
+
+Items.Preset_Unity_Answer_Technical_Stats_MagazineCapacityBase:
+  $type: gamedataConstantStatModifier_Record
+  value: 10
+  modifierType: Additive
+  statType: BaseStats.MagazineCapacityBase
+
+# dmg stats
+Items.Preset_Unity_Answer_Damage_Stats:
+  $type: gamedataStatModifierGroup_Record
+  drawBasedOnStatType: False
+  optimiseCombinedModifiers: False
+  saveBasedOnStatType: False
+  statModsLimit: -1
+  relatedModifierGroups: []
+  statModifiers:
+    - Items.Preset_Unity_Answer_Damage_Stats_dps
+
+Items.Preset_Unity_Answer_Damage_Stats_dps:
+  $type: gamedataConstantStatModifier_Record
+  value: 50
+  modifierType: Additive
+  statType: BaseStats.DPS
+
+
+# Handling Stats + pierce
+
+Items.Preset_Unity_Answer_Handling_Stats:
+  $base: Items.Base_Unity_Handling_Stats
+  drawBasedOnStatType: False
+  optimiseCombinedModifiers: False
+  saveBasedOnStatType: False
+  statModsLimit: -1
+  relatedModifierGroups: []
+  statModifiers:
+    !append Items.Preset_Unity_Answer_TechPierce
+    !append Items.Preset_Unity_Answer_TechPierceDMGreduct
+#   !append Items.Preset_Unity_Answer_ConditionalPierce
+
+Items.Preset_Unity_Answer_TechPierce:
+  $type: gamedataConstantStatModifier_Record
+  value: 1.0
+  modifierType: Additive
+  statType: BaseStats.TechPierceEnabled
+
+
+#Items.Preset_Unity_Answer_ConditionalPierce:
+#  $type: gamedataConstantStatModifier_Record
+#  refObject: Player
+#  refStat: BaseStats.IsAimingWithWeapon
+#  opSymbol: '*'
+#  statType: BaseStats.TechPierceEnabled
+#  modifierType: Additive
+#  value: 1.0
+
+
+Items.Preset_Unity_Answer_TechPierceDMGreduct:
+  $type: gamedataConstantStatModifier_Record
+  value: -0.3000000
+  modifierType: Additive
+  statType: BaseStats.TechPierceDamageFactor
+
+
+#pierce... and some unnecessary additions
+
+Items.Preset_Unity_Answer_Constant_Stats:
+  $type: gamedataStatModifierGroup_Record
+  drawBasedOnStatType: False
+  optimiseCombinedModifiers: False
+  saveBasedOnStatType: False
+  statModsLimit: -1
+  relatedModifierGroups: []
+  statModifiers:
+    - Items.Preset_Unity_Answer_SpreadX
+    - Items.Preset_Unity_Answer_SpreadAdsX
+    - Items.Preset_Unity_Answer_SpreadMaxX
+    - Items.Preset_Unity_Answer_SpreadAdsMaxX
+    - Items.Base_Unity_Constant_Stats_inline4
+    - Items.Base_Unity_Constant_Stats_inline5
+    - Items.Preset_Unity_Answer_RecoilMin
+    - Items.Preset_Unity_Answer_RecoilMax
+    - Items.Preset_Unity_Answer_FirePower
+    - AttackModifier.WeaponArmorPenetrationMedium
+
+Items.Preset_Unity_Answer_SpreadX:
+  $type: gamedataConstantStatModifier_Record
+  value: 0.5
+  modifierType: Additive
+  statType: BaseStats.SpreadDefaultX
+
+Items.Preset_Unity_Answer_SpreadAdsX:
+  $type: gamedataConstantStatModifier_Record
+  value: 0.1
+  modifierType: Additive
+  statType: BaseStats.SpreadAdsDefaultX
+
+Items.Preset_Unity_Answer_SpreadMaxX:
+  $type: gamedataConstantStatModifier_Record
+  value: 5.0
+  modifierType: Additive
+  statType: BaseStats.SpreadMaxX
+
+Items.Preset_Unity_Answer_SpreadAdsMaxX:
+  $type: gamedataConstantStatModifier_Record
+  value: 0.4
+  modifierType: Additive
+  statType: BaseStats.SpreadAdsMaxX
+
+Items.Preset_Unity_Answer_FirePower:
+  $type: gamedataConstantStatModifier_Record
+  value: 1.75
+  modifierType: Additive
+  statType: BaseStats.FirePower
+
+Items.Preset_Unity_Answer_RecoilMax:
+  $type: gamedataConstantStatModifier_Record
+  value: 4.0
+  modifierType: Additive
+  statType: BaseStats.RecoilKickMax
+
+Items.Preset_Unity_Answer_RecoilMin:
+  $type: gamedataConstantStatModifier_Record
+  value: 3.0
+  modifierType: Additive
+  statType: BaseStats.RecoilKickMin
+
+#Items.Base_Unity_Recoil_Stats:
+#  $type: gamedataStatModifierGroup_Record
+#  drawBasedOnStatType: False
+#  optimiseCombinedModifiers: False
+#  saveBasedOnStatType: False
+#  statModsLimit: -1
+#  relatedModifierGroups: []
+#  statModifiers:
+#    - Items.Base_Unity_Recoil_Stats_inline0
+#    - Items.Base_Unity_Recoil_Stats_inline1
+#    - Items.Base_Unity_Recoil_Stats_inline2
+#    - Items.Base_Unity_Recoil_Stats_inline3
+#    - Items.Base_Unity_Recoil_Stats_inline4
+#    - Items.Base_Unity_Recoil_Stats_inline5
+#    - Items.Base_Unity_Recoil_Stats_inline6
+#    - Items.Base_Unity_Recoil_Stats_inline7
+#    - Items.Base_Unity_Recoil_Stats_inline8
+#    - Items.Base_Unity_Recoil_Stats_inline9
+
+
+#add slots to bought versions
+
+Items.IconicQualityCommon:
+  $base: Items.IconicQualityRandomization
+  drawBasedOnStatType: False
+  optimiseCombinedModifiers: False
+  saveBasedOnStatType: False
+  statModsLimit: -1
+  relatedModifierGroups: []
+  statModifiers:
+  !remove Items.IconicQualityRandomization_inline1
+  !remove Items.IconicQualityRandomization_inline2

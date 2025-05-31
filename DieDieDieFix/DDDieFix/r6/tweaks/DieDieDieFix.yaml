@@ -1,0 +1,31 @@
+#DieDiedie!
+#lvl2
+# Is bugged. So here's some custom code.
+NewPerks.Body_Left_Milestone_2_inline9:
+  $base: NewPerks.Body_Left_Milestone_2_inline3
+  statGroup: NewPerks.Body_Left_Milestone_2_inline10
+
+
+NewPerks.Body_Left_Milestone_2_inline10:
+  $base: NewPerks.Body_Left_Milestone_2_inline4
+  statModifiers:
+    - NewPerks.Body_Left_Milestone_2_inline11
+    - NewPerks.Body_Left_Milestone_2_inline12
+
+NewPerks.Body_Left_Milestone_2_inline11:
+  $type: gamedataCombinedStatModifier_Record
+  opSymbol: '*(1-x)'
+  refObject: Player
+  refStat: BaseStats.StaminaRatio
+  value: 50
+  modifierType: Additive
+  statType: BaseStats.Handling
+
+NewPerks.Body_Left_Milestone_2_inline12:
+  $type: gamedataCombinedStatModifier_Record
+  opSymbol: '*(1-x)'
+  refObject: Player
+  refStat: BaseStats.StaminaRatio
+  value: 10
+  modifierType: Additive
+  statType: BaseStats.CycleTimeBonus

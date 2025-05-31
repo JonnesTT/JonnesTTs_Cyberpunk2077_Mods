@@ -1,0 +1,8 @@
+Items.QualityRandomization_inline2:
+  $type: gamedataCurveStatModifier_Record
+  column: level_to_random_range_mult_new
+  id: quality_curves
+  refObject: Self
+  refStat: BaseStats.PowerLevel
+  modifierType: Additive
+  statType: BaseStats.RandomCurveInput

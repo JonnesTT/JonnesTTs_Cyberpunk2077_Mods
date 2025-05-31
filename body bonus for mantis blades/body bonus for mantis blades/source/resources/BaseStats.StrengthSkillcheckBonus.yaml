@@ -1,0 +1,13 @@
+BaseStats.StrengthSkillcheckBonus:
+  $type: gamedataStat_Record
+  enumComment: ''
+  enumName: StrengthSkillcheckBonus
+  improvementRelation: ImprovementRelation.None
+  localizedDescription: ''
+  localizedName: LocKey#80461
+  localizedStatDisplay: ''
+  max: -9999999
+  min: 9999999
+  flags:
+    - EquipOnPlayer
+  substats: []

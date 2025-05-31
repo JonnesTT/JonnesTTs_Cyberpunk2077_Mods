@@ -1,0 +1,34 @@
+{
+  "Header": {
+    "WolvenKitVersion": "8.14.0",
+    "WKitJsonVersion": "0.0.8",
+    "GameVersion": 2120,
+    "ExportedDateTime": "2024-06-30T19:47:12.6208362Z",
+    "DataType": "CR2W",
+    "ArchiveFileName": "D:\\Cyberpunk2077_Mod_Projects\\No RNG Bonus\\source\\archive\\base\\localization\\en-us\\onscreens\\onscreens_final.json"
+  },
+  "Data": {
+    "Version": 195,
+    "BuildVersion": 0,
+    "RootChunk": {
+      "$type": "JsonResource",
+      "cookingPlatform": "PLATFORM_PC",
+      "root": {
+        "HandleId": "0",
+        "Data": {
+          "$type": "localizationPersistenceOnScreenEntries",
+          "entries": [
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "\u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003E\u002B{float_0}%\u003C/\u003E extra armor from all sources",
+              "maleVariant": "",
+              "primaryKey": "89358",
+              "secondaryKey": "Gameplay-RPG-CharDev-New_Perks-Descriptions-Technical-Tech_Central_Milestone_2_Level1"
+            }
+          ]
+        }
+      }
+    },
+    "EmbeddedFiles": []
+  }
+}

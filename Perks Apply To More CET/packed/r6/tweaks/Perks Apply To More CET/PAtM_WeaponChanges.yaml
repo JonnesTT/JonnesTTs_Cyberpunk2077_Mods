@@ -1,0 +1,659 @@
+
+# attacks to add to bladed weapons
+#one handed
+#OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+#OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+#OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+
+#BatonAttacks.BatonBodySlamLevel1Attack
+#BatonAttacks.BatonBodySlamLevel2Attack
+#BatonAttacks.BatonBodySlamLevel3Attack
+
+#two handed
+#TwoHandBluntAttacks.TwoHandBluntBodySlamLevel1Attack
+#TwoHandBluntAttacks.TwoHandBluntBodySlamLevel2Attack
+#TwoHandBluntAttacks.TwoHandBluntBodySlamLevel3Attack
+
+#hammers?
+#TwoHandHammerAttacks.TwoHandHammerBodySlamLevel1Attack
+#TwoHandHammerAttacks.TwoHandHammerBodySlamLevel2Attack
+#TwoHandHammerAttacks.TwoHandHammerBodySlamLevel3Attack
+
+Items.Preset_Katana_Default.attacks:
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel1Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel2Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel3Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntGroundSlamAttack
+
+Items.Preset_Katana_Military.attacks:
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel1Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel2Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel3Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntGroundSlamAttack
+
+Items.Preset_Katana_Neon.attacks:
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel1Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel2Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel3Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntGroundSlamAttack
+
+Items.Preset_Katana_Neon_03.attacks:
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel1Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel2Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel3Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntGroundSlamAttack
+
+Items.Preset_Katana_Pimp.attacks:
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel1Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel2Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel3Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntGroundSlamAttack
+
+Items.Preset_Katana_Pimp_03.attacks:
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel1Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel2Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel3Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntGroundSlamAttack
+
+Items.Preset_Katana_Saburo.attacks:
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel1Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel2Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel3Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntGroundSlamAttack
+
+Items.Preset_Katana_Saburo_Epic.attacks:
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel1Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel2Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel3Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntGroundSlamAttack
+
+Items.Preset_Katana_Saburo_Legendary.attacks:
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel1Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel2Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel3Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntGroundSlamAttack
+
+Items.Preset_Katana_Surgeon.attacks:
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel1Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel2Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel3Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntGroundSlamAttack
+
+Items.Preset_Katana_Surgeon_Epic.attacks:
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel1Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel2Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel3Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntGroundSlamAttack
+
+Items.Preset_Katana_Surgeon_Legendary.attacks:
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel1Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel2Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel3Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntGroundSlamAttack
+
+Items.Preset_Katana_Training.attacks:
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel1Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel2Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel3Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntGroundSlamAttack
+
+Items.Preset_Katana_GoG.attacks:
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel1Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel2Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel3Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntGroundSlamAttack
+
+Items.Preset_Katana_GoG_Crafted.attacks:
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel1Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel2Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel3Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntGroundSlamAttack
+
+Items.Preset_Katana_GoG_Epic.attacks:
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel1Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel2Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel3Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntGroundSlamAttack
+
+Items.Preset_Katana_GoG_Legendary.attacks:
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel1Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel2Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel3Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntGroundSlamAttack
+
+Items.Preset_Katana_Wakako.attacks:
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel1Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel2Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel3Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntGroundSlamAttack
+
+Items.Preset_Katana_Wakako_Legendary.attacks:
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel1Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel2Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel3Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntGroundSlamAttack
+
+Items.Preset_Katana_Cocktail.attacks:
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel1Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel2Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel3Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntGroundSlamAttack
+
+Items.Preset_Katana_Cocktail_Epic.attacks:
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel1Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel2Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel3Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntGroundSlamAttack
+
+Items.Preset_Katana_Cocktail_Legendary.attacks:
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel1Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel2Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel3Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntGroundSlamAttack
+
+Items.Preset_Katana_E3.attacks:
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel1Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel2Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel3Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntGroundSlamAttack
+
+Items.Preset_Sword_Witcher.attacks:
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel1Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel2Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel3Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntGroundSlamAttack
+
+Items.Preset_Katana_Takemura.attacks:
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel1Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel2Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel3Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntGroundSlamAttack
+
+Items.Preset_Katana_Takemura_Legendary.attacks:
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel1Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel2Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel3Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntGroundSlamAttack
+
+Items.Preset_Katana_Arasaka_2020.attacks:
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel1Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel2Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel3Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntGroundSlamAttack
+
+Items.Preset_Katana_Arasaka_2077.attacks:
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel1Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel2Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel3Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntGroundSlamAttack
+
+Items.Preset_Katana_Hiromi.attacks:
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel1Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel2Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel3Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntGroundSlamAttack
+
+Items.Preset_Katana_Hiromi_Epic.attacks:
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel1Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel2Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel3Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntGroundSlamAttack
+
+Items.Preset_Katana_Hiromi_Legendary.attacks:
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel1Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel2Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntBodySlamLevel3Attack
+  - !append-once TwoHandBluntAttacks.TwoHandBluntGroundSlamAttack
+
+Items.Base_Chainsword.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Craftable_Common_Chainsword.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Craftable_Epic_Chainsword.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Craftable_Legendary_Chainsword.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Craftable_Rare_Chainsword.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Craftable_Uncommon_Chainsword.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Preset_Chainsword_Default.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Preset_Chainsword_Legendary.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Preset_Chainsword_Military.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Preset_Chainsword_Neon.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Preset_Chainsword_Pimp.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Preset_Butchers_Knife_Iconic.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Preset_Butchers_Knife_Iconic_Epic.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Preset_Butchers_Knife_Iconic_Legendary.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Preset_Kukri_Default.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Preset_Kukri_Voodoo.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Preset_Machete_Default.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Preset_Machete_Kurt.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Preset_Machete_Maelstrom.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Preset_Machete_Valentinos.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Preset_Machete_Borg_Default.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Preset_Machete_Borg_Neon.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Preset_Machete_Borg_Pimp.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Preset_Machete_Borg_AirDrop.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Preset_Machete_Borg_Military.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Preset_Neurotoxin_Knife_Default.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Preset_Neurotoxin_Knife_Military.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Preset_Neurotoxin_Knife_Neon.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Preset_Neurotoxin_Knife_Pimp.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Preset_Neurotoxin_Knife_Iconic.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Preset_Neurotoxin_Knife_Iconic_Epic.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Preset_Neurotoxin_Knife_Iconic_Legendary.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Preset_Chefs_Knife_Default.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Preset_Fanged_Axe_Default.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Preset_Fanged_Axe_Military.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Preset_Fanged_Axe_Neon.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Preset_Fanged_Axe_Collectible.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Preset_Tanto_Default.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Preset_Tanto_Saburo.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Preset_Tanto_Saburo_Retrofix.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Preset_Punk_Knife_Default.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Preset_Punk_Knife_Military.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Preset_Punk_Knife_Neon.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Preset_Punk_Knife_Pimp.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Preset_Punk_Knife_Iconic.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Preset_Punk_Knife_Iconic_Epic.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Preset_Punk_Knife_Iconic_Legendary.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Preset_Knife_Default.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Preset_Knife_Military.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+  
+Items.Preset_Knife_Stinger.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+  
+Items.Preset_Knife_Stinger_Epic.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+  
+Items.Preset_Knife_Stinger_Legendary.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Preset_Knife_Kurtz_1.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Preset_Knife_Default.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Preset_Knife_Military.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Preset_Tomahawk_Default.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Preset_VB_Axe.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel1Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel2Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntBodySlamLevel3Attack
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+
+#KatanaAttacks.KatanaDeflectAttack:
+
+Items.Preset_Baseball_Bat_Default.attacks:
+  - !append-once KatanaAttacks.KatanaDeflectAttack
+
+Items.Preset_Baseball_Bat_Aldecados.attacks:
+  - !append-once KatanaAttacks.KatanaDeflectAttack
+
+Items.Preset_Baseball_Bat_Denny.attacks:
+  - !append-once KatanaAttacks.KatanaDeflectAttack
+
+Items.Preset_Baseball_Bat_Denny_Epic.attacks:
+  - !append-once KatanaAttacks.KatanaDeflectAttack
+
+Items.Preset_Baseball_Bat_Denny_Legendary.attacks:
+  - !append-once KatanaAttacks.KatanaDeflectAttack
+
+Items.Preset_Baseball_Bat_Denny_Legendary.attacks:
+  - !append-once KatanaAttacks.KatanaDeflectAttack
+
+Items.Preset_Baseball_Bat_Malina.attacks:
+  - !append-once KatanaAttacks.KatanaDeflectAttack
+
+Items.Preset_Baseball_Bat_Mox.attacks:
+  - !append-once KatanaAttacks.KatanaDeflectAttack
+
+Items.Preset_Baseball_Bat_Neon.attacks:
+  - !append-once KatanaAttacks.KatanaDeflectAttack
+
+Items.Preset_Baseball_Bat_Pimp.attacks:
+  - !append-once KatanaAttacks.KatanaDeflectAttack
+
+Items.Preset_Baseball_Bat_SixStreet.attacks:
+  - !append-once KatanaAttacks.KatanaDeflectAttack
+
+Items.Preset_Baseball_Bat_TygerClaws.attacks:
+  - !append-once KatanaAttacks.KatanaDeflectAttack
+
+Items.Preset_Baseball_Bat_Valentinos.attacks:
+  - !append-once KatanaAttacks.KatanaDeflectAttack
+
+Items.Preset_Baseball_Bat_Wraiths.attacks:
+  - !append-once KatanaAttacks.KatanaDeflectAttack
+
+Items.Preset_Kanabo_Default.attacks:
+  - !append-once KatanaAttacks.KatanaDeflectAttack
+
+Items.Preset_Shovel_Caretaker.attacks:
+  - !append-once KatanaAttacks.KatanaDeflectAttack
+
+Items.Preset_Cane_Fingers.attacks:
+  - !append-once KatanaAttacks.KatanaDeflectAttack
+
+Items.Preset_Cane_Fingers_Epic.attacks:
+  - !append-once KatanaAttacks.KatanaDeflectAttack
+
+Items.Preset_Cane_Fingers_Legendary.attacks:
+  - !append-once KatanaAttacks.KatanaDeflectAttack
+
+Items.Preset_Crowbar_Bunker.attacks:
+  - !append-once KatanaAttacks.KatanaDeflectAttack
+
+Items.Preset_Crowbar_Default.attacks:
+  - !append-once KatanaAttacks.KatanaDeflectAttack
+ 
+Items.Preset_Tire_Iron_Default.attacks:
+  - !append-once KatanaAttacks.KatanaDeflectAttack
+
+Items.Preset_Hammer_Default.attacks:
+  - !append-once KatanaAttacks.KatanaDeflectAttack
+
+Items.Preset_Hammer_Sasquatch.attacks:
+  - !append-once KatanaAttacks.KatanaDeflectAttack
+
+Items.Preset_Dildo_SexShop.attacks:
+  - !append-once MacheteAttacks.MacheteDeflectAttack
+
+Items.Preset_Dildo_Stout.attacks:
+  - !append-once MacheteAttacks.MacheteDeflectAttack
+
+Items.Preset_Dildo_Stout_Epic.attacks:
+  - !append-once MacheteAttacks.MacheteDeflectAttack
+
+Items.Preset_Dildo_Stout_Legendary.attacks:
+  - !append-once MacheteAttacks.MacheteDeflectAttack
+
+Items.Preset_Baton_Alpha.attacks:
+  - !append-once MacheteAttacks.MacheteDeflectAttack
+
+Items.Preset_Baton_Beta.attacks:
+  - !append-once MacheteAttacks.MacheteDeflectAttack
+
+Items.Preset_Baton_Gamma.attacks:
+  - !append-once MacheteAttacks.MacheteDeflectAttack
+
+Items.Preset_Baton_Murphy.attacks:
+  - !append-once MacheteAttacks.MacheteDeflectAttack
+
+Items.Preset_Baton_Tinker_Bell.attacks:
+  - !append-once MacheteAttacks.MacheteDeflectAttack
+
+Items.Preset_Baton_Tinker_Bell_Epic.attacks:
+  - !append-once MacheteAttacks.MacheteDeflectAttack
+
+Items.Preset_Baton_Tinker_Bell_Legendary.attacks:
+  - !append-once MacheteAttacks.MacheteDeflectAttack
+
+Items.Preset_Iron_Pipe_Default.attacks:
+  - !append-once MacheteAttacks.MacheteDeflectAttack

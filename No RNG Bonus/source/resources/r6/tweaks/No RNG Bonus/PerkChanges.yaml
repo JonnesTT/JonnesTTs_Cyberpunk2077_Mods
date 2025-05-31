@@ -1,0 +1,24 @@
+
+#All things Cyber
+NewPerks.Tech_Central_Milestone_2_inline5:
+  value: 0.05
+  statType: BaseStats.ArmorMultBonus
+
+NewPerks.Tech_Central_Milestone_2_inline1.floatValues:
+  - 5
+
+
+#License to Chrome
+NewPerks.Tech_Central_Milestone_3_inline4:
+  statModifiers:
+    - NewPerks.Tech_Central_Milestone_2_inline5
+
+NewPerks.Tech_Central_Milestone_3_inline0.loc_desc_key: LocKey#89358
+
+NewPerks.Tech_Central_Milestone_3_inline1.floatValues:
+  - 5
+
+#Perk list
+NewPerks.TechnicalAbilityAttributeData.perks:
+  - !remove NewPerks.Tech_Central_Perk_2_1
+  - !remove NewPerks.Tech_Inbetween_Right_2

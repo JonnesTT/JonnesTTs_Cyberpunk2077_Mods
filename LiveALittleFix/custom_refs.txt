@@ -1,0 +1,7 @@
+base\quest\main_quests\part1\q103\scenes\lipsync\en\q103_03_rogue\claire.anims
+base\quest\main_quests\part1\q103\scenes\lipsync\en\q103_03_rogue\johnny.anims
+base\quest\main_quests\part1\q103\scenes\lipsync\en\q103_03_rogue\nix.anims
+base\quest\main_quests\part1\q103\scenes\lipsync\en\q103_03_rogue\panam.anims
+base\quest\main_quests\part1\q103\scenes\lipsync\en\q103_03_rogue\rogue.anims
+base\quest\main_quests\part1\q103\scenes\lipsync\en\q103_03_rogue\v.anims
+base\quest\main_quests\part1\q103\scenes\lipsync\en\q103_03_rogue\weyland.anims

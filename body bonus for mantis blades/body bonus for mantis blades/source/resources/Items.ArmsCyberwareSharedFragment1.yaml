@@ -1,0 +1,87 @@
+Items.ArmsCyberwareSharedFragment1:
+  $type: gamedataItem_Record
+  animFeatureName: ItemData
+  animName: ui_garment_pose
+  animSetResource: ''
+  CraftingData: Items.ArmsCyberwareSharedFragment1_inline3
+  crosshair: Crosshairs.None
+  dropObject: defaultItemDrop
+  enableNpcRPGData: False
+  friendlyName: ''
+  garmentOffset: 0
+  icon: UIIcon.ItemIcon
+  iconPath: cwf_armscyberwareshared1
+  isCached: False
+  isCustomizable: False
+  isGarment: False
+  isPart: True
+  isSingleInstance: False
+  itemCategory: ItemCategory.Part
+  itemType: ItemType.Prt_Fragment
+  localizedName: ''
+  mass: 1
+  minigameInstance: minigame_v2.DefaultItemMinigame
+  parentAttachmentType: ParentAttachmentType.Slot
+  powerLevelDeterminedByParent: False
+  quality: Quality.Rare
+  qualityRestrictedByParent: False
+  replicateWhenNotActive: False
+  useHeadgearGarmentAggregator: False
+  useNewSpawnMethod: False
+  usesVariants: False
+  savable: False
+  animationParameters: []
+  appearanceSuffixes: []
+  appearanceSuffixesOwnerOverride: []
+  attachmentSlots: []
+  buyPrice:
+    - Price.BasePrice
+    - Price.BuyMultiplier
+    - Price.ItemQualityMultiplier
+    - Price.IconicMultiplier
+    - Price.BuyPriceIntrinsicModMult
+    - Price.SharedArmsFragment
+  cameraForward: {x: 0, y: 0, z: 0}
+  cameraUp: {x: 0, y: 0, z: 0}
+  connections: []
+  displayName: LocKey#51201
+  equipAreas: []
+  equipPrereqs: []
+  gameplayRestrictions:
+    - GameplayRestriction.VehicleCombatNoInterruptions
+  hairSkinnedMeshComponents: []
+  OnAttach: []
+  OnEquip:
+    - Items.ArmsCyberwareSharedFragment1_inline0
+  OnLooted: []
+  parts: []
+  placementSlots:
+    - AttachmentSlots.ArmsCyberwareGeneralSlot
+  previewBBoxOverride: []
+  requiredSlots: []
+  sellPrice:
+    - Price.BasePrice
+    - Price.SellMultiplier
+    - Price.ItemQualitySellMultiplier
+    - Price.CraftingTraitMultiplier
+    - Price.IconicMultiplier
+    - Price.SellPriceIntrinsicModMult
+    - Price.SharedArmsFragment
+  slotPartList: []
+  slotPartList2: []
+  slotPartListPreset: []
+  tags:
+    - itemPart
+    - Fragment
+  variants: []
+  visualTags: []
+  effectors: []
+  objectActions:
+    - ItemAction.Drop
+    - ItemAction.Disassemble
+  statModifierGroups:
+    - Items.QualityRandomization
+  statModifiers:
+    - Items.ArmsCyberwareSharedFragment1_inline2
+  statPools: []
+  weakspots: []

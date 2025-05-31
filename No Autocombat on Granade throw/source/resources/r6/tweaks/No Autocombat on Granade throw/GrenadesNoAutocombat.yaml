@@ -1,0 +1,263 @@
+#AttackType Effect is filtered to not be detected, this is WAY easier than adding to the attackType enum. 
+#cough cough it would still be much appreciated if adding to enums got added to redscript cough cough just adding to the end. Not like I could break much then, now could I?
+Attacks.BaseFragExplosion:
+  attackType: AttackType.Effect
+
+Attacks.EMPGrenadeCommon:
+  attackType: AttackType.Effect
+
+Attacks.BiotechGrenade:
+  attackType: AttackType.Effect
+
+Attacks.BaseFlashbangExplosion:
+  attackType: AttackType.Effect
+
+Attacks.BaseIncendiaryExplosion:
+  attackType: AttackType.Effect
+
+Attacks.SmokeExplosion:
+  attackType: AttackType.Effect
+
+Attacks.GrenadeImpactOnNPC:
+  attackType: AttackType.Effect
+
+#I want to add something to flashbangs, but without instant detection, they are weirldy useful.
+
+#I could either make them deaffen enemies (can't hear walking or gunshots)
+#or force them to loose track of their target.
+#maybe both? I mean, usually forcing one dude out of combat isn't gonna change much unless they're either alone or haven't reported you to the others
+BaseStatusEffect.CommonFlashGrenade:
+  gameplayTags:
+  - !append-once Deaf
+  - !append-once MemoryWipe
+
+
+
+
+# ### Ok, quick update on the bellow attempt. Doesn't work. The engine handles enums, and I can't re-compile the enum lists.  ###
+# #new objective figure out a workaround. Uhg, I hate workarounds.
+
+# #I should be able to add a value to the enum via TweakXL and then use it to finetune the reaction to when a grenade explodes.
+# #Target behaviours: 
+# #When aggressive: investigate, angrily
+# #When civ: run the fuck away from the source, scared
+# #When in combat, yeet a nade right back to force movement
+
+
+# #stim enum def
+# StimTypes.GrenadeExplosion:
+#   $type: gamedataStimType_Record
+#   comment: ''
+#   enumName: GrenadeExplosion
+
+# #change all nade stim types
+# Items.GrenadeWithDeliveryMethods:
+#   detonationStimType: StimTypes.GrenadeExplosion
+
+# #so from what it looks like the ReactionOutput Intruder = instant combat
+# #Instead, I need hostiles to investigate as I'm overwriting the position with the player position anyways
+
+
+
+# # when using the new enum do (as per psiberx):
+# # IntEnum<gamedataStatType>(EnumValueFromName(n"gamedataStatType", n"NewStat")) 
+# # equivalent of gamedataStatType.NewStat
+
+# #civilan? (ReactionOutput.Flee)
+# # should be characters who flee when threatened
+# ReactionPresets.Sleep_Civilian:
+#   rules:
+#   - !append
+#     $base: ReactionPresets.Sleep_Civilian_inline2
+#     output: ReactionOutput.Flee
+#     stimulus: StimTypes.GrenadeExplosion
+
+# ReactionPresets.InVehicle_Civilian:
+#   rules:
+#   - !append
+#     $base: ReactionPresets.InVehicle_Civilian_inline8
+#     output: ReactionOutput.Flee
+#     stimulus: StimTypes.GrenadeExplosion
+
+# ReactionPresets.Child:
+#   rules:
+#   - !append
+#     $base: ReactionPresets.Child_inline1
+#     output: ReactionOutput.Flee
+#     stimulus: StimTypes.GrenadeExplosion
+
+# ReactionPresets.Lore_Civilian:
+#   rules:
+#   - !append
+#     $base: ReactionPresets.Lore_Civilian_inline3
+#     cooldown: 0
+#     output: ReactionOutput.Panic
+#     stimulus: StimTypes.GrenadeExplosion
+#     workspotOutput: Fear
+
+# #used in that roundisch drone used for ambience. Haven't seen it react to anything so far, I guess it's a civilian.
+# ReactionPresets.Mechanical_NonCombat:
+#   rules:
+#   - !append 
+#     $base: ReactionPresets.Mechanical_NonCombat_inline10
+#     output: ReactionOutput.Panic
+#     stimulus: StimTypes.GrenadeExplosion
+
+# #not sure what this is used in. Civs who defend themselves perhaps?
+# ReactionPresets.Civilian_Passive:
+#   rules:
+#   - !append
+#     $base: ReactionPresets.Civilian_Passive_inline0
+#     cooldown: 0
+#     output: ReactionOutput.Panic
+#     stimulus: StimTypes.GrenadeExplosion
+#     workspotOutput: Fear
+
+# #but then this is a thing:
+# ReactionPresets.Civilian_Neutral:
+#   rules:
+#   - !append
+#     $base: ReactionPresets.Civilian_Neutral_inline3
+#     cooldown: 0
+#     output: ReactionOutput.Panic
+#     stimulus: StimTypes.GrenadeExplosion
+#     workspotOutput: Fear
+
+# #usually passive indicates mobs who don't defend themselves and neutral those who only fight when attacked. I have no idea what this is.
+
+
+
+
+
+
+# #passive
+# #should be enemies who need to be threatened to seek out combat
+# ReactionPresets.Ganger_Passive:
+#   rules:
+#   - !append
+#     $base: ReactionPresets.Ganger_Passive_inline1
+#     # cooldown: 7.5
+#     output: ReactionOutput.Investigate
+#     stimulus: StimTypes.GrenadeExplosion
+#     workspotOutput: Anger
+
+# ReactionPresets.Corpo_Passive:
+#   rules:
+#   - !append
+#     $base: ReactionPresets.Corpo_Passive_inline1
+#     # cooldown: 7.5
+#     output: ReactionOutput.Investigate
+#     stimulus: StimTypes.GrenadeExplosion
+#     workspotOutput: Anger
+
+# ReactionPresets.Police_Passive:
+#   rules:
+#   - !append
+#     $base: ReactionPresets.Police_Passive_inline1
+#     # cooldown: 7.5
+#     output: ReactionOutput.Investigate
+#     stimulus: StimTypes.GrenadeExplosion
+#     workspotOutput: Anger
+
+# ReactionPresets.Mechanical_Passive:
+#   rules:
+#   - !append
+#     $base: ReactionPresets.Mechanical_Passive_inline1
+#     # cooldown: 7.5
+#     output: ReactionOutput.Investigate
+#     stimulus: StimTypes.GrenadeExplosion
+#     workspotOutput: Anger
+
+# ReactionPresets.Sleep_Passive:
+#   rules:
+#   - !append
+#     $base: ReactionPresets.Sleep_Passive_inline1
+#     # cooldown: 7.5
+#     output: ReactionOutput.Investigate
+#     stimulus: StimTypes.GrenadeExplosion
+
+# ReactionPresets.Lore_Passive:
+#   rules:
+#   - !append
+#     $base: ReactionPresets.Lore_Passive_inline1
+#     # cooldown: 7.5
+#     output: ReactionOutput.Investigate
+#     stimulus: StimTypes.GrenadeExplosion
+#     workspotOutput: Anger
+
+
+
+
+# #aggressive (ReactionOutput.Intruder)
+
+# #sleep might just be the trigger to wake up. I feel like they'd be too disoriented to identify where the nade came from.
+# ReactionPresets.Sleep_Aggressive:
+#   rules:
+#   - !append
+#     $base: ReactionPresets.Sleep_Aggressive_inline2
+#     cooldown: 7.5
+#     output: ReactionOutput.Panic
+#     stimulus: StimTypes.GrenadeExplosion
+
+# #All others should ID correctly and investigate where it was thrown from
+# ReactionPresets.Ganger_Aggressive:
+#   rules:
+#   - !append
+#     $base: ReactionPresets.Ganger_Aggressive_inline2
+#     # cooldown: 3
+#     output: ReactionOutput.Investigate
+#     stimulus: StimTypes.GrenadeExplosion
+#     workspotOutput: Anger
+
+# ReactionPresets.Corpo_Aggressive:
+#   rules:
+#   - !append
+#     $base: ReactionPresets.Corpo_Aggressive_inline2
+#     # cooldown: 7.5
+#     output: ReactionOutput.Investigate
+#     stimulus: StimTypes.GrenadeExplosion
+#     workspotOutput: Anger
+
+# ReactionPresets.Police_Aggressive:
+#   rules:
+#   - !append
+#     $base: ReactionPresets.Police_Aggressive_inline2
+#     # cooldown: 7.5
+#     output: ReactionOutput.Investigate
+#     stimulus: StimTypes.GrenadeExplosion
+#     workspotOutput: Anger
+
+# ReactionPresets.Mechanical_Aggressive:
+#   rules:
+#   - !append
+#     $base: ReactionPresets.Mechanical_Aggressive_inline2
+#     # cooldown: 7.5
+#     output: ReactionOutput.Investigate
+#     stimulus: StimTypes.GrenadeExplosion
+#     workspotOutput: Anger
+
+
+# ReactionPresets.Lore_Aggressive:
+#   rules:
+#   - !append
+#     $base: ReactionPresets.Lore_Aggressive_inline1
+#     # cooldown: 7.5
+#     output: ReactionOutput.Investigate
+#     stimulus: StimTypes.GrenadeExplosion
+#     workspotOutput: Anger
+
+# ReactionPresets.Cerberus_Aggressive:
+#   rules:
+#   - !append
+#     $base: ReactionPresets.Cerberus_Aggressive_inline2
+#     # cooldown: 7.5
+#     output: ReactionOutput.Investigate
+#     stimulus: StimTypes.GrenadeExplosion
+#     workspotOutput: Anger
+
+
+
+
+
+
+# #I also wanna add a visual stim to grenade holding that auto-tiggers combat

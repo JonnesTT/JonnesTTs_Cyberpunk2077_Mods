@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<InstalLog Project="Taser Weapon Mod" Build_date="07.07.2024 22:48:42">
+  <Files>
+    <Directory Path="D:\SteamLibrary\steamapps\common\Cyberpunk 2077\mods">
+      <Directory Path="D:\SteamLibrary\steamapps\common\Cyberpunk 2077\mods\Taser Weapon Mod">
+        <file>D:\SteamLibrary\steamapps\common\Cyberpunk 2077\mods\Taser Weapon Mod\info.json</file>
+        <Directory Path="D:\SteamLibrary\steamapps\common\Cyberpunk 2077\mods\Taser Weapon Mod\archives">
+          <file>D:\SteamLibrary\steamapps\common\Cyberpunk 2077\mods\Taser Weapon Mod\archives\Taser Weapon Mod.archive</file>
+          <file>D:\SteamLibrary\steamapps\common\Cyberpunk 2077\mods\Taser Weapon Mod\archives\taserweaponmod.archive.xl</file>
+        </Directory>
+      </Directory>
+    </Directory>
+    <Directory Path="D:\SteamLibrary\steamapps\common\Cyberpunk 2077\r6">
+      <Directory Path="D:\SteamLibrary\steamapps\common\Cyberpunk 2077\r6\tweaks">
+        <file>D:\SteamLibrary\steamapps\common\Cyberpunk 2077\r6\tweaks\TaserWeaponMod.yaml</file>
+      </Directory>
+    </Directory>
+  </Files>
+</InstalLog>

@@ -1,0 +1,127 @@
+Items.GenericMod1_Base_inline3.effectors:
+  - !remove Items.GenericMod1_Base_inline4
+
+# Items.GenericMod1_Base:
+#   OnAttach:
+#   - !append-once
+#     $type: gamedataGameplayLogicPackage_Record
+#     stackable: False
+#     UIData: ''
+#     animationWrapperOverrides: []
+#     effectors:
+#       - $type: gamedataApplyStatusEffectEffector_Record
+#         applicationTarget: Player
+#         count: 1
+#         instigator: ''
+#         inverted: False
+#         removeWithEffector: False
+#         statusEffect:         
+#           $type: gamedataStatusEffect_Record
+#           duration: 
+#             $type: gamedataStatModifierGroup_Record
+#             drawBasedOnStatType: False
+#             optimiseCombinedModifiers: False
+#             saveBasedOnStatType: False
+#             statModsLimit: -1
+#             relatedModifierGroups: []
+#             statModifiers:
+#               # - $type: gamedataConstantStatModifier_Record
+#               #   value: 0.0
+#               #   modifierType: Additive
+#               #   statType: BaseStats.MaxDuration
+#               - $type: gamedataCombinedStatModifier_Record
+#                 opSymbol: '*'
+#                 refObject: Player
+#                 refStat: BaseStats.ExtendedStealthDuration
+#                 value: 1
+#                 modifierType: Additive
+#                 statType: BaseStats.MaxDuration
+#           dynamicDuration: False
+#           isAffectedByTimeDilationNPC: True
+#           isAffectedByTimeDilationPlayer: True
+#           maxStacks: RTDB.StatusEffect_inline0
+#           reapplyPackagesOnMaxStacks: False
+#           removeAllStacksWhenDurationEnds: False
+#           removeOnStoryTier: False
+#           replicated: False
+#           savable: True
+#           statusEffectType: BaseStatusEffectTypes.Misc
+#           stopActiveSfxOnDeactivate: True
+#           uiData:
+#             $type: gamedataStatusEffectUIData_Record
+#             description: ''
+#             displayName: LocKey$49319
+#             fluffText: ''
+#             iconPath: buff_ranged
+#             priority: -3
+#             floatValues: []
+#             intValues: []
+#             nameValues: []
+#             stats: []
+#           debugTags: []
+#           gameplayTags:
+#             - Buff
+#             - ExtendedStealth
+#           immunityStats: []
+#           packages:
+#             - $type: gamedataGameplayLogicPackage_Record
+#               stackable: False
+#               animationWrapperOverrides: []
+#               effectors: []
+#               items: []
+#               statPools: []
+#               stats: []
+#           SFX: []
+#           VFX: []
+#         useCountWhenRemoving: False
+#         effectorClassName: ApplyStatusEffectEffector
+#         prereqRecord: Items.HitmanNovaWeaponModAbility_inline1
+#         removeAfterActionCall: False
+#         removeAfterPrereqCheck: False
+#         statModifierGroups: []
+#     items: []
+#     statPools: []
+#     stats: []
+
+# Items.GenericMod1_Base:
+#   statModifiers:
+#   - !append-once
+#     $type: gamedataConstantStatModifier_Record
+#     value: 0.6
+#     modifierType: Additive
+#     statType: BaseStats.ExtendedStealthDuration
+#   - !append-once
+#     $type: gamedataCombinedStatModifier_Record
+#     opSymbol: '*'
+#     refObject: Player
+#     refStat: BaseStats.Quality
+#     value: 0.05 #each tier is +2 so we get +.1 for each upgrade
+#     modifierType: Additive
+#     statType: BaseStats.ExtendedStealthDuration
+
+# # maybe? This might upset the balance though.
+# # BaseStats.ExtendedStealthDuration:
+# #   max: 4 #base 3 highest optainable value 6 + 1 (this mod)
+
+# Items.GenericMod1_LowTier_inline1:
+#   $type: gamedataGameplayLogicPackageUIData_Record
+#   localizedDescription: LocKey#89259
+#   localizedName: ''
+#   floatValues:
+#     - 20
+#   intValues: []
+#   nameValues: []
+#   stats:
+#     - BaseStats.GenericMod1_Damage
+#     - BaseStats.ExtendedStealthDuration
+
+# Items.GenericMod1_HighTier_inline1:
+#   $type: gamedataGameplayLogicPackageUIData_Record
+#   localizedDescription: LocKey#89260
+#   localizedName: ''
+#   floatValues:
+#     - 20
+#   intValues: []
+#   nameValues: []
+#   stats: 
+#     - BaseStats.ExtendedStealthDuration

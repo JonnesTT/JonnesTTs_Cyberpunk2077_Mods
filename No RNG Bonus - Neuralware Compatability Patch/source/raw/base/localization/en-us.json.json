@@ -1,0 +1,41 @@
+{
+  "Header": {
+    "WolvenKitVersion": "8.16.1",
+    "WKitJsonVersion": "0.0.9",
+    "GameVersion": 2200,
+    "ExportedDateTime": "2025-05-28T03:08:58.0701491Z",
+    "DataType": "CR2W",
+    "ArchiveFileName": "D:\\Projects\\Modding Projects\\Cyberpunk 2077\\Project files\\No RNG Bonus - Neuralware Compatability Patch\\source\\archive\\base\\localization\\en-us.json"
+  },
+  "Data": {
+    "Version": 195,
+    "BuildVersion": 0,
+    "RootChunk": {
+      "$type": "JsonResource",
+      "cookingPlatform": "PLATFORM_PC",
+      "root": {
+        "HandleId": "0",
+        "Data": {
+          "$type": "localizationPersistenceOnScreenEntries",
+          "entries": [
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "\u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003E\u002B{float_0}%\u003C/\u003E extra armor from all sources",
+              "maleVariant": "",
+              "primaryKey": "89358",
+              "secondaryKey": "Gameplay-RPG-CharDev-New_Perks-Descriptions-Technical-Tech_Central_Milestone_2_Level1"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "chipwareExpansion_neuralware_zetatech_description_3-NoRNGOverride"
+            }
+          ]
+        }
+      }
+    },
+    "EmbeddedFiles": []
+  }
+}

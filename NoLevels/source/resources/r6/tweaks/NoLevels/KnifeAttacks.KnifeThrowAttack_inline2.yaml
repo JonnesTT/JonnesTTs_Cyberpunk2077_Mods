@@ -1,0 +1,8 @@
+KnifeAttacks.KnifeThrowAttack_inline2:
+  $type: gamedataCombinedStatModifier_Record
+  opSymbol: '*'
+  refObject: Owner
+  refStat: BaseStats.BaseDamage
+  value: 2,4000001
+  modifierType: Additive
+  statType: BaseStats.PhysicalDamage
