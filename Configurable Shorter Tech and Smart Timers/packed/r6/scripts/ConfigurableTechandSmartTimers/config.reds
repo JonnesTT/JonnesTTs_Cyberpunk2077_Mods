@@ -5,7 +5,7 @@ public class ConfigurableShorterTaStConfig
     @runtimeProperty("ModSettings.category.order", "1")
     @runtimeProperty("ModSettings.displayName", "Configurable_sTaSt-Tech_IsEnabled_name")
     @runtimeProperty("ModSettings.description", "Configurable_sTaSt-Tech_IsEnabled_desc")
-    let isEnabled : Bool = true;
+    public let isEnabled : Bool = true;
 
     @runtimeProperty("ModSettings.mod", "Configurable_sTaSt")
     @runtimeProperty("ModSettings.category", "Configurable_sTaSt-TechGuns")
@@ -16,7 +16,7 @@ public class ConfigurableShorterTaStConfig
     @runtimeProperty("ModSettings.min", "0.0")
     @runtimeProperty("ModSettings.max", "2.0")
     @runtimeProperty("ModSettings.dependency", "isEnabled")
-    let chargeTimeMult: Float = 0.5;
+    public let chargeTimeMult: Float = 0.5;
 
     @runtimeProperty("ModSettings.mod", "Configurable_sTaSt")
     @runtimeProperty("ModSettings.category", "Configurable_sTaSt-TechGuns")
@@ -27,7 +27,7 @@ public class ConfigurableShorterTaStConfig
     @runtimeProperty("ModSettings.min", "0.0")
     @runtimeProperty("ModSettings.max", "4.0")
     @runtimeProperty("ModSettings.dependency", "isEnabled")
-    let chargeBoltWindow: Float = 1.0;
+    public let chargeBoltWindow: Float = 1.0;
 
     @runtimeProperty("ModSettings.mod", "Configurable_sTaSt")
     @runtimeProperty("ModSettings.category", "Configurable_sTaSt-TechGuns")
@@ -38,7 +38,7 @@ public class ConfigurableShorterTaStConfig
     @runtimeProperty("ModSettings.min", "0.0")
     @runtimeProperty("ModSettings.max", "4.0")
     @runtimeProperty("ModSettings.dependency", "isEnabled")
-    let chargeTimeMin: Float = 0.0;
+    public let chargeTimeMin: Float = 0.0;
 
 
     @runtimeProperty("ModSettings.mod", "Configurable_sTaSt")
@@ -50,7 +50,7 @@ public class ConfigurableShorterTaStConfig
     @runtimeProperty("ModSettings.min", "0.0")
     @runtimeProperty("ModSettings.max", "2.0")
     @runtimeProperty("ModSettings.dependency", "isEnabled")
-    let lockOnTimeHipMult: Float = 0.5;
+    public let lockOnTimeHipMult: Float = 0.5;
 
     @runtimeProperty("ModSettings.mod", "Configurable_sTaSt")
     @runtimeProperty("ModSettings.category", "Configurable_sTaSt-SmartGuns")
@@ -61,7 +61,7 @@ public class ConfigurableShorterTaStConfig
     @runtimeProperty("ModSettings.min", "0.0")
     @runtimeProperty("ModSettings.max", "2.0")
     @runtimeProperty("ModSettings.dependency", "isEnabled")
-    let lockOnTimeADSMult: Float = 0.3;
+    public let lockOnTimeADSMult: Float = 0.3;
 
     @runtimeProperty("ModSettings.mod", "Configurable_sTaSt")
     @runtimeProperty("ModSettings.category", "Configurable_sTaSt-SmartGuns")
@@ -72,7 +72,7 @@ public class ConfigurableShorterTaStConfig
     @runtimeProperty("ModSettings.min", "0.0")
     @runtimeProperty("ModSettings.max", "2.0")
     @runtimeProperty("ModSettings.dependency", "isEnabled")
-    let aquisitionRangeMult: Float = 1.0;
+    public let aquisitionRangeMult: Float = 1.0;
 
     @runtimeProperty("ModSettings.mod", "Configurable_sTaSt")
     @runtimeProperty("ModSettings.category", "Configurable_sTaSt-SmartGuns")
@@ -83,6 +83,5 @@ public class ConfigurableShorterTaStConfig
     @runtimeProperty("ModSettings.min", "0.0")
     @runtimeProperty("ModSettings.max", "2.0")
     @runtimeProperty("ModSettings.dependency", "isEnabled")
-    let lockOnTimeMin: Float = 0.0;
-
+    public let lockOnTimeMin: Float = 0.0;
 }

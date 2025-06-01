@@ -1,91 +1,101 @@
-@addField(PlayerPuppet)
-let configurable_sTaSt : ref<Configurable_sTaSt>;
-
-@wrapMethod(PlayerPuppet)
-protected cb func OnGameAttached() -> Bool {
-    wrappedMethod();
-    this.configurable_sTaSt = new Configurable_sTaSt();
-}
-
+// not doing anything between loads. Might be more efficient to use a scriptable system.
+// then again I'd have to fetch the records each time and that takes lonk
+// fck that. I'm gonna recode the entire thing as a status effect until I can get the individual settings working anyways.
 public class Configurable_sTaSt extends ScriptableService 
 {
-    protected let config : ref<ConfigurableShorterTaStConfig>;
-    protected let allguns : array<ref<WeaponItem_Record>>;
-    protected let techGuns : array<ref<WeaponItem_Record>>;
-    protected let chargeTimeBonus : TweakDBID = t"ConfigurableTaSTimers.ChargeBonus";
-    protected let smartGuns : array<ref<WeaponItem_Record>>;
-    protected let lockOnBonusADS : TweakDBID = t"ConfigurableTaSTimers.LockOnTimeAds";
-    protected let lockOnBonusHip : TweakDBID = t"ConfigurableTaSTimers.LockOnTimeHip";
-    protected let BoltWindowMult : TweakDBID = t"ConfigurableTaSTimers.PerfectChargeWindow";
-    protected let targetAqusitionRangeMult: TweakDBID = t"ConfigurableTaSTimers.AquisitionRange";
+    protected persistent let config : ref<ConfigurableShorterTaStConfig>;
+    protected persistent let allguns : array<ref<WeaponItem_Record>>;
+    protected persistent let techGuns : array<ref<WeaponItem_Record>>;
+    protected persistent let chargeTimeBonus : TweakDBID = t"ConfigurableTaSTimers.ChargeBonus";
+    protected persistent let smartGuns : array<ref<WeaponItem_Record>>;
 
-    protected let BoltBaseRecordID : TweakDBID = t"NewPerks.Tech_Right_Milestone_3_inline17";
-    protected let BoltBoostRecordID : TweakDBID = t"NewPerks.Tech_Right_Perk_3_2_inline4";
-    protected let chargeTimeMinID : TweakDBID = t"BaseStats.ChargeTime";
-    protected let baseChargeTimeMinID : TweakDBID = t"BaseStats.BaseChargeTime";
-    protected let lockOnTimeADS : TweakDBID = t"BaseStats.SmartGunAdsTimeToLock";
-    protected let lockOnTimeHip : TweakDBID = t"BaseStats.SmartGunHipTimeToLock";
+    protected persistent let lockOnBonusADS : TweakDBID = t"ConfigurableTaSTimers.LockOnTimeAds";
+    protected persistent let lockOnBonusHip : TweakDBID = t"ConfigurableTaSTimers.LockOnTimeHip";
+    protected persistent let BoltWindowMult : TweakDBID = t"ConfigurableTaSTimers.PerfectChargeWindow";
+    protected persistent let targetAqusitionRangeMult: TweakDBID = t"ConfigurableTaSTimers.AquisitionRange";
+
+    protected persistent let BoltBaseRecordID : TweakDBID = t"NewPerks.Tech_Right_Milestone_3_inline17";
+    protected persistent let BoltBoostRecordID : TweakDBID = t"NewPerks.Tech_Right_Perk_3_2_inline4";
+    protected persistent let chargeTimeMinID : TweakDBID = t"BaseStats.ChargeTime";
+    protected persistent let baseChargeTimeMinID : TweakDBID = t"BaseStats.BaseChargeTime";
+    protected persistent let lockOnTimeADS : TweakDBID = t"BaseStats.SmartGunAdsTimeToLock";
+    protected persistent let lockOnTimeHip : TweakDBID = t"BaseStats.SmartGunHipTimeToLock";
+
+    protected persistent let batch : ref<TweakDBBatch>;
 
     private cb func OnLoad() 
     {
     GameInstance.GetCallbackSystem()
       .RegisterCallback(n"Session/BeforeStart", this, n"OnLoadSave");
-    }
 
+        ArrayClear(this.techGuns);
+        ArrayClear(this.smartGuns);
+    }
 
     private cb func OnLoadSave( event : ref<GameSessionEvent> ) -> Void
     {
         this.config = new ConfigurableShorterTaStConfig();
 
-        this.allguns = this.GetAllGunRecords();
+        // we expect the guns to be about 200-250 records each.
+        // seems the size is cached somewhere
+        if (ArraySize(this.techGuns) + ArraySize(this.smartGuns) <= 0) 
+        {
+            // LogChannel(n"DEBUG", "Getting Item Record Lists");
+            this.allguns = this.GetAllGunRecords();
 
-        this.techGuns = this.GetTechGunRecords(this.allguns);
-        this.smartGuns = this.GetSmartGunRecords(this.allguns);
+            this.techGuns = this.GetTechGunRecords(this.allguns);
+            this.smartGuns = this.GetSmartGunRecords(this.allguns);
 
-        this.allguns = [];
+            ArrayClear(this.allguns);
+        }else
+        {
+            // LogChannel(n"DEBUG", "Didn't get Item Record Lists");
+        }
 
+
+        // LogChannel(n"DEBUG", "Array allguns was " + ArraySize(this.allguns) + " long");
+        // LogChannel(n"DEBUG", "Array techGuns was " + ArraySize(this.techGuns) + " long");
+        // LogChannel(n"DEBUG", "Array smartGuns was " + ArraySize(this.smartGuns) + " long");
+
+
+        
+        this.batch = TweakDBManager.StartBatch();
         if this.config.isEnabled
         {  
+            // LogChannel(n"DEBUG", "Adding sTaSt records");
             this.AddTaSRecords();
         }
         else
         {
+            // LogChannel(n"DEBUG", "Removing sTaSt records");
             this.RemoveTaSRecords();
         }
+        this.batch.Commit();
     }
-
-    // private func OnDetach() -> Void
-    // {
-    //     this.config = null;
-
-    //     this.techGuns = [];
-    //     this.smartGuns = [];
-
-    //     this.allguns = [];
-    // }
-
 
     private func RemoveTaSRecords() -> Void
     {
-        //Charge Speed
+        // Charge Speed
         for gun in this.techGuns
         {
-            this.RemoveItemfromArrayRecord(this.GetTechnicalStatsListRecord(gun)+t".statModifiers", this.chargeTimeBonus);
-            TweakDBManager.UpdateRecord(this.GetTechnicalStatsListRecord(gun));
+            let technicalStatsRecord = this.GetTechnicalStatsListRecord(gun);
+            this.RemoveItemfromArrayRecord(technicalStatsRecord+t".statModifiers", this.chargeTimeBonus);
+            this.batch.UpdateRecord(technicalStatsRecord);
         }
 
-        TweakDBManager.SetFlat(this.BoltBaseRecordID+t".value", 25.0);
-        TweakDBManager.UpdateRecord(this.BoltBaseRecordID);
+        this.batch.SetFlat(this.BoltBaseRecordID+t".value", 25.0);
+        this.batch.UpdateRecord(this.BoltBaseRecordID);
 
-        TweakDBManager.SetFlat(this.BoltBoostRecordID+t".value", 10.0);
-        TweakDBManager.UpdateRecord(this.BoltBoostRecordID);
+        this.batch.SetFlat(this.BoltBoostRecordID+t".value", 10.0);
+        this.batch.UpdateRecord(this.BoltBoostRecordID);
 
         // Target Lock Speeds
         for gun in this.smartGuns
         {
-            this.RemoveItemfromArrayRecord(this.GetSmartGunStatsRecord(gun)+t".statModifiers", this.lockOnBonusADS);
-            this.RemoveItemfromArrayRecord(this.GetSmartGunStatsRecord(gun)+t".statModifiers", this.lockOnBonusHip);
-            TweakDBManager.UpdateRecord(this.GetSmartGunStatsRecord(gun));
+            let smartGunStatsRecords = this.GetSmartGunStatsRecord(gun);
+            this.RemoveItemfromArrayRecord(smartGunStatsRecords+t".statModifiers", this.lockOnBonusADS);
+            this.RemoveItemfromArrayRecord(smartGunStatsRecords+t".statModifiers", this.lockOnBonusHip);
+            this.batch.UpdateRecord(smartGunStatsRecords);
         }
     }
 
@@ -94,58 +104,60 @@ public class Configurable_sTaSt extends ScriptableService
         //Charge Speed
         for gun in this.techGuns
         {
-            this.AddItemtoArrayRecord(this.GetTechnicalStatsListRecord(gun)+t".statModifiers", this.chargeTimeBonus);
-            TweakDBManager.UpdateRecord(this.GetTechnicalStatsListRecord(gun));
+            let technicalStatsRecord = this.GetTechnicalStatsListRecord(gun);
+            this.AddItemtoArrayRecord(technicalStatsRecord+t".statModifiers", this.chargeTimeBonus);
+            this.batch.UpdateRecord(technicalStatsRecord);
         }
-        TweakDBManager.SetFlat(this.chargeTimeBonus+t".value", (this.config.chargeTimeMult));
-        TweakDBManager.UpdateRecord(this.chargeTimeBonus);
+        this.batch.SetFlat(this.chargeTimeBonus+t".value", (this.config.chargeTimeMult));
+        this.batch.UpdateRecord(this.chargeTimeBonus);
 
         // mult values for bolt window don't seem  to work :(
         // // Bolt Charge Window
-        // TweakDBManager.SetFlat(this.BoltWindowMult+t".value", this.config.chargeBoltWindow);
-        // TweakDBManager.UpdateRecord(this.BoltWindowMult);
+        // this.batch.SetFlat(this.BoltWindowMult+t".value", this.config.chargeBoltWindow);
+        // this.batch.UpdateRecord(this.BoltWindowMult);
         // this.AddItemtoArrayRecord(t"NewPerks.Tech_Right_Milestone_3_inline14.effectors", this.BoltWindowMult);
-        // TweakDBManager.UpdateRecord(t"NewPerks.Tech_Right_Milestone_3_inline14");
+        // this.batch.UpdateRecord(t"NewPerks.Tech_Right_Milestone_3_inline14");
 
-        TweakDBManager.SetFlat(this.BoltBaseRecordID+t".value", 25.0*this.config.chargeBoltWindow);
-        TweakDBManager.UpdateRecord(this.BoltBaseRecordID);
+        this.batch.SetFlat(this.BoltBaseRecordID+t".value", 25.0*this.config.chargeBoltWindow);
+        this.batch.UpdateRecord(this.BoltBaseRecordID);
 
-        TweakDBManager.SetFlat(this.BoltBoostRecordID+t".value", 10.0*this.config.chargeBoltWindow);
-        TweakDBManager.UpdateRecord(this.BoltBoostRecordID);
+        this.batch.SetFlat(this.BoltBoostRecordID+t".value", 10.0*this.config.chargeBoltWindow);
+        this.batch.UpdateRecord(this.BoltBoostRecordID);
 
         // min Charge Time
-        TweakDBManager.SetFlat(this.chargeTimeMinID+t".min", this.config.chargeTimeMin);
-        TweakDBManager.UpdateRecord(this.chargeTimeMinID);
+        this.batch.SetFlat(this.chargeTimeMinID+t".min", this.config.chargeTimeMin);
+        this.batch.UpdateRecord(this.chargeTimeMinID);
 
-        TweakDBManager.SetFlat(this.baseChargeTimeMinID+t".min", this.config.chargeTimeMin);
-        TweakDBManager.UpdateRecord(this.baseChargeTimeMinID);
+        this.batch.SetFlat(this.baseChargeTimeMinID+t".min", this.config.chargeTimeMin);
+        this.batch.UpdateRecord(this.baseChargeTimeMinID);
 
         // min lock on time
-        TweakDBManager.SetFlat(this.lockOnTimeHip+t".min", this.config.lockOnTimeMin);
-        TweakDBManager.UpdateRecord(this.lockOnTimeHip);
+        this.batch.SetFlat(this.lockOnTimeHip+t".min", this.config.lockOnTimeMin);
+        this.batch.UpdateRecord(this.lockOnTimeHip);
 
-        TweakDBManager.SetFlat(this.lockOnTimeADS+t".min", this.config.lockOnTimeMin);
-        TweakDBManager.UpdateRecord(this.lockOnTimeADS);
+        this.batch.SetFlat(this.lockOnTimeADS+t".min", this.config.lockOnTimeMin);
+        this.batch.UpdateRecord(this.lockOnTimeADS);
 
 
-        TweakDBManager.SetFlat(this.targetAqusitionRangeMult+t".value", this.config.aquisitionRangeMult);
-        TweakDBManager.UpdateRecord(this.targetAqusitionRangeMult);
+        this.batch.SetFlat(this.targetAqusitionRangeMult+t".value", this.config.aquisitionRangeMult);
+        this.batch.UpdateRecord(this.targetAqusitionRangeMult);
 
         for gun in this.smartGuns
         {
+            let smartGunStatsRecords = this.GetSmartGunStatsRecord(gun);
             // Target Lock Speeds
-            this.AddItemtoArrayRecord(this.GetSmartGunStatsRecord(gun)+t".statModifiers", this.lockOnBonusADS);
-            this.AddItemtoArrayRecord(this.GetSmartGunStatsRecord(gun)+t".statModifiers", this.lockOnBonusHip);
+            this.AddItemtoArrayRecord(smartGunStatsRecords+t".statModifiers", this.lockOnBonusADS);
+            this.AddItemtoArrayRecord(smartGunStatsRecords+t".statModifiers", this.lockOnBonusHip);
 
             // aquisiton time
-            this.AddItemtoArrayRecord(this.GetSmartGunStatsRecord(gun)+t".statModifiers", this.targetAqusitionRangeMult);
+            this.AddItemtoArrayRecord(smartGunStatsRecords+t".statModifiers", this.targetAqusitionRangeMult);
 
-            TweakDBManager.UpdateRecord(this.GetSmartGunStatsRecord(gun));
+            this.batch.UpdateRecord(smartGunStatsRecords);
         }
-        TweakDBManager.SetFlat(this.lockOnBonusADS+t".value", this.config.lockOnTimeADSMult);
-        TweakDBManager.UpdateRecord(this.lockOnBonusADS);
-        TweakDBManager.SetFlat(this.lockOnBonusHip+t".value", this.config.lockOnTimeHipMult);
-        TweakDBManager.UpdateRecord(this.lockOnBonusHip);
+        this.batch.SetFlat(this.lockOnBonusADS+t".value", this.config.lockOnTimeADSMult);
+        this.batch.UpdateRecord(this.lockOnBonusADS);
+        this.batch.SetFlat(this.lockOnBonusHip+t".value", this.config.lockOnTimeHipMult);
+        this.batch.UpdateRecord(this.lockOnBonusHip);
     }
 
     private func GetAllGunRecords() -> array<ref<WeaponItem_Record>>
@@ -209,7 +221,7 @@ public class Configurable_sTaSt extends ScriptableService
         return outputList;
     }
 
-    private func GetTechnicalStatsListRecord(record : ref<WeaponItem_Record>) -> TweakDBID
+    private func GetTechnicalStatsListRecord(record : ref<WeaponItem_Record> ) -> TweakDBID
     {
         let tempList : array<TweakDBID>;
         let recordID : TweakDBID = record.GetID();
@@ -221,16 +233,17 @@ public class Configurable_sTaSt extends ScriptableService
                 return statModGroup;
             }
         }
+        //failstate reached no record found
         let newTechStatsRecID : TweakDBID = recordID+t"_Technical_Stats";
-        TweakDBManager.CreateRecord(newTechStatsRecID, n"gamedataStatModifierGroup_Record");
-        TweakDBManager.UpdateRecord(newTechStatsRecID);
+        this.batch.CreateRecord(newTechStatsRecID, n"gamedataStatModifierGroup_Record");
+        this.batch.UpdateRecord(newTechStatsRecID);
         this.AddItemtoArrayRecord(recordID+t".statModifierGroups", newTechStatsRecID);
-        TweakDBManager.UpdateRecord(recordID+t".statModifierGroups");
+        this.batch.UpdateRecord(recordID);
         FTLogError(s"[Configurable sTasT] Weapon record \(TDBID.ToStringDEBUG(recordID)) did not include Technical_Stats record. Generated Placeholder.");
         return newTechStatsRecID;
     }
 
-    private func GetSmartGunStatsRecord(record : ref<WeaponItem_Record>) -> TweakDBID
+    private func GetSmartGunStatsRecord(record : ref<WeaponItem_Record> ) -> TweakDBID
     {
         let tempList : array<TweakDBID>;
         let recordID : TweakDBID = record.GetID(); 
@@ -242,15 +255,17 @@ public class Configurable_sTaSt extends ScriptableService
                 return statModGroup;
             }
         }
+        //failstate reached no record found
         let newSmartGunStatsRecID : TweakDBID = recordID+t"_SmartGun_Stats";
-        TweakDBManager.CreateRecord(newSmartGunStatsRecID, n"gamedataStatModifierGroup_Record");
-        TweakDBManager.UpdateRecord(newSmartGunStatsRecID);
+        this.batch.CreateRecord(newSmartGunStatsRecID, n"gamedataStatModifierGroup_Record");
+        this.batch.UpdateRecord(newSmartGunStatsRecID);
         this.AddItemtoArrayRecord(recordID+t".statModifierGroups", newSmartGunStatsRecID);
+        this.batch.UpdateRecord(recordID);
         FTLogError(s"[Configurable sTasT] Weapon record \(TDBID.ToStringDEBUG(recordID)) did not include SmartGun_Stats record. Generated Placeholder.");
         return newSmartGunStatsRecID;
     }
 
-    private func AddItemtoArrayRecord(tdbidOfArray : TweakDBID, tdbidtoPush : TweakDBID) -> Void
+    private func AddItemtoArrayRecord(tdbidOfArray : TweakDBID, tdbidtoPush : TweakDBID ) -> Void
     {
         let recordIDList : array<TweakDBID>;
         recordIDList = FromVariant<array<TweakDBID>>(TweakDBInterface.GetFlat(tdbidOfArray));
@@ -258,11 +273,11 @@ public class Configurable_sTaSt extends ScriptableService
         {
             ArrayPush(recordIDList, tdbidtoPush);
 
-            TweakDBManager.SetFlat(tdbidOfArray, recordIDList);
+            this.batch.SetFlat(tdbidOfArray, recordIDList);
         }
     }
 
-    private func RemoveItemfromArrayRecord(tdbidOfArray : TweakDBID, tdbidtoRemove : TweakDBID) -> Void
+    private func RemoveItemfromArrayRecord(tdbidOfArray : TweakDBID, tdbidtoRemove : TweakDBID ) -> Void
     {
         let recordIDList : array<TweakDBID>;
         recordIDList = FromVariant<array<TweakDBID>>(TweakDBInterface.GetFlat(tdbidOfArray));
@@ -270,7 +285,7 @@ public class Configurable_sTaSt extends ScriptableService
         {
             ArrayRemove(recordIDList, tdbidtoRemove);
 
-            TweakDBManager.SetFlat(tdbidOfArray, recordIDList);
+            this.batch.SetFlat(tdbidOfArray, recordIDList);
         }
     }
 }
