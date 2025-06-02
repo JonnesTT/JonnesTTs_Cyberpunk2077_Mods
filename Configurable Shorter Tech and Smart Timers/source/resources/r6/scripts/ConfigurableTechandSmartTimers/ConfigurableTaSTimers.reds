@@ -1,60 +1,53 @@
-public class Configurable_sTaSt_Cache extends ScriptableService 
+public class Configurable_sTaSt extends ScriptableService 
 {
-    //caching in a persistent class so we don't have to crawl every time we load a save
-    private let techGuns : array<ref<WeaponItem_Record>>;
-    private let smartGuns : array<ref<WeaponItem_Record>>;
-  
+    protected persistent let config : ref<ConfigurableShorterTaStConfig>;
+    protected persistent let allguns : array<ref<WeaponItem_Record>>;
+    protected persistent let techGuns : array<ref<WeaponItem_Record>>;
+    protected persistent let chargeTimeBonus : TweakDBID = t"ConfigurableTaSTimers.ChargeBonus";
+    protected persistent let smartGuns : array<ref<WeaponItem_Record>>;
 
-    // something goes wrong when these are not cleared.
-    // They register as filled but tweaks applied on their records don't affect anything, so I assume they aren't propperly disposed off on game close.
+    protected persistent let lockOnBonusADS : TweakDBID = t"ConfigurableTaSTimers.LockOnTimeAds";
+    protected persistent let lockOnBonusHip : TweakDBID = t"ConfigurableTaSTimers.LockOnTimeHip";
+    protected persistent let BoltWindowMult : TweakDBID = t"ConfigurableTaSTimers.PerfectChargeWindow";
+    protected persistent let targetAqusitionRangeMult: TweakDBID = t"ConfigurableTaSTimers.AquisitionRange";
+
+    protected persistent let BoltBaseRecordID : TweakDBID = t"NewPerks.Tech_Right_Milestone_3_inline17";
+    protected persistent let BoltBoostRecordID : TweakDBID = t"NewPerks.Tech_Right_Perk_3_2_inline4";
+    protected persistent let chargeTimeMinID : TweakDBID = t"BaseStats.ChargeTime";
+    protected persistent let baseChargeTimeMinID : TweakDBID = t"BaseStats.BaseChargeTime";
+    protected persistent let lockOnTimeADS : TweakDBID = t"BaseStats.SmartGunAdsTimeToLock";
+    protected persistent let lockOnTimeHip : TweakDBID = t"BaseStats.SmartGunHipTimeToLock";
+
+    protected persistent let batch : ref<TweakDBBatch>;
+
     private cb func OnLoad() 
     {
+    GameInstance.GetCallbackSystem()
+      .RegisterCallback(n"Session/BeforeStart", this, n"OnLoadSave");
+
         ArrayClear(this.techGuns);
         ArrayClear(this.smartGuns);
     }
-}
 
-
-public class Configurable_sTaStPatcher extends ScriptableSystem
-{
-    private let allguns : array<ref<WeaponItem_Record>>;
-    private let config : ref<ConfigurableShortersTaStConfig>;
-    private let batch : ref<TweakDBBatch>;
-
-    private let chargeTimeBonus : TweakDBID = t"ConfigurableTaSTimers.ChargeBonus";
-    private let lockOnBonusADS : TweakDBID = t"ConfigurableTaSTimers.LockOnTimeAds";
-    private let lockOnBonusHip : TweakDBID = t"ConfigurableTaSTimers.LockOnTimeHip";
-    private let BoltWindowMult : TweakDBID = t"ConfigurableTaSTimers.PerfectChargeWindow";
-    private let targetAqusitionRangeMult: TweakDBID = t"ConfigurableTaSTimers.AquisitionRange";
-
-    private let BoltBaseRecordID : TweakDBID = t"NewPerks.Tech_Right_Milestone_3_inline17";
-    private let BoltBoostRecordID : TweakDBID = t"NewPerks.Tech_Right_Perk_3_2_inline4";
-    private let chargeTimeMinID : TweakDBID = t"BaseStats.ChargeTime";
-    private let baseChargeTimeMinID : TweakDBID = t"BaseStats.BaseChargeTime";
-    private let lockOnTimeADS : TweakDBID = t"BaseStats.SmartGunAdsTimeToLock";
-    private let lockOnTimeHip : TweakDBID = t"BaseStats.SmartGunHipTimeToLock";
-    private let configurable_sTaSt_Cache : ref<Configurable_sTaSt_Cache>;
-
-    private func OnAttach() -> Void
+    private cb func OnLoadSave( event : ref<GameSessionEvent> ) -> Void
     {
-        this.configurable_sTaSt_Cache = GameInstance.GetScriptableServiceContainer().GetService(n"Configurable_sTaSt_Cache") as Configurable_sTaSt_Cache;
-        this.config = new ConfigurableShortersTaStConfig();
+        this.config = new ConfigurableShorterTaStConfig();
 
-        // we expect the guns to be about 200-250 records each
-        if (ArraySize(this.configurable_sTaSt_Cache.techGuns) + ArraySize(this.configurable_sTaSt_Cache.smartGuns) <= 0) 
+        // we expect the guns to be about 200-250 records each.
+        // seems the size is cached somewhere
+        if (ArraySize(this.techGuns) + ArraySize(this.smartGuns) <= 0) 
         {
             // LogChannel(n"DEBUG", "Getting Item Record Lists");
             this.allguns = this.GetAllGunRecords();
 
-            this.configurable_sTaSt_Cache.techGuns = this.GetTechGunRecords(this.allguns);
-            this.configurable_sTaSt_Cache.smartGuns = this.GetSmartGunRecords(this.allguns);
+            this.techGuns = this.GetTechGunRecords(this.allguns);
+            this.smartGuns = this.GetSmartGunRecords(this.allguns);
 
             ArrayClear(this.allguns);
+        }else
+        {
+            // LogChannel(n"DEBUG", "Didn't get Item Record Lists");
         }
-        // else
-        // {
-        //     LogChannel(n"DEBUG", "Didn't get Item Record Lists");
-        // }
 
 
         // LogChannel(n"DEBUG", "Array allguns was " + ArraySize(this.allguns) + " long");
@@ -75,15 +68,12 @@ public class Configurable_sTaStPatcher extends ScriptableSystem
             this.RemoveTaSRecords();
         }
         this.batch.Commit();
-        //and because I'm a psychopath I'll clear this class in hopes it's variables get disposed by the GC.
-        //Yep that was the entire point of patch 1.2 :) Let's hope it reduces memory usage.
-        this = null;
     }
 
     private func RemoveTaSRecords() -> Void
     {
         // Charge Speed
-        for gun in this.configurable_sTaSt_Cache.techGuns
+        for gun in this.techGuns
         {
             let technicalStatsRecord = this.GetTechnicalStatsListRecord(gun);
             this.RemoveItemfromArrayRecord(technicalStatsRecord+t".statModifiers", this.chargeTimeBonus);
@@ -97,7 +87,7 @@ public class Configurable_sTaStPatcher extends ScriptableSystem
         this.batch.UpdateRecord(this.BoltBoostRecordID);
 
         // Target Lock Speeds
-        for gun in this.configurable_sTaSt_Cache.smartGuns
+        for gun in this.smartGuns
         {
             let smartGunStatsRecords = this.GetSmartGunStatsRecord(gun);
             this.RemoveItemfromArrayRecord(smartGunStatsRecords+t".statModifiers", this.lockOnBonusADS);
@@ -109,7 +99,7 @@ public class Configurable_sTaStPatcher extends ScriptableSystem
     public func AddTaSRecords() -> Void
     {
         //Charge Speed
-        for gun in this.configurable_sTaSt_Cache.techGuns
+        for gun in this.techGuns
         {
             let technicalStatsRecord = this.GetTechnicalStatsListRecord(gun);
             this.AddItemtoArrayRecord(technicalStatsRecord+t".statModifiers", this.chargeTimeBonus);
@@ -149,7 +139,7 @@ public class Configurable_sTaStPatcher extends ScriptableSystem
         this.batch.SetFlat(this.targetAqusitionRangeMult+t".value", this.config.aquisitionRangeMult);
         this.batch.UpdateRecord(this.targetAqusitionRangeMult);
 
-        for gun in this.configurable_sTaSt_Cache.smartGuns
+        for gun in this.smartGuns
         {
             let smartGunStatsRecords = this.GetSmartGunStatsRecord(gun);
             // Target Lock Speeds
@@ -295,5 +285,5 @@ public class Configurable_sTaStPatcher extends ScriptableSystem
             this.batch.SetFlat(tdbidOfArray, recordIDList);
         }
     }
-
 }
+
