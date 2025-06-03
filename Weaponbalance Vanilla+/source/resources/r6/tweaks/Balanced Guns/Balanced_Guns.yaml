@@ -1,7 +1,12 @@
 #Assault Rifles
 #Overal suited to fill the role of a precision rifle, but within the assault rifle group
 #buffed DPS to compensate for non-optimal fire rate usage in semi. Also might make it stealth viable
-Items.Base_Kyubi_Damage_Stats_inline0:
+
+Items.Base_Kyubi_Damage_Stats.statModifiers:
+  - BalancedGuns.Base_Kyubi_Damage_Stats_inline0
+
+BalancedGuns.Base_Kyubi_Damage_Stats_inline0:
+  $base: Items.Base_Kyubi_Damage_Stats_inline0
   value: 69 #base 55
 #buffed headshot mult. See above for reason
 Items.Base_Kyubi_Constant_Stats_inline6:
@@ -182,61 +187,96 @@ Items.Base_HMG_Technical_Stats_inline3:
 
 
 #Pistols
-#liberty, basically a reskin of the unity. Give it a 2 round burst for personality.
-Items.Base_Liberty:
-  primaryTriggerMode: TriggerMode.Burst
-  triggerModes:
-    - TriggerMode.Burst
 
-#make it VERY fast to keep it stealthable.
-#actually, I might reduce recoil too.
-Items.Base_Liberty_Technical_Stats:
+#Liberty
+# cannonically has more power than unity. idk what that's supposed to mean but armour pen and range can be used to indicate a high muzzle velocity that a variant with a longer barrel might have
+# giving this one armour pen might also increase the availibility of armourpen early on. This'll allow modders to give early minibosses extra armour >:D
+
+# that will clash with the NUE being the armor pen guy in the triumpherate of boring pistols.
+# as all of these are primarily used in stealth builds, I think the choice between high damage and high armour pen might be interesting. With the unity being the bond pistol I guess?
+# as I said in the discription. WIP.
+
+#I'm not sure if this should stay medium. That is very high for a low caliber. Have to test whether it competes evenly with the nue and unity
+Items.Base_Liberty_Constant_Stats.statModifiers:
+  - !append-once AttackModifier.WeaponArmorPenetrationMedium
+
+#slight decrease in firerate to boost it's dmg
+Items.Base_Liberty_Technical_Stats_inline1:
+  value: 0.25 #base 0.275
+
+# #prep for a slight dmg nerf. The firerate buff might turn the unity into "the bad pistol"
+# Items.Base_Liberty_Damage_Stats_inline0.value: 50 #base 50
+
+
+#now to create the nieche by removing the nues armor pen.
+# that'll turn the triumpherate into beat armour, beat flesh, aim for the head.
+Items.Base_Nue_Constant_Stats:
   statModifiers:
-    - !append-once
-      $type: gamedataConstantStatModifier_Record
-      value: 0.005
-      modifierType: Additive
-      statType: BaseStats.CycleTime_Burst
-    - !append-once
-      $type: gamedataConstantStatModifier_Record
-      value: 2
-      modifierType: Additive
-      statType: BaseStats.NumShotsInBurst
+    - !remove AttackModifier.WeaponArmorPenetrationLow
 
-Items.Base_Liberty_Dex_Technical_Stats:
-  statModifiers:
-    - !append-once
-      $type: gamedataConstantStatModifier_Record
-      value: 0.005
-      modifierType: Additive
-      statType: BaseStats.CycleTime_Burst
-    - !append-once
-      $type: gamedataConstantStatModifier_Record
-      value: 2
-      modifierType: Additive
-      statType: BaseStats.NumShotsInBurst
+#aaand a slight damage buff to compensate
+Items.Base_Nue_Damage_Stats_inline0:
+  value: 58 # base 57
 
-Items.Base_Liberty_Rogue_Technical_Stats:
-  statModifiers:
-    - !append-once
-      $type: gamedataConstantStatModifier_Record
-      value: 0.005
-      modifierType: Additive
-      statType: BaseStats.CycleTime_Burst
-    - !append-once
-      $type: gamedataConstantStatModifier_Record
-      value: 2
-      modifierType: Additive
-      statType: BaseStats.NumShotsInBurst
+# the biggest fear I have here is that one (likely the unity) wins out accross the board.
 
 
-#dps doesn't seem to take the burst into account, so we have to decrease it. Overall this is still a buff
-Items.Base_Liberty_Damage_Stats_inline0:
-  value: 27 #base 50
+# defunct. Keeping this aroudn as a backup
+# # basically a reskin of the unity. Give it a 2 round burst for personality.
+# Items.Base_Liberty:
+#   primaryTriggerMode: TriggerMode.Burst
+#   triggerModes:
+#     - TriggerMode.Burst
+
+# #make it VERY fast to keep it stealthable.
+# #actually, I might reduce recoil too.
+# Items.Base_Liberty_Technical_Stats:
+#   statModifiers:
+#     - !append-once
+#       $type: gamedataConstantStatModifier_Record
+#       value: 0.005
+#       modifierType: Additive
+#       statType: BaseStats.CycleTime_Burst
+#     - !append-once
+#       $type: gamedataConstantStatModifier_Record
+#       value: 2
+#       modifierType: Additive
+#       statType: BaseStats.NumShotsInBurst
+
+# Items.Base_Liberty_Dex_Technical_Stats:
+#   statModifiers:
+#     - !append-once
+#       $type: gamedataConstantStatModifier_Record
+#       value: 0.005
+#       modifierType: Additive
+#       statType: BaseStats.CycleTime_Burst
+#     - !append-once
+#       $type: gamedataConstantStatModifier_Record
+#       value: 2
+#       modifierType: Additive
+#       statType: BaseStats.NumShotsInBurst
+
+# Items.Base_Liberty_Rogue_Technical_Stats:
+#   statModifiers:
+#     - !append-once
+#       $type: gamedataConstantStatModifier_Record
+#       value: 0.005
+#       modifierType: Additive
+#       statType: BaseStats.CycleTime_Burst
+#     - !append-once
+#       $type: gamedataConstantStatModifier_Record
+#       value: 2
+#       modifierType: Additive
+#       statType: BaseStats.NumShotsInBurst
 
 
-Items.Base_Liberty_NPC_Damage_Stats_inline0:
-  value: 21 #base 40
+# #dps doesn't seem to take the burst into account, so we have to decrease it. Overall this is still a buff
+# Items.Base_Liberty_Damage_Stats_inline0:
+#   value: 27 #base 50
+
+
+# Items.Base_Liberty_NPC_Damage_Stats_inline0:
+#   value: 21 #base 40
 
 #Chao
 #damage criminally too low
