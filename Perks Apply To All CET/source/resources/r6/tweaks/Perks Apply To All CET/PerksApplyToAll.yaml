@@ -930,27 +930,35 @@ NewPerks.Body_Right_Perk_2_2:
   perkWeaponGroup: None
 
 NewPerks.Body_Right_Perk_2_2_inline2.effectors:
-  - !remove NewPerks.Body_Right_Perk_2_2_inline7
+  - !remove NewPerks.Body_Right_Perk_2_2_inline3
 
 # NewPerks.Body_Right_Perk_2_2_inline6:
 #   statPoolValue: 20
 
-NewPerks.Body_Right_Perk_2_2_inline4.nestedPrereqs:
-  - !remove Prereqs.BluntWeaponHeldPrereq
-  - !append-once PerksApplyToMore.BladeOrBluntHeldPrereq
+# NewPerks.Body_Right_Perk_2_2_inline4.nestedPrereqs:
+#   - !remove Prereqs.BluntWeaponHeldPrereq
+#   - !append-once PerksApplyToMore.BladeOrBluntHeldPrereq
 
-# NewPerks.Body_Right_Perk_2_2_inline0.floatValues:
-#   - 10
-#   - 30
-#   - 5
 
+#prereq in inline 7
 NewPerks.Body_Right_Perk_2_2_inline8.nestedPrereqs:
   - !remove Prereqs.BluntWeaponHeldPrereq
   - !append-once PerksApplyToMore.BladeOrBluntHeldPrereq
 
+
+#prereq in the effector of the SE
+NewPerks.KineticBlockMeleeDamage_Buff_inline3:
+  - !remove Prereqs.BluntWeaponHeldPrereq
+  - !append-once PerksApplyToMore.BladeOrBluntHeldPrereq
+
+
 NewPerks.KineticBlockMeleeDamage_Buff_inline3:
   prereqRecord: PerksApplyToMore.BladeOrBluntHeldPrereq
 
+NewPerks.Body_Right_Perk_2_2_inline0.floatValues:
+  - 10
+  - 30
+  - 5
 
 #Clapback
 NewPerks.Body_Right_Perk_2_3:

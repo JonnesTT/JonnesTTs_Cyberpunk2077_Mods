@@ -1,3 +1,2 @@
-base\localization\en-us.json
-base\localization\en-us\perksapplytoall.json
-base\localization\en-us\perksapplytomore.json
+base\localization\en-us\onscreens.json
+base\translations\en-us\unityanswer.json

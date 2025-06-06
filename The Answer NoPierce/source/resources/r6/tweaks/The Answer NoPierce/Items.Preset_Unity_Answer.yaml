@@ -49,7 +49,7 @@ Items.Preset_Unity_Answer:
 # #   equipment: Items.Preset_Unity_Answer
 
 # this WOULD work easily though.
-#DLC start is easy. It's just a starting item there
+# DLC start is easy. It's just a starting item there
 # ProgressionBuilds.EP1_Standalone_StartingBuild_inline33:
 #   item: Items.Preset_Unity_Answer
 
