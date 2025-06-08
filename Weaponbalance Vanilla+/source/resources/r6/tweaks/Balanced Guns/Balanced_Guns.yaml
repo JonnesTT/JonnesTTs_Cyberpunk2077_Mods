@@ -201,9 +201,12 @@ Items.Base_HMG_Technical_Stats_inline3:
 Items.Base_Liberty_Constant_Stats.statModifiers:
   - !append-once AttackModifier.WeaponArmorPenetrationMedium
 
-#slight decrease in firerate to boost it's dmg
+#slight decrease in firerate to boost it's perhit dmg
 Items.Base_Liberty_Technical_Stats_inline1:
-  value: 0.25 #base 0.275
+  value: 0.30 #base 0.275
+
+Items.Base_Liberty_Constant_Stats.statModifiers:
+  - !append-once Items.Base_Nue_Constant_Stats_inline9
 
 # #prep for a slight dmg nerf. The firerate buff might turn the unity into "the bad pistol"
 # Items.Base_Liberty_Damage_Stats_inline0.value: 50 #base 50
@@ -321,6 +324,7 @@ Items.Base_Nova:
 #Player Projectiles
 Items.Base_Nova_Technical_Stats_inline3:
   value: 6
+# this entry is also used for NPC projectile count
 
 #jitter spreads pellets around a central point. Makes shotties more intuitive.
 Items.Base_Nova_Spread_Stats:
