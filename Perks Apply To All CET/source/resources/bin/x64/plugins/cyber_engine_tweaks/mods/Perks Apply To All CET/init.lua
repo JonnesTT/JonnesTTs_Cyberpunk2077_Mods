@@ -24,7 +24,7 @@ registerForEvent("onInit", function()
           return
           -- self.weapon = Game.GetTransactionSystem():GetItemInSlot( self.executionOwner, "AttachmentSlots.WeaponRight" )
         end
-        if self.weapon:IsRanged() and not GameInstance.GetTimeSystem( ):IsTimeDilationActive( ) then
+        if not GameInstance.GetTimeSystem( ):IsTimeDilationActive( ) and ( self.weapon:IsRanged() or self.weapon:IsThrowable() ) then
           --apply focus
           StatusEffectHelper.ApplyStatusEffect( Game.GetPlayer(), TweakDBID.new("BaseStatusEffect.FocusedCoolPerkSE") )
           -- apply Focus timeDilation

@@ -38,7 +38,7 @@ NewPerks.Cool_Left_Milestone_2_inline4.prereqRecord: Prereqs.RangedWeaponHeldPre
 #balance
 NewPerks.Cool_Left_Milestone_2:
   timeDilationStrength: 0.30
-  focusedStaminaCost: 30
+  focusedStaminaCost: 20
 
 NewPerks.Cool_Left_Milestone_2_inline0.floatValues:
     - 2.0
@@ -467,9 +467,9 @@ PerksApplyToMore.Reflexes_Left_Milestone_2_2:
               opSymbol: '*(1-x)'
               refObject: Player
               refStat: BaseStats.StaminaRatio
-              value: -1.0
-              modifierType: Multiplier
-              statType: BaseStats.StaminaRegenStartDelay
+              value: 2.0
+              modifierType: AdditiveMultiplier
+              statType: BaseStats.StaminaRegenRate
         effectorClassName: ApplyStatGroupEffector
         prereqRecord: Prereqs.RangedWeaponHeldPrereq
         removeAfterActionCall: False
@@ -611,6 +611,88 @@ BaseStatusEffect.Reflexes_Sharpshooter_AP_Stack:
 #milestone 4, master perks
 #Salt in the wound
 #replaced with run 'n' gun
+
+# now question. CD or short duration?
+# want to a "move, shoot, move" pattern => no CD. This needs to form a continous loop
+# optimise duration to regen just enough stamina while shooting
+
+PerksApplyToMore.RunNGunBuff:
+  $type: gamedataStatusEffect_Record
+  duration: 
+    $type: gamedataStatModifierGroup_Record
+    drawBasedOnStatType: False
+    optimiseCombinedModifiers: False
+    saveBasedOnStatType: False
+    statModsLimit: -1
+    relatedModifierGroups: []
+    statModifiers:
+      - $type: gamedataConstantStatModifier_Record
+        value: 2.0
+        modifierType: Additive
+        statType: BaseStats.MaxDuration
+  dynamicDuration: False
+  isAffectedByTimeDilationNPC: True
+  isAffectedByTimeDilationPlayer: True
+  maxStacks: RTDB.StatusEffect_inline0
+  reapplyPackagesOnMaxStacks: True
+  removeAllStacksWhenDurationEnds: False
+  removeOnStoryTier: False
+  replicated: False
+  savable: True
+  statusEffectType: BaseStatusEffectTypes.Misc
+  stopActiveSfxOnDeactivate: True
+  uiData: 
+    $type: gamedataStatusEffectUIData_Record
+    description: ''
+    displayName: LocKey#87954
+    fluffText: ''
+    iconPath: perks_sensory_protocol
+    priority: 6
+    floatValues: []
+    intValues: []
+    nameValues: []
+    stats: []
+  debugTags: []
+  gameplayTags:
+    - Buff
+  immunityStats: []
+  packages:
+    - $type: gamedataGameplayLogicPackage_Record
+      stackable: False
+      animationWrapperOverrides: []
+      effectors:
+        - $type: gamedataApplyStatGroupEffector_Record
+          applicationTarget: Weapon
+          removeWithEffector: True
+          statGroup: 
+            $type: gamedataStatModifierGroup_Record
+            drawBasedOnStatType: False
+            optimiseCombinedModifiers: False
+            saveBasedOnStatType: False
+            statModsLimit: -1
+            relatedModifierGroups: []
+            statModifiers:
+              - $type: gamedataConstantStatModifier_Record
+                value: 5
+                modifierType: Additive
+                statType: BaseStats.StaminaCostReduction
+          effectorClassName: ApplyStatGroupEffector
+          prereqRecord: Prereqs.RangedWeaponHeldPrereq
+          removeAfterActionCall: False
+          removeAfterPrereqCheck: False
+          statModifierGroups: []
+          reapplyOnWeaponChange: False
+      items: []
+      statPools: []
+      stats: []
+  SFX: []
+  VFX: []
+
+NewPerks.Cool_Master_Perk_2_inline0:
+  floatValues: []
+  intValues: 
+  - 2
+
 NewPerks.Reflexes_Master_Perk_1:
   loc_desc_key: LocKey#87953
   loc_name_key: LocKey#87954
@@ -618,35 +700,94 @@ NewPerks.Reflexes_Master_Perk_1:
   perkWeaponGroup: None
   uiData: NewPerks.Cool_Master_Perk_2_inline0
   levels:
-    - NewPerks.Cool_Master_Perk_2_inline1
+    - $type: gamedataNewPerkLevelData_Record
+      dataPackage:
+        $type: gamedataGameplayLogicPackage_Record
+        stackable: False
+        animationWrapperOverrides: []
+        effectors:
+          - $type: gamedataApplyStatusEffectEffector_Record
+            applicationTarget: Player
+            count: 1
+            instigator: ''
+            inverted: False
+            removeWithEffector: False
+            statusEffect: PerksApplyToMore.RunNGunBuff
+            useCountWhenRemoving: False
+            effectorClassName: ApplyStatusEffectEffector
+            prereqRecord: 
+              $type: gamedataMultiPrereq_Record
+              aggregationType: OR
+              prereqClassName: gameMultiPrereq
+              nestedPrereqs:
+                - $type: gamedataIPrereq_Record
+                  prereqClassName: DetailedLocomotionPSMPrereq
+                  stateName: Sprint
+                  previousState: True
+                  isInState: False
+                - $type: gamedataIPrereq_Record
+                  prereqClassName: DetailedLocomotionPSMPrereq
+                  stateName: Dodge
+                  isInState: True
+                  previousState: False
+                - $type: gamedataIPrereq_Record
+                  prereqClassName: DetailedLocomotionPSMPrereq
+                  stateName: DodgeAir
+                  previousState: False
+                  isInState: True
+                - $type: gamedataIPrereq_Record
+                  prereqClassName: DetailedLocomotionPSMPrereq
+                  stateName: Slide
+                  previousState: True
+                  isInState: False
+                - $type: gamedataIPrereq_Record
+                  prereqClassName: DetailedLocomotionPSMPrereq
+                  stateName: SlideFall
+                  previousState: True
+                  isInState: False
+                - $type: gamedataIPrereq_Record
+                  prereqClassName: DetailedLocomotionPSMPrereq
+                  stateName: CrouchSprint
+                  previousState: True
+                  isInState: False
+            removeAfterActionCall: False
+            removeAfterPrereqCheck: False
+            statModifierGroups: []
+        items: []
+        statPools: []
+        stats: []
+      loc_desc_key: ''
+      loc_name_key: ''
+      pointsCost: 0
+
   
 NewPerks.HandgunNotAimingPrereq:
   nestedPrereqs:
     - !remove Prereqs.HandgunHeldPrereq
     - !append-once Prereqs.RangedWeaponHeldPrereq
 
-NewPerks.HandgunFocusedPrereq:
-  $type: gamedataMultiPrereq_Record
-  aggregationType: AND
-  prereqClassName: gameMultiPrereq
-  nestedPrereqs:
-    - Prereqs.RangedWeaponHeldPrereq
-    - PerksApplyToMore.RunNGunStaminaPrereq
+# NewPerks.HandgunFocusedPrereq:
+#   $type: gamedataMultiPrereq_Record
+#   aggregationType: AND
+#   prereqClassName: gameMultiPrereq
+#   nestedPrereqs:
+#     - Prereqs.RangedWeaponHeldPrereq
+#     - PerksApplyToMore.RunNGunStaminaPrereq
 
-PerksApplyToMore.RunNGunStaminaPrereq:
-  $type: gamedataStatPoolPrereq_Record
-  comparePercentage: True
-  comparisonType: GreaterOrEqual
-  listenConstantly: False
-  skipOnApply: False
-  statPoolType: Stamina
-  prereqClassName: StatPoolPrereq
-  valueToCheck:
-    - !append-once
-      $type: gamedataConstantStatModifier_Record
-      value: 75
-      modifierType: Additive
-      statType: BaseStats.Stamina
+# PerksApplyToMore.RunNGunStaminaPrereq:
+#   $type: gamedataStatPoolPrereq_Record
+#   comparePercentage: True
+#   comparisonType: GreaterOrEqual
+#   listenConstantly: False
+#   skipOnApply: False
+#   statPoolType: Stamina
+#   prereqClassName: StatPoolPrereq
+#   valueToCheck:
+#     - !append-once
+#       $type: gamedataConstantStatModifier_Record
+#       value: 75
+#       modifierType: Additive
+#       statType: BaseStats.Stamina
 
 NewPerks.Cool_Master_Perk_2_inline0.floatValues:
   - 25
@@ -930,27 +1071,30 @@ NewPerks.Body_Right_Perk_2_2:
   perkWeaponGroup: None
 
 NewPerks.Body_Right_Perk_2_2_inline2.effectors:
-  - !remove NewPerks.Body_Right_Perk_2_2_inline7
+  - !remove NewPerks.Body_Right_Perk_2_2_inline3
 
 # NewPerks.Body_Right_Perk_2_2_inline6:
 #   statPoolValue: 20
 
-NewPerks.Body_Right_Perk_2_2_inline4.nestedPrereqs:
-  - !remove Prereqs.BluntWeaponHeldPrereq
-  - !append-once PerksApplyToMore.BladeOrBluntHeldPrereq
+# NewPerks.Body_Right_Perk_2_2_inline4.nestedPrereqs:
+#   - !remove Prereqs.BluntWeaponHeldPrereq
+#   - !append-once PerksApplyToMore.BladeOrBluntHeldPrereq
 
-# NewPerks.Body_Right_Perk_2_2_inline0.floatValues:
-#   - 10
-#   - 30
-#   - 5
 
+#prereq in inline 7
 NewPerks.Body_Right_Perk_2_2_inline8.nestedPrereqs:
   - !remove Prereqs.BluntWeaponHeldPrereq
   - !append-once PerksApplyToMore.BladeOrBluntHeldPrereq
 
+
+#prereq in the effector of the SE
 NewPerks.KineticBlockMeleeDamage_Buff_inline3:
   prereqRecord: PerksApplyToMore.BladeOrBluntHeldPrereq
 
+NewPerks.Body_Right_Perk_2_2_inline0.floatValues:
+  - 10
+  - 30
+  - 5
 
 #Clapback
 NewPerks.Body_Right_Perk_2_3:
