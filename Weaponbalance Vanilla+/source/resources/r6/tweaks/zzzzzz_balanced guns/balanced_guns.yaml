@@ -56,6 +56,8 @@ Items.Base_Copperhead_Krausser_Constant_Stats:
       modifierType: Additive
       statType: BaseStats.HeadshotDamageMultiplier
 
+# peak DPS (i.e. with crits) bellow any other AR/SMG by at least 10%. Buff severely.
+Items.Base_Copperhead_Damage_Stats_inline0.value: 69 #base 53
 
 #Umbra
 # too similar to copperhead.
@@ -100,22 +102,34 @@ Items.Base_Saratoga_Arasaka_2020_Constant_Stats:
   statModifiers:
     - !append
       $type: gamedataConstantStatModifier_Record
-      value: 0.30
+      value: 0.20
       modifierType: Additive
       statType: BaseStats.SubMachinegunStaminaCostReduction
+    - !remove Items.Base_Saratoga_Arasaka_2020_Constant_Stats_inline8    # an damage per hit mult. we remove to make space for individal DPS stat
+    - !append 
+      $type: gamedataConstantStatModifier_Record
+      value: 0.25
+      modifierType: Additive
+      statType: BaseStats.HeadshotDamageMultiplier
 
 #increasing the damage back up, cuz apparently it mainly it uses saratoga stats
 Items.Preset_Saratoga_Arasaka_2020:
   statModifierGroups:
   - !remove Items.Base_Saratoga_Damage_Stats
-  - !append-once 
-    $base: Items.Base_Saratoga_Damage_Stats
-    statModifiers:
-      - !append-once
-        $base: Items.Base_Saratoga_Damage_Stats_inline0
-        value: 63
+  - !append-once Items.Base_Saratoga_Arasaka_Damage_Stats
 
-
+Items.Base_Saratoga_Arasaka_Damage_Stats:
+  $type: gamedataStatModifierGroup_Record
+  drawBasedOnStatType: False
+  optimiseCombinedModifiers: False
+  saveBasedOnStatType: False
+  statModsLimit: -1
+  relatedModifierGroups: []
+  statModifiers:
+    - $type: gamedataConstantStatModifier_Record
+      value: 59
+      modifierType: Additive
+      statType: BaseStats.DPS
 
 #Pulsar
 # long barrel = high muzzle velocity =/= low range
@@ -189,98 +203,161 @@ Items.Base_HMG_Technical_Stats_inline3:
 #Pistols
 
 #Liberty
-# update 1.3 content
-# cannonically has more power than unity. idk what that's supposed to mean but armour pen and range can be used to indicate a high muzzle velocity that a variant with a longer barrel might have
-# giving this one armour pen might also increase the availibility of armourpen early on. This'll allow modders to give early minibosses extra armour >:D
-
-# that will clash with the NUE being the armor pen guy in the triumpherate of boring pistols.
-# as all of these are primarily used in stealth builds, I think the choice between high damage and high armour pen might be interesting. With the unity being the bond pistol I guess?
-# as I said in the discription. WIP.
-
-#I'm not sure if this should stay medium. That is very high for a low caliber. Have to test whether it competes evenly with the nue and unity
-Items.Base_Liberty_Constant_Stats.statModifiers:
-  - !append-once AttackModifier.WeaponArmorPenetrationMedium
-
-#slight decrease in firerate to boost it's perhit dmg
+#this should be the lowest firerate that shows up as 3.1 on the item card. Gotta test if it's noticable.
 Items.Base_Liberty_Technical_Stats_inline1:
-  value: 0.30 #base 0.275
+  value: 0.270 #base 0.275#
+# basically a reskin of the unity. Give it a 2 round burst for personality.
+Items.Base_Liberty:
+  primaryTriggerMode: TriggerMode.Burst
+  triggerModes:
+    - TriggerMode.Burst
 
-Items.Base_Liberty_Constant_Stats.statModifiers:
-  - !append-once Items.Base_Nue_Constant_Stats_inline9
-
-# #prep for a slight dmg nerf. The firerate buff might turn the unity into "the bad pistol"
-# Items.Base_Liberty_Damage_Stats_inline0.value: 50 #base 50
-
-
-#now to create the nieche by removing the nues armor pen.
-# that'll turn the triumpherate into beat armour, beat flesh, aim for the head.
-Items.Base_Nue_Constant_Stats:
+Items.Base_Liberty_Technical_Stats:
   statModifiers:
-    - !remove AttackModifier.WeaponArmorPenetrationLow
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      value: 0.1
+      modifierType: Additive
+      statType: BaseStats.CycleTime_Burst
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      value: 3
+      modifierType: Additive
+      statType: BaseStats.NumShotsInBurst
 
-#aaand a slight damage buff to compensate
+Items.Base_Liberty_Dex_Technical_Stats:
+  statModifiers:
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      value: 0.1
+      modifierType: Additive
+      statType: BaseStats.CycleTime_Burst
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      value: 3
+      modifierType: Additive
+      statType: BaseStats.NumShotsInBurst
+
+Items.Base_Liberty_Rogue_Technical_Stats:
+  statModifiers:
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      value: 0.1
+      modifierType: Additive
+      statType: BaseStats.CycleTime_Burst
+    - !append-once
+      $type: gamedataConstantStatModifier_Record
+      value: 3
+      modifierType: Additive
+      statType: BaseStats.NumShotsInBurst
+
+Items.Base_Liberty_Constant_Stats_inline6: # RecoilKickMin
+  value: 1.26 #base 1.4
+
+Items.Base_Liberty_Constant_Stats_inline7: #RecoilKickMax
+  value: 1.62 #base 1.8
+
+#liberty rogue
+Items.Base_Liberty_Rogue_Constant_Stats_inline7: #RecoilKickMax
+  value: 1.8 #base 2
+
+Items.Base_Liberty_Rogue_Constant_Stats_inline6: #RecoilKickMin
+  value: 1.35 #base 1.5
+
+# # the main advantage of burst guns is that you get more bullets out before being at peak recoil. I want to try to replicate that here
+# Items.Base_Liberty_Recoil_Stats_inline4: #RecoildDelay
+#   value: 0.0500000007 #base 0.5
+
+# Items.Base_Liberty_Recoil_Stats_inline3: #RecoilTime
+#   value: 0.0500000007 #base 0.5
+# #with a total recoil time of 1 second, we're well within the recoil delay, meaning the shots should be out before the gun is kicked upwards
+
+
+
+
+#dps doesn't seem to take the burst into account, so we have to decrease it. Overall this is still a buff
+Items.Base_Liberty_Damage_Stats_inline0:
+  value: 30 #base 50
+
+
+Items.Base_Liberty_NPC_Damage_Stats_inline0:
+  value: 21 #base 40
+
+
+
+
+
+# Items.Base_Nue_Constant_Stats:
+#   statModifiers:
+#     - !remove AttackModifier.WeaponArmorPenetrationLow
+
+Items.Base_Nue_Constant_Stats_inline9:
+  value: -0.5
+
+#aaand apply to maikos nue
+Items.Base_Nue_Maiko_Constant_Stats_inline9:
+  value: -0.5
+
+
+
+#aaand a damage buff to compensate
 Items.Base_Nue_Damage_Stats_inline0:
-  value: 58 # base 57
-
-# the biggest fear I have here is that one (likely the unity) wins out accross the board.
+  value: 60 # base 57
 
 
-# defunct. Keeping this aroudn as a backup
-# # basically a reskin of the unity. Give it a 2 round burst for personality.
-# Items.Base_Liberty:
-#   primaryTriggerMode: TriggerMode.Burst
-#   triggerModes:
-#     - TriggerMode.Burst
 
-# #make it VERY fast to keep it stealthable.
-# #actually, I might reduce recoil too.
-# Items.Base_Liberty_Technical_Stats:
-#   statModifiers:
-#     - !append-once
-#       $type: gamedataConstantStatModifier_Record
-#       value: 0.005
-#       modifierType: Additive
-#       statType: BaseStats.CycleTime_Burst
-#     - !append-once
-#       $type: gamedataConstantStatModifier_Record
-#       value: 2
-#       modifierType: Additive
-#       statType: BaseStats.NumShotsInBurst
+# increase recoil for the Deagle feel.
+Items.Base_Nue_Constant_Stats_inline6: #recoil kick min
+  value: 2.88 #base 2.4
 
-# Items.Base_Liberty_Dex_Technical_Stats:
-#   statModifiers:
-#     - !append-once
-#       $type: gamedataConstantStatModifier_Record
-#       value: 0.005
-#       modifierType: Additive
-#       statType: BaseStats.CycleTime_Burst
-#     - !append-once
-#       $type: gamedataConstantStatModifier_Record
-#       value: 2
-#       modifierType: Additive
-#       statType: BaseStats.NumShotsInBurst
+Items.Base_Nue_Constant_Stats_inline7: #recoil kick max
+  value: 3.192 # base 2.66
 
-# Items.Base_Liberty_Rogue_Technical_Stats:
-#   statModifiers:
-#     - !append-once
-#       $type: gamedataConstantStatModifier_Record
-#       value: 0.005
-#       modifierType: Additive
-#       statType: BaseStats.CycleTime_Burst
-#     - !append-once
-#       $type: gamedataConstantStatModifier_Record
-#       value: 2
-#       modifierType: Additive
-#       statType: BaseStats.NumShotsInBurst
+# want this to take longer cuz deegle feel is heavy
+Items.Base_Nue_Recoil_Stats_inline2: #RecoilHoldDuration How long before the gun starts to drift down again
+  value: 0.1375 #base 0.125
+
+Items.Base_Nue_Recoil_Stats_inline5: #RecoilRecoveryTime how long it takes for the reticle to drift back down
+  value: 0.2475 #base 0.225
+
+# want this a bit more snappy
+# Items.Base_Nue_Recoil_Stats_inline4: #RecoilDelay how long after a shot before the gun drifts upwards
+#   value: 0.07 #base 0.07
+
+Items.Base_Nue_Recoil_Stats_inline3: # RecoilTime how long it takes to drift upwards per shot
+  value: 0.09 #base 0.1
 
 
-# #dps doesn't seem to take the burst into account, so we have to decrease it. Overall this is still a buff
-# Items.Base_Liberty_Damage_Stats_inline0:
-#   value: 27 #base 50
+#nue maiko
+
+Items.Base_Nue_Maiko_Constant_Stats_inline6: #RecoilKickMin
+  value: 1.32 #base 1.2
+
+Items.Base_Nue_Maiko_Constant_Stats_inline7: #RecoilKickMax
+  value: 1.65 #base 1.5
 
 
-# Items.Base_Liberty_NPC_Damage_Stats_inline0:
-#   value: 21 #base 40
+Items.Base_Nue_Maiko_Recoil_Stats_inline2: #RecoilHoldDuration
+  value: 0.099 # base 0.09
+
+Items.Base_Nue_Maiko_Recoil_Stats_inline5: #RecoilRecoveryTime
+  value: 0.132 #base .12
+
+Items.Base_Nue_Maiko_Recoil_Stats_inline3: #RecoilTime
+  value: 0.11 #base 0.1
+
+# Items.Base_Nue_Maiko_Recoil_Stats_inline4: #RecoilDelay
+#   value: 0.0900000036 #base 0.09
+
+
+
+#nue bree
+Items.Base_Nue_Bree_Constant_Stats_inline6: #RecoilKickMin
+  value: 2.42 #base 2.2
+
+Items.Base_Nue_Bree_Constant_Stats_inline7: #RecoilKickMax
+  value: 2.64 #base 2.4
+
 
 #Chao
 #damage criminally too low
@@ -293,7 +370,6 @@ Items.Base_Chao_Technical_Stats_inline4:
 
 Items.Base_Chao_Technical_Stats_inline3:
   value: 0.01 #base 0.1
-
 
 #edit. Nope. Decrease DPS accordingly. This thing has a completely disposable barrel assembly. It does not give a fuck about any of the downsides of a high firerate >:D
 # # to counteract the burstability, we nerf the firerate for now
