@@ -360,8 +360,9 @@ Items.Base_Nue_Bree_Constant_Stats_inline7: #RecoilKickMax
 
 
 #Chao
-#damage criminally too low
-Items.Base_Chao_Damage_Stats_inline0.value: 38 #base25
+# #damage criminally too low
+# Items.Base_Chao_Damage_Stats_inline0.value: 28 #base25
+# correction, it's damage is fine as long as you use actually smart smart weapons
 
 #ok, I said I wasn't gonna go for realism, but this is a volley gun with 4 barrels each loaded with 5 bullets. Except one, which carries a sixth. Y'know cuz the gun with 4 barrels has 3 round burst like ALL OTHER SMORT PISTOLS.
 # so we turn it into a propper volley gun that shoots very fast 4 round bursts (like a mini shotgun)
