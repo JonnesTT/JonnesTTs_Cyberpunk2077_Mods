@@ -90,7 +90,7 @@ Items.Base_Guillotine_Damage_Stats_inline0.value: 68 #base 70
 
 #Saratoga
 #a bit too stronk, nerfed dps
-Items.Base_Saratoga_Damage_Stats_inline0.value: 58 #base 63
+Items.Base_Saratoga_Damage_Stats_inline0.value: 60 #base 63
 
 #Shigure
 #Even higher firerate to fully buy into it's identity
