@@ -1,0 +1,69 @@
+{
+  "Header": {
+    "WolvenKitVersion": "8.16.1",
+    "WKitJsonVersion": "0.0.9",
+    "GameVersion": 2200,
+    "ExportedDateTime": "2025-06-20T14:22:46.9535754Z",
+    "DataType": "CR2W",
+    "ArchiveFileName": "D:\\Projects\\Modding Projects\\Cyberpunk 2077\\Project files\\SilencerBalance Vanilla\u002B\\source\\archive\\base\\localization\\en-us.json"
+  },
+  "Data": {
+    "Version": 195,
+    "BuildVersion": 0,
+    "RootChunk": {
+      "$type": "JsonResource",
+      "cookingPlatform": "PLATFORM_PC",
+      "root": {
+        "HandleId": "0",
+        "Data": {
+          "$type": "localizationPersistenceOnScreenEntries",
+          "entries": [
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "\u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003E \u002B100% Crit Chance\u003C/\u003E when stricking from Stealth.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "WBVanillaPlus_CetusT5_Description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Not one of a kind, but made to order. Someone will be pissed you got there first.",
+              "maleVariant": "",
+              "primaryKey": "92421",
+              "secondaryKey": "Gameplay-Weapons-Attachments-LocalizedDescription-silencer_03_legendary"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Balances the exhaust evenly, \u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003E \u002Breducing the sidways recoil to nothing.\u003C/\u003E",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "WBVanillaPlus_DybbukT5_Description"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Not one of a kind but none of that factory fresh crap you usually see. You were able to dial this thing in to fit your gun perfectly. Wilson would be proud.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "WBVanillaPlus_DybbukT5_FlavourDesc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Not one of a kind but incredibly well made. This muzzle redirects the exhaust to make each bullet tumble so percisely they pancake on ricochet for larger wounds.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "WBVanillaPlus_VarkolakBabarogaT5_FlavourDesc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Not one of a kind but, certainly special. It uses the guns exhaust to make the bullet spin even faster. All that engineering to make the bullet break up more violently.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "WBVanillaPlus_StrigoiT5_FlavourDesc"
+            }
+          ]
+        }
+      }
+    },
+    "EmbeddedFiles": []
+  }
+}

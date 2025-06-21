@@ -1,0 +1,214 @@
+
+
+#silencers
+# at vanilla they only apply to the first shot
+# while yea, silent silencers extends that I think I should also target people who think that mod makes stealth too easy (<- me)
+# So to buff SMG/ARs in stealth, silencers now give a brief (0.5s) window during which stealth attacks remain stealthy after detection.
+Items.SilencerBase:
+  OnAttach:
+  - !append-once
+    $type: gamedataGameplayLogicPackage_Record
+    stackable: False
+    UIData: ''
+    animationWrapperOverrides: []
+    effectors:
+      - $type: gamedataApplyStatusEffectEffector_Record
+        applicationTarget: Player
+        count: 1
+        instigator: ''
+        inverted: False
+        removeWithEffector: False
+        statusEffect:         
+          $type: gamedataStatusEffect_Record
+          duration: 
+            $type: gamedataStatModifierGroup_Record
+            drawBasedOnStatType: False
+            optimiseCombinedModifiers: False
+            saveBasedOnStatType: False
+            statModsLimit: -1
+            relatedModifierGroups: []
+            statModifiers:
+              - $type: gamedataConstantStatModifier_Record
+                value: 0.5
+                modifierType: Additive
+                statType: BaseStats.MaxDuration
+              - $type: gamedataCombinedStatModifier_Record
+                opSymbol: '*'
+                refObject: Player
+                refStat: BaseStats.ExtendedStealthDuration
+                value: 1
+                modifierType: Additive
+                statType: BaseStats.MaxDuration
+          dynamicDuration: False
+          isAffectedByTimeDilationNPC: True
+          isAffectedByTimeDilationPlayer: True
+          maxStacks: RTDB.StatusEffect_inline0
+          reapplyPackagesOnMaxStacks: False
+          removeAllStacksWhenDurationEnds: False
+          removeOnStoryTier: False
+          replicated: False
+          savable: True
+          statusEffectType: BaseStatusEffectTypes.Misc
+          stopActiveSfxOnDeactivate: True
+          uiData: ''
+          debugTags: []
+          gameplayTags:
+            - Buff
+            - ExtendedStealth
+          immunityStats: []
+          packages:
+            - $type: gamedataGameplayLogicPackage_Record
+              stackable: False
+              animationWrapperOverrides: []
+              effectors: []
+              items: []
+              statPools: []
+              stats: []
+          SFX: []
+          VFX: []
+        useCountWhenRemoving: False
+        effectorClassName: ApplyStatusEffectEffector
+        prereqRecord: Items.HitmanNovaWeaponModAbility_inline1
+        removeAfterActionCall: False
+        removeAfterPrereqCheck: False
+        statModifierGroups: []
+    items: []
+    statPools: []
+    stats: []
+
+#tocorororo silencer T3 fails to hit it's niche by JUST 5% DR
+Items.w_silencer_04_inline2:
+  value: -0.25 #base -0.4
+
+Items.w_silencer_04_inline3:
+  value: 0.05 #base 0.1
+
+#ui values I think
+Items.w_silencer_04_inline4:
+  value: 25 #base 40
+
+Items.w_silencer_04_inline5:
+  value: -5 #base -10
+
+#Strix
+# T4 sadly overtakes most other silencers across the board
+# this'll leave T3 unchanged
+Items.w_silencer_02_inline1:
+  value: -0.3 #base 0.4
+
+Items.w_silencer_02_inline2:
+  value: 0.5 #base 0.1
+
+#UI valuees
+Items.w_silencer_02_inline4:
+  value: 30 #base 40
+
+Items.w_silencer_02_inline5:
+  value: -5 #base -10
+
+#cetus
+# best muzzle across the board. This should balance it's guaranteed crit.
+Items.w_silencer_03_legendary_inline0:
+  value: 1.5
+
+#ui value
+Items.w_silencer_03_legendary_inline3:
+  value: 0.5
+
+# make iconic to signal it's special
+Items.w_silencer_03_legendary:
+  statModifiers:
+  - !append-once Quality.IconicItem
+
+# Items.w_silencer_03_legendary_inline4:
+#   UIData:
+#     $type: gamedataGameplayLogicPackageUIData_Record
+#     iconPath: ability_offensive
+#     localizedDescription: WBVanillaPlus_CetusT5_Description
+#     localizedName: ''
+#     floatValues: []
+#     intValues: []
+#     nameValues: []
+#     stats: []
+
+
+#muzzle breaks
+# the crit penalty always felt a bit arbitrary. Like yea, you want us to choose whether we need this, but like, 
+# trading in DPS for usability (i.e. more DPS half the time) just feels weird
+# ESPECIALLY when crit is the big thing these guns are supposed to be good at.
+
+# Yokai
+Items.w_muzzle_brake_07.statModifiers:
+  - !remove Items.w_muzzle_brake_07_inline2
+
+# Kutrub
+Items.w_muzzle_brake_08.statModifiers:
+  - !remove Items.w_muzzle_brake_08_inline4
+
+# Dybbuk
+Items.w_muzzle_brake_09.statModifiers:
+  - !remove Items.w_muzzle_brake_09_inline2
+
+# has legendary variant. Let's give it the Cetus treatment
+# Items.w_muzzle_brake_09_legendary.statModifiers:
+#   - !append-once Quality.IconicItem
+  
+Items.w_muzzle_brake_09_legendary.localizedDescription: WBVanillaPlus_DybbukT5_FlavourDesc
+
+# Items.w_muzzle_brake_09_legendary:
+#   OnAttach: 
+#     - $type: gamedataGameplayLogicPackage_Record
+#       stackable: False
+#       animationWrapperOverrides: []
+#       effectors: []
+#       items: []
+#       statPools: []
+#       stats: []
+#       UIData:
+#         $type: gamedataGameplayLogicPackageUIData_Record
+#         iconPath: ability_offensive
+#         localizedDescription: WBVanillaPlus_DybbukT5_Description
+#         localizedName: ''
+#         floatValues: []
+#         intValues: []
+#         nameValues: []
+#         stats: []
+
+# Babaroga
+Items.w_muzzle_brake_10.statModifiers:
+  - !remove Items.w_muzzle_brake_10_inline3
+
+# and another T5
+
+Items.w_muzzle_brake_10_legendary.localizedDescription: WBVanillaPlus_VarkolakBabarogaT5_FlavourDesc
+
+#Liger
+Items.w_muzzle_brake_11.statModifiers:
+  - !remove Items.w_muzzle_brake_11_inline2
+
+#Strigoi
+Items.w_muzzle_brake_01.statModifiers:
+  - !remove Items.w_muzzle_brake_01_inline6
+
+Items.w_muzzle_brake_01_legendary.localizedDescription: WBVanillaPlus_StrigoiT5_FlavourDesc
+
+# Zaar
+Items.w_muzzle_brake_02.statModifiers:
+  - !remove Items.w_muzzle_brake_02_inline2
+
+# Varkolak
+Items.w_muzzle_brake_03.statModifiers:
+  - !remove Items.w_muzzle_brake_03_inline3
+# T5
+Items.w_muzzle_brake_03_legendary.statModifiers:
+  - !remove Items.w_muzzle_brake_03_legendary_inline3
+
+Items.w_muzzle_brake_03_legendary.localizedDescription: WBVanillaPlus_VarkolakBabarogaT5_FlavourDesc
+
+# Aswang
+Items.w_muzzle_brake_05.statModifiers:
+  - !remove Items.w_muzzle_brake_05_inline2
+
+# Ifrit
+Items.w_muzzle_brake_06.statModifiers:
+  - !remove Items.w_muzzle_brake_06_inline16
