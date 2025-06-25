@@ -629,7 +629,28 @@ Items.Base_Tactician_Spread_Stats:
 
 #might increase range as well. IRL these kinds of shotties do still hit at range
 
+#Carnage
+# unlike the tactician, the carnage actually has a reload time that might allow you to reload during an engagement.
+# honestly this just feels wrong. dunno how to explain it. Especially considering it has a lower mag size
+# so considering it's bulky appearance and high damage, I think it wouldn't be wrong to nerf it's reload until a bit slower the tactician
+# this will also force it  to play a bit more like a tactician, but with shorter cycles which should still feel more... unplanned :D
 
+Items.Base_Carnage_Handling_Stats_inline0: #ReloadTimeBase
+  value: 1.7 #base 0.75
+
+Items.Base_Carnage_Handling_Stats_inline1: #EmptyReloadTime
+  value: 1.7 #base 1.5
+
+Items.Base_Carnage_Handling_Stats_inline2: #ReloadEndTimeBase 
+  value: 0.4 #base 0.75
+
+Items.Base_Carnage_Handling_Stats_inline3: #EmptyReloadEndTime
+  value: 0.9 #base 1.5
+
+#uhhhh
+Items.Base_Carnage:
+  baseEmptyReloadTime: 2.0 #base 1.5
+  baseReloadTime: 0.75 #base 0.75
 
 
 # #Palica
