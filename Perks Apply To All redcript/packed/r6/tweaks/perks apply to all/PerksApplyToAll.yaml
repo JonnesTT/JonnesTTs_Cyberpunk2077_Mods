@@ -276,7 +276,7 @@ NewPerks.CoolGunHeadshotWeakspotKillPrereq.nestedPrereqs:
 
 #milestone 4
 #master
-#nerves of tungsten steel
+#Nerves of Tungsten Steel
 NewPerks.Cool_Master_Perk_1:
   perkWeaponGroup: None
   requiresPerks: []
@@ -891,7 +891,7 @@ NewPerks.Reflexes_Master_Perk_2:
         statPools: []
         stats: []
       loc_name_key: ''
-      loc_desc_key: PatM_NewSubmachineFunLvl1_Desc
+      loc_desc_key: LocKey#PatM_NewSubmachineFunLvl1_Desc
       pointsCost: 0
       uiData:
         $type: gamedataNewPerkLevelUIData_Record
@@ -903,7 +903,8 @@ NewPerks.Reflexes_Master_Perk_2_inline4.nestedPrereqs:
     - !remove Prereqs.SMGHeldPrereq
     - !append-once Prereqs.RangedWeaponHeldPrereq
 
-NewPerks.Reflexes_Master_Perk_2_inline7.prereqRecord: Prereqs.RangedWeaponHeldPrereq
+NewPerks.Reflexes_Master_Perk_2_inline2.effectors:
+  - !remove NewPerks.Reflexes_Master_Perk_2_inline7
 
 
 #body
@@ -1142,7 +1143,7 @@ NewPerks.Body_Master_Perk_2:
       stats: []
     loc_name_key: ''
     pointsCost: 0      
-    loc_desc_key: PatM_NewOnslaughtLvL1_Desc
+    loc_desc_key: LocKey#PatM_NewOnslaughtLvL1_Desc
     uiData:
       $type: gamedataNewPerkLevelUIData_Record
       floatValues:

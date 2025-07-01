@@ -628,6 +628,30 @@ Items.Base_Tactician_Spread_Stats:
 
 
 #might increase range as well. IRL these kinds of shotties do still hit at range
+#update, am increasing range to give another standout quality against carnage
+
+Items.Base_Tactician_Constant_Stats:
+  statModifiers:
+    - !append
+      $type: gamedataConstantStatModifier_Record
+      value: 1.3
+      modifierType: AdditiveMultiplier
+      statType: BaseStats.EffectiveRange
+
+# headsman
+Items.Base_Tactician_Headsman_Constant_Stats_inline14: #EffectiveRange
+  value: 1.3 #base 0.025
+
+Items.Base_Tactician_Headsman_Constant_Stats_inline15: #EffectiveRange bonus per quality
+  value: 0.02 #base 0.025
+
+# krauser
+# now this one is meant to have a lower total range, so we'll want to increase it by proportionatly less
+# this mult should come out to the same proportional change (a total of x2)
+Items.Base_Tactician_Krausser_Constant_Stats_inline7: #EffectiveRange
+  value: 1.53318 #base 0.6666
+
+
 
 #Carnage
 # unlike the tactician, the carnage actually has a reload time that might allow you to reload during an engagement.
@@ -647,10 +671,13 @@ Items.Base_Carnage_Handling_Stats_inline2: #ReloadEndTimeBase
 Items.Base_Carnage_Handling_Stats_inline3: #EmptyReloadEndTime
   value: 0.9 #base 1.5
 
-#uhhhh
+#uhhhh?
 Items.Base_Carnage:
   baseEmptyReloadTime: 2.0 #base 1.5
   baseReloadTime: 0.75 #base 0.75
+
+Items.Base_Carnage_Damage_Stats_inline0.value: 87 #base 73
+# note all of these are inherited into variants
 
 
 # #Palica

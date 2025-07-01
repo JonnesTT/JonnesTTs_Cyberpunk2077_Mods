@@ -29,25 +29,32 @@ NewPerks.Cool_Right_Milestone_1_inline5:
 
 
 #milestone left 2 focus
+# swapped with Deadeye
 NewPerks.Cool_Left_Milestone_2:
   perkWeaponGroup: None
+  slot: NewPerks.Left_Milestone_3
+  tier: NewPerks.ExpertNewPerkTier
+  timeDilationStrength: 0.30
+  focusedStaminaCost: 20
+
+
+#Duplicate Declaration. Fun
+NewPerks.Cool_Left_Milestone_2_inline0:
+  floatValues:
+    - 2.0
+    - 30
+NewPerks.Cool_Left_Milestone_2_inline9:
+  floatValues:
+    - 2.0
+    - 30
+
 #lvl 1
 NewPerks.Cool_Left_Milestone_2_inline4.prereqRecord: Prereqs.RangedWeaponHeldPrereq
 
 #lvl 2
 #balance
-NewPerks.Cool_Left_Milestone_2:
-  timeDilationStrength: 0.30
-  focusedStaminaCost: 20
 
-NewPerks.Cool_Left_Milestone_2_inline0.floatValues:
-    - 2.0
-    - 30
-NewPerks.Cool_Left_Milestone_2_inline9.floatValues:
-    - 2.0
-    - 30
 
-#Duplicate Declaration. Fun
 
 BaseStatusEffect.FocusedCoolPerkSE_inline1:
   value: 2.0
@@ -70,8 +77,12 @@ NewPerks.CoolAttributeData.perks:
 
 
 #Head to Head
+# swapped with Long Shot
 NewPerks.Cool_Left_Perk_2_1:
   perkWeaponGroup: None
+  slot: NewPerks.Left_Perk_3_3
+  tier: NewPerks.ExpertNewPerkTier
+
 
 NewPerks.DeadlyFocusPrereq:
   nestedPrereqs:
@@ -82,6 +93,7 @@ NewPerks.DeadlyFocusPrereq:
 #rinse and reload
 NewPerks.Cool_Left_Perk_2_2:
   perkWeaponGroup: None
+  requiresPerks: []
 #effector 1 prereq record
 NewPerks.RelaxedPerkPrereq.nestedPrereqs:
     - !remove Prereqs.CoolPerksGunsHeldPrereq
@@ -90,8 +102,13 @@ NewPerks.RelaxedPerkPrereq.nestedPrereqs:
 BaseStatusEffect.RelaxedCoolPerkSE_inline6:
   prereqRecord: Prereqs.RangedWeaponHeldPrereq
 
+#Pull!
+# swapped with High Noon
 NewPerks.Cool_Left_Perk_2_3:
   perkWeaponGroup: None
+  slot: NewPerks.Left_Perk_3_2
+  tier: NewPerks.ExpertNewPerkTier
+
 
 #No Sweat
 #Replaced with Spice of Life
@@ -104,6 +121,7 @@ NewPerks.Cool_Left_Perk_2_4:
   levels:
     - NewPerks.Reflexes_Left_Perk_2_2_inline1
   staminaCostReduction: 20
+  requiresPerks: []
 
 NewPerks.Reflexes_Left_Perk_2_2_inline3:
   prereqRecord: Prereqs.RangedWeaponHeldPrereq
@@ -114,18 +132,17 @@ NewPerks.Reflexes_Left_Perk_2_2_inline7:
 BaseStatusEffect.Reflexes_Left_Perk_2_2_Swap_Buff_inline13:
   displayName: LocKey#87922
 
-#prior edits. Currently not needed
-# NewPerks.Cool_Left_Perk_2_4:
-#   perkWeaponGroup: Prereqs.RangedWeaponHeldPrereq
-
-# NewPerks.CalculatedShotsPrereq.nestedPrereqs:
-#   - !remove Prereqs.CoolPerksGunsHeldPrereq
-#   - !append-once Prereqs.RangedWeaponHeldPrereq
-
 
 # Deadeye
+# swapped with focus
 NewPerks.Cool_Left_Milestone_3:
   perkWeaponGroup: None
+  requiresPerks: []
+  slot: NewPerks.Left_Milestone_2
+  tier: NewPerks.AdeptNewPerkTier
+  levels:
+  - !remove NewPerks.Cool_Left_Milestone_3_inline8
+
 
 #lvl1
 NewPerks.Cool_Left_Milestone_3_inline4:
@@ -134,16 +151,124 @@ NewPerks.Cool_Left_Milestone_3_inline4:
 
 
 #lvl2
-#remove effector and apply bonus firerate SE when weapon is held
+# removed
+
+#lvl 3
+NewPerks.DeadeyePerkPrereq:
+  $type: gamedataMultiPrereq_Record
+  aggregationType: AND
+  prereqClassName: gameMultiPrereq
+  nestedPrereqs:
+    - Prereqs.RangedWeaponHeldPrereq
+    - NewPerks.DeadeyePerkPrereq_inline0
+    - NewPerks.DeadeyePerkPrereq_inline2
+
+NewPerks.DeadeyePerkPrereq_inline1: #stamina check
+  value: 90 #%
+
+#ui data
+NewPerks.Cool_Left_Milestone_3_inline18.floatValues:
+  - 90
+  - 20
+
+
+#removing dmg bonuses
+BaseStatusEffect.DeadeyeSE_inline0.effectors:
+  - !remove BaseStatusEffect.DeadeyeSE_inline10
+
+# ;-; not possible in tweaks
+# #set pellet count to 1
+
+
+
+
+
+#quick draw
+#moved to milestone 2 reflexes
+#Replaced with prior lvl 2 of Ready, Rested, Reloaded
+NewPerks.Cool_Left_Perk_3_1:
+  $type: gamedataNewPerk_Record
+  loc_desc_key: LocKey#87793
+  loc_name_key: LocKey#PatM_NewRRR
+  perkIcon: UIIcon.Reflexes_Left_Milestone_2
+  perkWeaponGroup: None
+  uiData: NewPerks.Reflexes_Left_Milestone_2_inline8
+  levels:
+    - NewPerks.Reflexes_Left_Milestone_2_inline7
+  requiresPerks: []
+
+
+# High Noon
+# swapped with Pull!
+NewPerks.Cool_Left_Perk_3_2:
+  perkWeaponGroup: None
+  slot: NewPerks.Left_Perk_2_3
+  tier: NewPerks.AdeptNewPerkTier
+  requiresPerks: []
+
+BaseStatusEffect.DeadeyeQuickReloadSE_inline4.prereqRecord: Prereqs.RangedWeaponHeldPrereq
+
+# Long Shot
+NewPerks.Cool_Left_Perk_3_3:
+  perkWeaponGroup: None
+  uiData:
+    $type: gamedataNewPerkLevelUIData_Record
+    floatValues:
+      - 50
+      - 100
+  slot: NewPerks.Left_Perk_2_1
+  tier: NewPerks.AdeptNewPerkTier
+  requiresPerks: []
+
+NewPerks.WildWestPerkPrereq.nestedPrereqs:
+  - Prereqs.RangedWeaponHeldPrereq
+
+NewPerks.Cool_Left_Perk_3_3_inline1.effectors:
+  - NewPerks.Cool_Master_Perk_1_inline4
+
+NewPerks.Cool_Master_Perk_1_inline4:
+  $type: gamedataEffector_Record
+  effectorClassName: ModifyDamageWithDistance
+  prereqRecord: NewPerks.ComposureMasterPerkPrereq
+  removeAfterActionCall: False
+  removeAfterPrereqCheck: False
+  statModifierGroups: []
+  operationType: Multiply
+  percentMult: 1.50
+  maxDistance: 100
+  minDistance: 30
+  improveWithDistance: True
+
+
+#california reaper
+NewPerks.Cool_Left_Perk_3_4:
+  perkWeaponGroup: None
+  requiresPerks: []
+
+NewPerks.CoolGunHeadshotWeakspotKillPrereq.nestedPrereqs:
+  - !remove Prereqs.CoolPerksGunsHeldPrereq
+  - !append-once Prereqs.RangedWeaponHeldPrereq
+
+
+#milestone 4
+#master
+#nerves of tungsten steel
+NewPerks.Cool_Master_Perk_1:
+  perkWeaponGroup: None
+  requiresPerks: []
+  levels:
+  - NewPerks.Cool_Left_Milestone_3_inline8
+  - NewPerks.Cool_Master_Perk_1_inline1
+
+
+#new lvl 1
 NewPerks.Cool_Left_Milestone_3_inline8:
   dataPackage: None
-
 
 #UI data
 NewPerks.Cool_Left_Milestone_3_inline9:
   floatValues:
     - 25
-
 
 PerksApplyToMore.Deadeye_CycleTimeBuff:
   $type: gamedataStatusEffect_Record
@@ -200,77 +325,6 @@ PerksApplyToMore.Deadeye_CycleTimeBuff:
           reapplyOnWeaponChange: False
 
 
-#lvl 3
-NewPerks.DeadeyePerkPrereq:
-  $type: gamedataMultiPrereq_Record
-  aggregationType: AND
-  prereqClassName: gameMultiPrereq
-  nestedPrereqs:
-    - Prereqs.RangedWeaponHeldPrereq
-    - NewPerks.DeadeyePerkPrereq_inline0
-    - NewPerks.DeadeyePerkPrereq_inline2
-
-
-#quick draw
-#moved to milestone 2 reflexes
-#Replaced with prior lvl 2 of Ready, Rested, Reloaded
-NewPerks.Cool_Left_Perk_3_1:
-  $type: gamedataNewPerk_Record
-  loc_desc_key: LocKey#87793
-  loc_name_key: LocKey#PatM_NewRRR
-  perkIcon: UIIcon.Reflexes_Left_Milestone_2
-  perkWeaponGroup: None
-  uiData: NewPerks.Reflexes_Left_Milestone_2_inline8
-  levels:
-    - NewPerks.Reflexes_Left_Milestone_2_inline7
-
-# High Noon
-NewPerks.Cool_Left_Perk_3_2.perkWeaponGroup: None
-
-BaseStatusEffect.DeadeyeQuickReloadSE_inline4.prereqRecord: Prereqs.RangedWeaponHeldPrereq
-
-# Long Shot
-NewPerks.Cool_Left_Perk_3_3:
-  perkWeaponGroup: None
-  uiData:
-    $type: gamedataNewPerkLevelUIData_Record
-    floatValues:
-      - 50
-      - 100
-
-NewPerks.WildWestPerkPrereq.nestedPrereqs:
-  - !remove Prereqs.CoolPerksGunsHeldPrereq
-  - !append-once Prereqs.RangedWeaponHeldPrereq
-
-NewPerks.Cool_Left_Perk_3_3_inline1.effectors:
-  - !append-once NewPerks.Cool_Master_Perk_1_inline4
-
-NewPerks.Cool_Master_Perk_1_inline4:
-  $type: gamedataEffector_Record
-  effectorClassName: ModifyDamageWithDistance
-  prereqRecord: NewPerks.ComposureMasterPerkPrereq
-  removeAfterActionCall: False
-  removeAfterPrereqCheck: False
-  statModifierGroups: []
-  operationType: Multiply
-  percentMult: 1.50
-  maxDistance: 100
-  minDistance: 30
-  improveWithDistance: True
-
-
-#callifornia reaper
-NewPerks.Cool_Left_Perk_3_4.perkWeaponGroup: None
-
-NewPerks.CoolGunHeadshotWeakspotKillPrereq.nestedPrereqs:
-  - !remove Prereqs.CoolPerksGunsHeldPrereq
-  - !append-once Prereqs.RangedWeaponHeldPrereq
-
-
-#milestone 4
-#master
-#nerves of tungsten steel
-NewPerks.Cool_Master_Perk_1.perkWeaponGroup: None
 
 # NewPerks.ComposureMasterPerkPrereq:
 #   nestedPrereqs:
@@ -339,12 +393,13 @@ NewPerks.Cool_Master_Perk_1_inline2.effectors:
   - !remove NewPerks.Cool_Master_Perk_1_inline4
 
 #Run 'n' Gun
-#replaced with salt in the wound
+#replaced with reworked salt in the wound, as "One, Two..."
 NewPerks.Cool_Master_Perk_2:
   loc_desc_key: LocKey#87823
   loc_name_key: LocKey#87784
   perkIcon: UIIcon.Assault_Area_05_Perk_1
   perkWeaponGroup: None
+  requiresPerks: []
   uiData:
     $type: gamedataNewPerkLevelUIData_Record
     floatValues:
@@ -352,6 +407,7 @@ NewPerks.Cool_Master_Perk_2:
       - 100
       - 30
   levels:
+    - NewPerks.Cool_Left_Milestone_2_inline1
     - $type: gamedataNewPerkLevelData_Record
       dataPackage:
         $type: gamedataGameplayLogicPackage_Record
@@ -398,6 +454,7 @@ NewPerks.Cool_Master_Perk_2:
       loc_desc_key: ''
       loc_name_key: ''
       pointsCost: 0
+
 
 
 
@@ -484,7 +541,7 @@ PerksApplyToMore.Reflexes_Left_Milestone_2_2:
     floatValues: []
 
 #sideperks left 2
-#spice of life
+# spice of life
 # replaced with quick draw. Name should remain the same though
 NewPerks.Reflexes_Left_Perk_2_2:
   loc_desc_key: LocKey#87921
@@ -493,6 +550,13 @@ NewPerks.Reflexes_Left_Perk_2_2:
   uiData: NewPerks.Cool_Left_Perk_3_1_inline0
   levels:
     - NewPerks.Cool_Left_Perk_3_1_inline1
+  requiresPerks: []
+
+NewPerks.Cool_Left_Perk_3_1_inline5: #EquipDuration
+  value: -0.15 #base -.3
+
+NewPerks.Cool_Left_Perk_3_1_inline6: #UnequipDuration
+  value: -0.15 #base -.3
 
 
 NewPerks.Cool_Left_Perk_3_1_inline3.prereqRecord: Prereqs.RangedWeaponHeldPrereq
@@ -503,13 +567,14 @@ NewPerks.Cool_Left_Perk_3_1_inline8:
   statPoolValue: 25
 
 NewPerks.Cool_Left_Perk_3_1_inline0.floatValues:
-  - 30
+  - 15
   - 15
 
 
 #mind over matter
 NewPerks.Reflexes_Left_Perk_2_3:
   perkWeaponGroup: None
+  requiresPerks: []
 
 NewPerks.Reflexes_Left_Perk_2_3_inline4:
   nestedPrereqs: 
@@ -520,16 +585,23 @@ NewPerks.Reflexes_Left_Perk_2_3_inline4:
 #Tunnel Vision
 NewPerks.Reflexes_Left_Perk_2_4:
   perkWeaponGroup: None
-  
+  requiresPerks: []
+
 NewPerks.Reflexes_Left_Perk_2_4_inline3:
   prereqRecord: Prereqs.RangedWeaponHeldPrereq
 
   
 #milestone 3
-NewPerks.Reflexes_Left_Milestone_3.perkWeaponGroup: None
+# sharpshooter
+NewPerks.Reflexes_Left_Milestone_3:
+  perkWeaponGroup: None
+  requiresPerks: []
+  levels:
+  - !remove NewPerks.Reflexes_Left_Milestone_3_inline0
+
 
 #lvl1
-NewPerks.Reflexes_Left_Milestone_3_inline3.prereqRecord: Prereqs.RangedWeaponHeldPrereq
+# moved to Reflexes Milestone 1 as lvl 1
 
 #lvl2
 NewPerks.Reflexes_Left_Milestone_3_inline11.prereqRecord: Prereqs.RangedWeaponHeldPrereq
@@ -554,7 +626,9 @@ NewPerks.Reflexes_Left_Milestone_3_inline20.floatValues:
 
 #sideperks left 3
 #gundancer
-NewPerks.Reflexes_Left_Perk_3_1.perkWeaponGroup: None
+NewPerks.Reflexes_Left_Perk_3_1:
+  perkWeaponGroup: None
+  requiresPerks: []
 
 NewPerks.Reflexes_Left_Perk_3_1_inline2:
   prereqRecord: Prereqs.RangedWeaponHeldPrereq
@@ -565,7 +639,9 @@ NewPerks.Reflexes_Left_Perk_3_1_inline6:
     - !append-once Prereqs.RangedWeaponHeldPrereq
 
 #spray and pray
-NewPerks.Reflexes_Left_Perk_3_2.perkWeaponGroup: None
+NewPerks.Reflexes_Left_Perk_3_2:
+  perkWeaponGroup: None
+  requiresPerks: []
 
 NewPerks.Reflexes_Left_Perk_3_2_inline4:
   nestedPrereqs:
@@ -594,7 +670,6 @@ BaseStatusEffect.Reflexes_Sharpshooter_Crit_Stack_inline8:
 NewPerks.Reflexes_Left_Perk_3_3_inline0.floatValues:
   - 6
 
-
 #shoot to chill
 NewPerks.Reflexes_Left_Perk_3_4:
   perkWeaponGroup: None
@@ -612,9 +687,81 @@ BaseStatusEffect.Reflexes_Sharpshooter_AP_Stack:
 #Salt in the wound
 #replaced with run 'n' gun
 
-# now question. CD or short duration?
+# question. CD or short duration?
 # want to a "move, shoot, move" pattern => no CD. This needs to form a continous loop
 # optimise duration to regen just enough stamina while shooting
+
+NewPerks.Reflexes_Left_Milestone_3_inline3.prereqRecord: Prereqs.RangedWeaponHeldPrereq
+
+
+NewPerks.Reflexes_Master_Perk_1:
+  loc_desc_key: LocKey#87953
+  loc_name_key: LocKey#87954
+  perkIcon: UIIcon.Cool_Master_Perk_2
+  perkWeaponGroup: None
+  uiData: NewPerks.Cool_Master_Perk_2_inline0
+  levels:
+    - NewPerks.Reflexes_Left_Milestone_3_inline0
+    - $type: gamedataNewPerkLevelData_Record
+      dataPackage:
+        $type: gamedataGameplayLogicPackage_Record
+        stackable: False
+        animationWrapperOverrides: []
+        effectors:
+          - $type: gamedataApplyStatusEffectEffector_Record
+            applicationTarget: Player
+            count: 1
+            instigator: ''
+            inverted: False
+            removeWithEffector: False
+            statusEffect: PerksApplyToMore.RunNGunBuff
+            useCountWhenRemoving: False
+            effectorClassName: ApplyStatusEffectEffector
+            prereqRecord: 
+              $type: gamedataMultiPrereq_Record
+              aggregationType: OR
+              prereqClassName: gameMultiPrereq
+              nestedPrereqs:
+                - $type: gamedataIPrereq_Record
+                  prereqClassName: DetailedLocomotionPSMPrereq
+                  stateName: Sprint
+                  previousState: True
+                  isInState: False
+                - $type: gamedataIPrereq_Record
+                  prereqClassName: DetailedLocomotionPSMPrereq
+                  stateName: Dodge
+                  isInState: True
+                  previousState: False
+                - $type: gamedataIPrereq_Record
+                  prereqClassName: DetailedLocomotionPSMPrereq
+                  stateName: DodgeAir
+                  previousState: False
+                  isInState: True
+                - $type: gamedataIPrereq_Record
+                  prereqClassName: DetailedLocomotionPSMPrereq
+                  stateName: Slide
+                  previousState: True
+                  isInState: False
+                - $type: gamedataIPrereq_Record
+                  prereqClassName: DetailedLocomotionPSMPrereq
+                  stateName: SlideFall
+                  previousState: True
+                  isInState: False
+                - $type: gamedataIPrereq_Record
+                  prereqClassName: DetailedLocomotionPSMPrereq
+                  stateName: CrouchSprint
+                  previousState: True
+                  isInState: False
+            removeAfterActionCall: False
+            removeAfterPrereqCheck: False
+            statModifierGroups: []
+        items: []
+        statPools: []
+        stats: []
+      loc_desc_key: ''
+      loc_name_key: ''
+      pointsCost: 0
+  requiresPerks: []
 
 PerksApplyToMore.RunNGunBuff:
   $type: gamedataStatusEffect_Record
@@ -692,109 +839,41 @@ NewPerks.Cool_Master_Perk_2_inline0:
   floatValues: []
   intValues: 
   - 2
-
-NewPerks.Reflexes_Master_Perk_1:
-  loc_desc_key: LocKey#87953
-  loc_name_key: LocKey#87954
-  perkIcon: UIIcon.Cool_Master_Perk_2
-  perkWeaponGroup: None
-  uiData: NewPerks.Cool_Master_Perk_2_inline0
-  levels:
-    - $type: gamedataNewPerkLevelData_Record
-      dataPackage:
-        $type: gamedataGameplayLogicPackage_Record
-        stackable: False
-        animationWrapperOverrides: []
-        effectors:
-          - $type: gamedataApplyStatusEffectEffector_Record
-            applicationTarget: Player
-            count: 1
-            instigator: ''
-            inverted: False
-            removeWithEffector: False
-            statusEffect: PerksApplyToMore.RunNGunBuff
-            useCountWhenRemoving: False
-            effectorClassName: ApplyStatusEffectEffector
-            prereqRecord: 
-              $type: gamedataMultiPrereq_Record
-              aggregationType: OR
-              prereqClassName: gameMultiPrereq
-              nestedPrereqs:
-                - $type: gamedataIPrereq_Record
-                  prereqClassName: DetailedLocomotionPSMPrereq
-                  stateName: Sprint
-                  previousState: True
-                  isInState: False
-                - $type: gamedataIPrereq_Record
-                  prereqClassName: DetailedLocomotionPSMPrereq
-                  stateName: Dodge
-                  isInState: True
-                  previousState: False
-                - $type: gamedataIPrereq_Record
-                  prereqClassName: DetailedLocomotionPSMPrereq
-                  stateName: DodgeAir
-                  previousState: False
-                  isInState: True
-                - $type: gamedataIPrereq_Record
-                  prereqClassName: DetailedLocomotionPSMPrereq
-                  stateName: Slide
-                  previousState: True
-                  isInState: False
-                - $type: gamedataIPrereq_Record
-                  prereqClassName: DetailedLocomotionPSMPrereq
-                  stateName: SlideFall
-                  previousState: True
-                  isInState: False
-                - $type: gamedataIPrereq_Record
-                  prereqClassName: DetailedLocomotionPSMPrereq
-                  stateName: CrouchSprint
-                  previousState: True
-                  isInState: False
-            removeAfterActionCall: False
-            removeAfterPrereqCheck: False
-            statModifierGroups: []
-        items: []
-        statPools: []
-        stats: []
-      loc_desc_key: ''
-      loc_name_key: ''
-      pointsCost: 0
-
   
 NewPerks.HandgunNotAimingPrereq:
   nestedPrereqs:
     - !remove Prereqs.HandgunHeldPrereq
     - !append-once Prereqs.RangedWeaponHeldPrereq
 
-# NewPerks.HandgunFocusedPrereq:
-#   $type: gamedataMultiPrereq_Record
-#   aggregationType: AND
-#   prereqClassName: gameMultiPrereq
-#   nestedPrereqs:
-#     - Prereqs.RangedWeaponHeldPrereq
-#     - PerksApplyToMore.RunNGunStaminaPrereq
-
-# PerksApplyToMore.RunNGunStaminaPrereq:
-#   $type: gamedataStatPoolPrereq_Record
-#   comparePercentage: True
-#   comparisonType: GreaterOrEqual
-#   listenConstantly: False
-#   skipOnApply: False
-#   statPoolType: Stamina
-#   prereqClassName: StatPoolPrereq
-#   valueToCheck:
-#     - !append-once
-#       $type: gamedataConstantStatModifier_Record
-#       value: 75
-#       modifierType: Additive
-#       statType: BaseStats.Stamina
 
 NewPerks.Cool_Master_Perk_2_inline0.floatValues:
   - 25
   - 75
 
 #submachine fun
-NewPerks.Reflexes_Master_Perk_2.perkWeaponGroup: None
+NewPerks.Reflexes_Master_Perk_2:
+  perkWeaponGroup: None
+  requiresPerks: []
+  NewPerks.Reflexes_Master_Perk_2:
+  levels:
+    - $type: gamedataNewPerkLevelData_Record
+      dataPackage: 
+        $type: gamedataGameplayLogicPackage_Record
+        stackable: False
+        animationWrapperOverrides: []
+        effectors:
+          - NewPerks.Cool_Left_Perk_3_1_inline3
+        items: []
+        statPools: []
+        stats: []
+      loc_name_key: ''
+      loc_desc_key: PatM_NewSubmachineFun_Desc
+      pointsCost: 0
+      uiData:
+        $type: gamedataNewPerkLevelUIData_Record
+        floatValues:
+          - 15
+    - NewPerks.Reflexes_Master_Perk_2_inline1
 
 NewPerks.Reflexes_Master_Perk_2_inline4.nestedPrereqs:
     - !remove Prereqs.SMGHeldPrereq
@@ -869,6 +948,7 @@ NewPerks.Body_Left_Milestone_2_inline8:
 #bullet ballet
 NewPerks.Body_Left_Perk_2_1:
   perkWeaponGroup: None
+  requiresPerks: []
 
 NewPerks.Body_Left_Perk_2_1_inline3:
   prereqRecord: Prereqs.RangedWeaponHeldPrereq
@@ -876,6 +956,7 @@ NewPerks.Body_Left_Perk_2_1_inline3:
 #Don't stop me now
 NewPerks.Body_Left_Perk_2_3:
   perkWeaponGroup: None
+  requiresPerks: []
   
 NewPerks.Body_Left_Perk_2_3_inline4:
   nestedPrereqs:
@@ -897,12 +978,17 @@ NewPerks.Body_Left_Perk_2_3_inline0:
 #Like a feather
 NewPerks.Body_Left_Perk_2_4:
   perkWeaponGroup: None
+  requiresPerks: []
 
 NewPerks.Body_Left_Perk_2_4_inline3:
   prereqRecord: Prereqs.RangedWeaponHeldPrereq
 
 #Spontaneous obliteration
-NewPerks.Body_Left_Milestone_3.perkWeaponGroup: None
+NewPerks.Body_Left_Milestone_3:
+  perkWeaponGroup: None
+  requiresPerks: []
+  levels:
+  - !remove NewPerks.Body_Left_Milestone_3_inline6
 
 #lvl1
 NewPerks.Body_Left_Milestone_3_inline3.prereqRecord: Prereqs.RangedWeaponHeldPrereq
@@ -929,6 +1015,7 @@ NewPerks.Body_Left_Perk_3_1_inline3.prereqRecord: Prereqs.RangedWeaponHeldPrereq
 #Skullcracker
 NewPerks.Body_Left_Perk_3_2: 
   perkWeaponGroup: None
+  requiresPerks: []
 
 NewPerks.Body_Left_Perk_3_2_inline3:
   prereqRecord: Prereqs.RangedWeaponHeldPrereq
@@ -967,6 +1054,10 @@ NewPerks.Body_Inbetween_Left_3_inline3:
 #Rip and Tear
 NewPerks.Body_Master_Perk_1:
   perkWeaponGroup: None
+  requiresPerks: []
+  levels:
+  - NewPerks.Body_Left_Milestone_3_inline6
+  - NewPerks.Body_Master_Perk_1_inline1
 
 NewPerks.Body_Master_Perk_1_inline3:
   prereqRecord: Prereqs.RangedWeaponHeldPrereq
@@ -991,7 +1082,49 @@ NewPerks.Body_Master_Perk_1_inline0:
 
 #Onslaught
 #potentially make this only trigger on quickmelee/low range kills to stop snipers from abusing it. Would be fun to go doomy.
-NewPerks.Body_Master_Perk_2.perkWeaponGroup: None
+NewPerks.Body_Master_Perk_2:
+  perkWeaponGroup: None
+  requiresPerks: []
+  levels:
+  - $type: gamedataNewPerkLevelData_Record
+    dataPackage: 
+      $type: gamedataGameplayLogicPackage_Record
+      stackable: False
+      animationWrapperOverrides: []
+      effectors:
+        - $type: gamedataApplyStatGroupEffector_Record
+          applicationTarget: Weapon
+          removeWithEffector: True
+          statGroup: 
+            $type: gamedataStatModifierGroup_Record
+            drawBasedOnStatType: False
+            optimiseCombinedModifiers: False
+            saveBasedOnStatType: False
+            statModsLimit: -1
+            relatedModifierGroups: []
+            statModifiers:
+              - $type: gamedataConstantStatModifier_Record
+                value: 15
+                modifierType: Additive
+                statType: BaseStats.CritDamage
+          effectorClassName: ApplyStatGroupEffector
+          prereqRecord: Prereqs.RangedWeaponHeldPrereq
+          removeAfterActionCall: False
+          removeAfterPrereqCheck: False
+          statModifierGroups: []
+          reapplyOnWeaponChange: False
+      items: []
+      statPools: []
+      stats: []
+    loc_name_key: ''
+    pointsCost: 0      
+    loc_desc_key: PatM_NewOnslaughtLvL1_Desc
+    uiData:
+      $type: gamedataNewPerkLevelUIData_Record
+      floatValues:
+        - 15
+  - NewPerks.Body_Master_Perk_2_inline1
+
 
 NewPerks.Body_Master_Perk_2_inline3:
   prereqRecord: Prereqs.RangedWeaponHeldPrereq
@@ -1011,35 +1144,27 @@ NewPerks.Body_Right_Milestone_2_inline1:
 
 NewPerks.Body_Right_Milestone_2_inline2:
   effectors:
-    - PerksApplyToMore.Body_Milestone_2_StatGroup
-
-PerksApplyToMore.Body_Milestone_2_StatGroup:
-  $type: gamedataApplyStatGroupEffector_Record
-  removeWithEffector: True
-  statGroup: Perks.IsPlayerSprinting
-  effectorClassName: ApplyStatGroupEffector
-  prereqRecord: PerksApplyToMore.Body_Milestone_2_ModifierRecord
-  removeAfterActionCall: False
-  removeAfterPrereqCheck: False
-  statModifierGroups: []
-
-
-PerksApplyToMore.Body_Milestone_2_ModifierRecord:
-  $type: gamedataStatModifierGroup_Record
-  drawBasedOnStatType: False
-  optimiseCombinedModifiers: False
-  saveBasedOnStatType: False
-  statModsLimit: -1
-  relatedModifierGroups: []
-  statModifiers:
-    - PerksApplyToMore.Body_Milestone_2_Modifier
+    - $type: gamedataApplyStatGroupEffector_Record
+      removeWithEffector: True
+      statGroup: Perks.IsPlayerSprinting
+      effectorClassName: ApplyStatGroupEffector
+      prereqRecord: 
+        $type: gamedataStatModifierGroup_Record
+        drawBasedOnStatType: False
+        optimiseCombinedModifiers: False
+        saveBasedOnStatType: False
+        statModsLimit: -1
+        relatedModifierGroups: []
+        statModifiers:
+          - $type: gamedataConstantStatModifier_Record
+            value: 0.15
+            modifierType: AdditiveMultiplier
+            statType: BaseStats.MaxSpeed
+      removeAfterActionCall: False
+      removeAfterPrereqCheck: False
+      statModifierGroups: []
 
 
-PerksApplyToMore.Body_Milestone_2_Modifier:
-  $type: gamedataConstantStatModifier_Record
-  value: 0.15
-  modifierType: AdditiveMultiplier
-  statType: BaseStats.MaxSpeed
 
 NewPerks.Body_Right_Milestone_2_inline13:
   prereqRecord: PerksApplyToMore.BladeOrBluntHeldPrereq
@@ -1162,7 +1287,7 @@ NewPerks.Body_Inbetween_Right_3:
   perkWeaponGroup: None
 
 #Breakthrough
-#moved up a level
+# moved up a level
 NewPerks.Body_Right_Perk_2_4:
   perkWeaponGroup: None
   slot: NewPerks.Right_Perk_3_3

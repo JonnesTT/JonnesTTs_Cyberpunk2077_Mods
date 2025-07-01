@@ -26,7 +26,8 @@ registerForEvent("onInit", function()
         end
         if not GameInstance.GetTimeSystem( ):IsTimeDilationActive( ) and ( self.weapon:IsRanged() or self.weapon:IsThrowable() ) then
           --apply focus
-          StatusEffectHelper.ApplyStatusEffect( Game.GetPlayer(), TweakDBID.new("BaseStatusEffect.FocusedCoolPerkSE") )
+          StatusEffectHelper.ApplyStatusEffect( 
+            , TweakDBID.new("BaseStatusEffect.FocusedCoolPerkSE") )
           -- apply Focus timeDilation
           Game.GetTimeSystem():SetTimeDilation( CName"focusedStatePerkDilation", 1.0-TweakDB:GetFlat("NewPerks.Cool_Left_Milestone_2.timeDilationStrength"), 12.0, "MeleeHitEaseIn", "MeleeHitEaseOut")
         end
@@ -34,7 +35,58 @@ registerForEvent("onInit", function()
     end  
     --   spdlog.info("AimingStateEvents;OnEnter finished running")
   end)
-  
+
+  Override("ReloadEvents", "OnEnter", function( self, stateContext, scriptInterface ) -- returns void
+		local reloadTime;
+		local weapon = self.GetWeaponObject( scriptInterface )
+		stateContext.SetPermanentBoolParameter( 'FinishedReload', false, true )
+		m_animReloadData.emptyReload = !( m_weaponHasAutoLoader ) && weapon.IsMagazineEmpty()
+		if not m_lastReloadWasEmpty == m_animReloadData.emptyReload then
+			m_lastReloadWasEmpty = m_animReloadData.emptyReload;
+			m_animReloadDataDirty = true;
+    end   
+		self.ShowAttackPreview( false, weapon, scriptInterface, stateContext );
+		self.m_uninteruptibleSet = false;
+		self.SetUninteruptibleReloadParams( stateContext, true );
+		if( self.m_animReloadData.emptyReload ) then
+			reloadTime = weapon.StartReload( self.m_animReloadData.emptyDuration );
+		else
+			reloadTime = weapon.StartReload( self.m_animReloadData.loopDuration );
+    end
+		self.SetBlackboardFloatVariable( scriptInterface, GetAllBlackboardDefs().PlayerStateMachine.LatestWeaponReloadTime, reloadTime );
+		self.RefreshReloadPermanentFloats( stateContext );
+		self.OnEnterNonChargeState( weapon, stateContext, scriptInterface );
+		self.EndShootingSequence( weapon, stateContext, scriptInterface );
+		scriptInterface.TEMP_WeaponStopFiring();
+		stateContext.SetConditionBoolParameter( 'ReloadInputPressed', false, true );
+		stateContext.SetTemporaryBoolParameter( 'InterruptAiming', true, true );
+		if!( m_canReloadWhileSprinting )
+			stateContext.SetTemporaryBoolParameter( 'InterruptSprint', true, true );
+    end
+		if(!( m_randomSync ) then
+			m_randomSync = new AnimFeature_SelectRandomAnimSync;
+			m_randomSync.value = -1;
+    end
+		m_randomSync.value = RandDifferent( m_randomSync.value, 3 );
+		if( m_randomSync ) then
+			scriptInterface.SetAnimationParameterFeature( 'RandomSync', m_randomSync );
+    end
+		if( StatusEffectSystem.ObjectHasStatusEffectWithTag( scriptInterface.executionOwner, 'DeadeyeQuickReloadSE' ) )
+
+			if( IsCoolFirearmWeaponType( WeaponObject.GetWeaponType( weapon.GetItemID() ) ) )
+				-- GameObjectEffectHelper.StartEffectEvent( scriptInterface.executionOwner, 'cool_perk_focused_state_fullscreen' );
+				self.m_isCoolPerkReload = true;
+				StatusEffectHelper.RemoveStatusEffect( scriptInterface.executionOwner, T"BaseStatusEffect.DeadeyeQuickReloadSE" );
+      end
+		end
+		ActivateReloadAnimData( stateContext, scriptInterface );
+		WeaponObject.TriggerWeaponEffects( weapon, gamedataFxAction.EnterReload );
+		SetBlackboardIntVariable( scriptInterface, GetAllBlackboardDefs().PlayerStateMachine.Weapon, ( ( Int32 )( gamePSMRangedWeaponStates.Reload ) ) );
+		WeaponTransistionRemoveWeaponTriggerEffects( GameInstance.GetAudioSystem( scriptInterface.owner.GetGame() ) );
+		GameInstance.GetAudioSystem( scriptInterface.owner.GetGame() ).AddTriggerEffectIfPlayerNotInVehicleDriverSeat( scriptInterface.executionOwner, 'te_off', 'PSM_ReloadOnEnter_OFF' );
+
+  end)
+
 
   ObserveAfter( "AimingStateEvents", "OnItemEquipped", function( self, slot, item )
     --   spdlog.info("AimingStateEvents;OnItemEquipped running")
@@ -55,7 +107,7 @@ registerForEvent("onInit", function()
       return
     end
     
-    local triggerModes = RPGManager.GetItemRecord( item ):TriggerModes( )
+    let triggerModes = RPGManager.GetItemRecord( item ):TriggerModes( )
     if not triggerModes then
       --   spdlog.info( "Item had no trigger modes" )
     end
@@ -162,7 +214,7 @@ registerForEvent("onInit", function()
   --   end
   -- end)
 
-  Override("StaminabarWidgetGameController", "OnFocusedCoolPerkActive", function(self, FocusPerkTriggerd) -- returns void
+  Override("StaminabarWidgetGameController", "OnFocusedCoolPerkActive", function(self, FocusPerkTriggerd) -- returns void no dumbass returns Bool because vent. I have no idea why :D
   end)
 
   Override("HitReactionComponent", "IsValidBodyPerkDismemberAttack", function(self, healthMissing) -- returns bool

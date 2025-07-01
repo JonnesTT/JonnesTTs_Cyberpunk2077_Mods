@@ -3,9 +3,9 @@
     "WolvenKitVersion": "8.16.1",
     "WKitJsonVersion": "0.0.9",
     "GameVersion": 2200,
-    "ExportedDateTime": "2025-06-27T18:25:05.9377667Z",
+    "ExportedDateTime": "2025-06-28T04:21:41.8775849Z",
     "DataType": "CR2W",
-    "ArchiveFileName": "D:\\Projects\\Modding Projects\\Cyberpunk 2077\\Project files\\Perks Apply To All CET\\source\\archive\\base\\localization\\en-us\\perksapplytoall.json"
+    "ArchiveFileName": "D:\\Projects\\Modding Projects\\Cyberpunk 2077\\Project files\\Perks Apply To All redcript\\source\\archive\\base\\localization\\en-us\\perksapplytoall.json"
   },
   "Data": {
     "Version": 195,
@@ -41,14 +41,14 @@
             },
             {
               "$type": "localizationPersistenceOnScreenEntry",
-              "femaleVariant": "While \u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003EDeadeye\u003C/\u003E is active, damage no longer falls off at large distances. Instead, \\n\u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003Edamage increases up to {float_0}%\u003C/\u003E (reached at {float_1} meters).",
+              "femaleVariant": "Damage no longer falls off at large distances. Instead, \\n\u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003Edamage increases up to {float_0}%\u003C/\u003E (reached at {float_1} meters).",
               "maleVariant": "",
               "primaryKey": "87925",
               "secondaryKey": "Gameplay-RPG-CharDev-New_Perks-Descriptions-Cool-Cool_Left_Perk_3_3"
             },
             {
               "$type": "localizationPersistenceOnScreenEntry",
-              "femaleVariant": "\u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003E-{float_0}% Firerate\u003C/\u003E for semi-automatic weapons.",
+              "femaleVariant": "\u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003E+{float_0}% Firerate\u003C/\u003E for semi-automatic weapons.",
               "maleVariant": "",
               "primaryKey": "89409",
               "secondaryKey": "Gameplay-RPG-CharDev-New_Perks-Descriptions-Cool-Cool_Left_Milestone_3_Level2"
@@ -181,7 +181,7 @@
             },
             {
               "$type": "localizationPersistenceOnScreenEntry",
-              "femaleVariant": "Swapping weapons is faster and automatically reloads them.\\n\\n\u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003E\u002B{float_0}% fire rate\u003C/\u003E after swapping. Normal reloading ends the effect.",
+              "femaleVariant": "Swapping weapons automatically reloads them.\\n\\n\u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003E\u002B{float_0}% fire rate\u003C/\u003E after swapping. Normal reloading ends the effect.",
               "maleVariant": "",
               "primaryKey": "87824",
               "secondaryKey": "Gameplay-RPG-CharDev-New_Perks-Descriptions-Reflexes-Reflexes_Master_Perk_2"
@@ -195,13 +195,6 @@
             },
             {
               "$type": "localizationPersistenceOnScreenEntry",
-              "femaleVariant": "\u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003EStamina regenerates faster\u003C/\u003E the less stamina you have left.",
-              "maleVariant": "",
-              "primaryKey": "0",
-              "secondaryKey": "PatM_Reflexes_Left_Milestone_2_2_desc"
-            },
-            {
-              "$type": "localizationPersistenceOnScreenEntry",
               "femaleVariant": "Weighted Vigor",
               "maleVariant": "",
               "primaryKey": "0",
@@ -209,7 +202,14 @@
             },
             {
               "$type": "localizationPersistenceOnScreenEntry",
-              "femaleVariant": "\u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003E\u002B{float_0}% weapon swap speed\u003C/\u003E",
+              "femaleVariant": "\u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003EStamina regenerates faster\u003C/\u003E the less stamina you have left.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "PatM_Reflexes_Left_Milestone_2_2_desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "\u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003E\u002B{float_0}% weapon swap speed\u003C/\u003E.",
               "maleVariant": "",
               "primaryKey": "0",
               "secondaryKey": "PatM_NewSubmachineFunLvl1_Desc"
@@ -223,24 +223,10 @@
             },
             {
               "$type": "localizationPersistenceOnScreenEntry",
-              "femaleVariant": "\u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003E\u002B{float_0}% reload speed\u003C/\u003E for your next reload after neutralizing an enemy via headshot or weakspot.\\nEffect available for {float_1} sec.\\n\u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003E.",
+              "femaleVariant": "\u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003E\u002B{float_0}% reload speed\u003C/\u003E for your next reload after neutralizing an enemy via headshot or weakspot.\\nEffect available for {float_1} sec.",
               "maleVariant": "",
               "primaryKey": "87924",
               "secondaryKey": "Gameplay-RPG-CharDev-New_Perks-Descriptions-Cool-Cool_Left_Perk_3_2"
-            },
-            {
-              "$type": "localizationPersistenceOnScreenEntry",
-              "femaleVariant": "Live Wire",
-              "maleVariant": "",
-              "primaryKey": "88137",
-              "secondaryKey": "Gameplay-RPG-CharDev-New_Perks-Names-Intelligence-Intelligence_Left_Perk_3_4"
-            },
-            {
-              "$type": "localizationPersistenceOnScreenEntry",
-              "femaleVariant": "The more quickhacks you have queued on an enemy, the more susceptible they are to Finishers.\\n\\nFinishers restore {float_1} RAM.",
-              "maleVariant": "",
-              "primaryKey": "88174",
-              "secondaryKey": "Gameplay-RPG-CharDev-New_Perks-Descriptions-Intelligence-Intelligence_Left_Perk_3_4"
             }
           ]
         }
