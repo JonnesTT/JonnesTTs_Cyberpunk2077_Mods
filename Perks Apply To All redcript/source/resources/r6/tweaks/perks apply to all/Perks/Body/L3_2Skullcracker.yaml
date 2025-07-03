@@ -1,0 +1,7 @@
+#Skullcracker
+NewPerks.Body_Left_Perk_3_2: 
+  perkWeaponGroup: None
+  requiresPerks: []
+
+NewPerks.Body_Left_Perk_3_2_inline3:
+  prereqRecord: Prereqs.RangedWeaponHeldPrereq

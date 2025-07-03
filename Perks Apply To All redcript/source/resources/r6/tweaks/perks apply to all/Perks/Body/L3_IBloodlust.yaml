@@ -1,0 +1,9 @@
+#Bloodlust
+# applies to all dismemberments => remove perk requirement
+NewPerks.Body_Inbetween_Left_3:
+  perkWeaponGroup: None
+  requiresPerks: []
+
+NewPerks.Body_Inbetween_Left_3_inline3:
+  prereqRecord: Prereqs.RangedWeaponHeldPrereq
+

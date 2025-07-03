@@ -1,0 +1,75 @@
+#milestone 3
+#Quake
+NewPerks.Body_Right_Milestone_3:
+  perkWeaponGroup: None
+  requiresPerks: [] 
+  levels:
+  - !remove NewPerks.Body_Right_Milestone_3_inline11
+
+
+#lvl1
+NewPerks.Body_Right_Milestone_3_inline4:
+  statModifiers:
+    - Items.GogKatanaWeaponMod_inline0
+
+NewPerks.Body_Right_Milestone_3_inline14:
+  prereqRecord: Prereqs.MeleeWeaponHeldPrereq
+
+# #lvl2
+# removed to conform to new skill tree style
+
+# NewPerks.Body_Right_Milestone_3_inline16:
+#   value: 0.100
+#   statType: BaseStats.AttackSpeed
+
+# PerksApplyToMore.Body_Right_Milestone_3_2:
+#   $type: gamedataEffector_Record
+#   effectorClassName: ModifyDamageEffector
+#   prereqRecord: Perks.IsWeaponMelee
+#   removeAfterActionCall: False
+#   removeAfterPrereqCheck: False
+#   statModifierGroups: []
+#   operationType: Multiply
+#   value: 1.1
+
+# NewPerks.Body_Right_Milestone_3_inline12.floatValues:
+#   - 10
+
+# NewPerks.Body_Right_Milestone_3_inline13.effectors: [PerksApplyToMore.Body_Right_Milestone_3_2]
+
+
+#LvL 3
+# mostly handled in script
+
+
+
+#Necesarry weapon changes
+Items.Base_Katana.attacks:
+  - !append-once TwoHandBluntAttacks.TwoHandBluntGroundSlamAttack
+
+Items.Base_Chainsword.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Base_One_Hand_Blade.attacks:  # only inherites into butchers knife for some reason
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+#apparently the machetes get their attacks after being split into 2 variant items
+Items.Base_Machete_Kukri.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+Items.Base_Machete_Borg.attacks:  
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+
+Items.Base_Knife.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+
+Items.Base_Axe.attacks:
+  - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack
+
+
+# may want to apply this to guns as well
+# this will need further edits to the script files
+# Items.Base_Weapon.attacks:
+#   - !append-once OneHandBluntAttacks.OneHandBluntGroundSlamAttack

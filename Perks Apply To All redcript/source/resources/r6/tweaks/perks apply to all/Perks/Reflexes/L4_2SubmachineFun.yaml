@@ -1,0 +1,62 @@
+#perk requirement removed: Not necessary
+NewPerks.Reflexes_Master_Perk_2:
+  perkWeaponGroup: None
+  requiresPerks: []
+  levels:
+    - PerksApplyToMore.Reflexes_Master_Perk_2_NewLvL1
+    - NewPerks.Reflexes_Master_Perk_2_inline1
+
+# New Level 1 based on Cool_Left_Perk_3_1 Quick Draw. No Inheritence Used.
+PerksApplyToMore.Reflexes_Master_Perk_2_NewLvL1:
+  $type: gamedataNewPerkLevelData_Record
+  dataPackage: 
+    $type: gamedataGameplayLogicPackage_Record
+    stackable: False
+    animationWrapperOverrides: []
+    effectors:
+      - $type: gamedataApplyStatGroupEffector_Record
+        applicationTarget: Weapon
+        removeWithEffector: True
+        statGroup: 
+          $type: gamedataStatModifierGroup_Record
+          drawBasedOnStatType: False
+          optimiseCombinedModifiers: False
+          saveBasedOnStatType: False
+          statModsLimit: -1
+          relatedModifierGroups: []
+          statModifiers:
+            - $type: gamedataConstantStatModifier_Record
+              value: -0.15
+              modifierType: AdditiveMultiplier
+              statType: BaseStats.EquipDuration
+            - $type: gamedataConstantStatModifier_Record
+              value: -0.15
+              modifierType: AdditiveMultiplier
+              statType: BaseStats.UnequipDuration
+        effectorClassName: ApplyStatGroupEffector
+        prereqRecord: Prereqs.RangedWeaponHeldPrereq
+        removeAfterActionCall: False
+        removeAfterPrereqCheck: False
+        statModifierGroups: []
+        reapplyOnWeaponChange: False
+    items: []
+    statPools: []
+    stats: []
+  loc_name_key: ''
+  loc_desc_key: LocKey#PatM_NewSubmachineFunLvl1_Desc
+  pointsCost: 0
+  uiData:
+    $type: gamedataNewPerkLevelUIData_Record
+    floatValues:
+      - 15
+
+
+# lvl2 PerkWeapon Prereqs replaced with Any Ranged Weapon
+NewPerks.Reflexes_Master_Perk_2_inline4.nestedPrereqs:
+    - !remove Prereqs.SMGHeldPrereq
+    - !append-once Prereqs.RangedWeaponHeldPrereq
+
+# secondary effector previously gave extra swap speed. 
+# Removed as it's now Lvl1
+NewPerks.Reflexes_Master_Perk_2_inline2.effectors:
+  - !remove NewPerks.Reflexes_Master_Perk_2_inline7

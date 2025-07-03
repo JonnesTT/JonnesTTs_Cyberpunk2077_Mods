@@ -1,0 +1,40 @@
+
+
+#Die! Die! Die!
+NewPerks.Body_Left_Milestone_2:
+  perkWeaponGroup: None
+
+#lvl 1
+
+NewPerks.Body_Left_Milestone_2_inline3.prereqRecord: Prereqs.RangedWeaponHeldPrereq
+
+
+#lvl 2 is lacking the stat modifiers, let's fix that
+NewPerks.Body_Left_Milestone_2_inline8:
+  effectors: 
+    - !remove NewPerks.Body_Left_Milestone_2_inline9
+    - !append-once
+      $type: gamedataApplyStatGroupEffector_Record
+      applicationTarget: Weapon
+      removeWithEffector: True
+      statGroup: 
+        $type: gamedataStatModifierGroup_Record
+        drawBasedOnStatType: False
+        optimiseCombinedModifiers: False
+        saveBasedOnStatType: False
+        statModsLimit: -1
+        relatedModifierGroups: []
+        statModifiers:
+          - $type: gamedataCombinedStatModifier_Record
+            opSymbol: '*(1-x)'
+            refObject: Player
+            refStat: BaseStats.StaminaRatio
+            value: 70
+            modifierType: Additive
+            statType: BaseStats.Handling
+      effectorClassName: ApplyStatGroupEffector
+      prereqRecord: Prereqs.RangedWeaponHeldPrereq
+      removeAfterActionCall: False
+      removeAfterPrereqCheck: False
+      statModifierGroups: []
+      reapplyOnWeaponChange: False

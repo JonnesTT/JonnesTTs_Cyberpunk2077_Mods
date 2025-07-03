@@ -1,0 +1,26 @@
+#Perk Requirements Kept: Necessary as it's an augment of Sharpshooter
+#Likely candidate for full rework
+#Perk Weapon Prereqs swapped for any ranged weapon
+
+NewPerks.Reflexes_Left_Perk_3_3.perkWeaponGroup: None
+
+NewPerks.Reflexes_Left_Perk_3_3_inline4.nestedPrereqs:
+  - !remove NewPerks.ReflexesWeaponTypePrereq
+  - !append-once Prereqs.RangedWeaponHeldPrereq
+
+#Status Effect max stacks and duration are inherited from Sharpshooters Status Effect. Edited in T3_0
+BaseStatusEffect.Reflexes_Sharpshooter_Crit_Stack:
+  duration: BaseStatusEffect.Reflexes_Sharpshooter_Stamina_Stack_inline9
+  maxStacks: BaseStatusEffect.Reflexes_Sharpshooter_Stamina_Stack_inline0
+
+#if I overbuff the Body tree I'll need to buff this tree too
+#Crit Chance/Stack
+BaseStatusEffect.Reflexes_Sharpshooter_Crit_Stack_inline7:
+  value: 6 #base 7
+
+#Crit Damage/Stack
+BaseStatusEffect.Reflexes_Sharpshooter_Crit_Stack_inline8:
+  value: 6 #base 7
+
+NewPerks.Reflexes_Left_Perk_3_3_inline0.floatValues:
+  - 6

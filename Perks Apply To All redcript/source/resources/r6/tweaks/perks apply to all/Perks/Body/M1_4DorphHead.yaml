@@ -1,0 +1,8 @@
+#Dorph-Head
+
+#cool idea, painfully overpowered thanks to biomon. We gotta nerf it sadly.
+BaseStatusEffect.Body_Central_Perk_1_4_MitigationBuff_inline3.value: 50
+
+NewPerks.Body_Central_Perk_1_4_inline0.floatValues:
+  - 50
+  - 2

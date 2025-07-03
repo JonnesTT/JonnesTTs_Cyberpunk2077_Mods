@@ -1,0 +1,13 @@
+#Flash and Thunderclap
+NewPerks.Reflexes_Inbetween_Right_2:
+  perkWeaponGroup: None
+  requiresPerks:
+  - NewPerks.Reflexes_Central_Perk_2_1
+  # - NewPerks.Reflexes_Right_Perk_2_2
+
+NewPerks.Reflexes_Inbetween_Right_2_inline3:
+  prereqRecord: Prereqs.MeleeWeaponHeldPrereq
+
+NewPerks.Reflexes_Inbetween_Right_2_inline8.nestedPrereqs:
+  - !remove Prereqs.BladeWeaponHeldPrereq
+  - !append-once Prereqs.MeleeWeaponHeldPrereq

@@ -1,0 +1,19 @@
+#Spontaneous Obliteration
+NewPerks.Body_Left_Milestone_3:
+  perkWeaponGroup: None
+  requiresPerks: []
+  levels:
+  - !remove NewPerks.Body_Left_Milestone_3_inline6
+
+#lvl1
+NewPerks.Body_Left_Milestone_3_inline3.prereqRecord: Prereqs.RangedWeaponHeldPrereq
+
+#lvl2
+#removed to fit with new perk tree style
+
+#lvl3
+# I definitely want to change how that one is implemented. 
+# Honestly have no clue how it works atm. does it add a discrete bonus of .05% per 1/4% health? Is there a contious equation? The DB looks much more like it adds a flat 0.05% bonus at all times.
+# Ok, so based on the scripts it adds up to 0.05% per Health lost and adds +.1 per defeat up to 9 times, removing all 9 stacks on dismemberment.
+
+NewPerks.Body_Left_Milestone_3_inline17.prereqRecord: Prereqs.RangedWeaponHeldPrereq

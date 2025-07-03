@@ -1,0 +1,47 @@
+
+
+# Deadeye
+# swapped with focus
+NewPerks.Cool_Left_Milestone_3:
+  perkWeaponGroup: None
+  requiresPerks: []
+  slot: NewPerks.Left_Milestone_2
+  tier: NewPerks.AdeptNewPerkTier
+  levels:
+  - !remove NewPerks.Cool_Left_Milestone_3_inline8
+
+
+#lvl1
+NewPerks.Cool_Left_Milestone_3_inline4:
+  prereqRecord: Prereqs.RangedWeaponHeldPrereq
+
+
+
+#lvl2
+# removed
+
+#lvl 3
+NewPerks.DeadeyePerkPrereq:
+  $type: gamedataMultiPrereq_Record
+  aggregationType: AND
+  prereqClassName: gameMultiPrereq
+  nestedPrereqs:
+    - Prereqs.RangedWeaponHeldPrereq
+    - NewPerks.DeadeyePerkPrereq_inline0
+    - NewPerks.DeadeyePerkPrereq_inline2
+
+NewPerks.DeadeyePerkPrereq_inline1: #stamina check
+  value: 90 #%
+
+#ui data
+NewPerks.Cool_Left_Milestone_3_inline18.floatValues:
+  - 90
+  - 20
+
+
+#removing dmg bonuses
+BaseStatusEffect.DeadeyeSE_inline0.effectors:
+  - !remove BaseStatusEffect.DeadeyeSE_inline10
+
+#set pellet count to 1
+# ;-; not possible in tweaks

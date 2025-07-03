@@ -313,9 +313,10 @@ private static func IsWreckingBallAllowed( const scriptInterface : ref<StateGame
   // boy whoever wrote that original check, respect but please make it easier on yourself next time.
   let executionOwner = scriptInterface.executionOwner;
   let isWreckingBallUnlocked : Bool = PlayerDevelopmentSystem.GetInstance( executionOwner ).IsNewPerkBought( executionOwner, gamedataNewPerkType.Body_Right_Milestone_2 ) >= 2;
-  let isWeaponMelee : Bool = WeaponObject.IsMelee( GameObject.GetActiveWeapon( executionOwner ).GetItemID() );
+  // let isWeaponMelee : Bool = WeaponObject.IsMelee( GameObject.GetActiveWeapon( executionOwner ).GetItemID() );
   let isStaminaEnough : Bool = scriptInterface.GetStatPoolsSystem().GetStatPoolValue( Cast<StatsObjectID>(executionOwner.GetEntityID()), gamedataStatPoolType.Stamina, true ) > 0.0;
-  return ( (isWreckingBallUnlocked && isWeaponMelee) && isStaminaEnough );
+  // pre 2.0 return ( (isWreckingBallUnlocked && isWeaponMelee) && isStaminaEnough );
+  return ( isWreckingBallUnlocked && isStaminaEnough );
 }
 
 // this the attack that plays on contact

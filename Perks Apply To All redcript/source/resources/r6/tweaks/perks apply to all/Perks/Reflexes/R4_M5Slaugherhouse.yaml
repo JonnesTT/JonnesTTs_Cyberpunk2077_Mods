@@ -1,0 +1,102 @@
+#Slaughterhouse
+
+#Got a new Lvl 1
+NewPerks.Reflexes_Master_Perk_5:
+  perkWeaponGroup: None
+  requiresPerks: []
+  levels: 
+  - $type: gamedataNewPerkLevelData_Record
+    dataPackage:
+      $type: gamedataGameplayLogicPackage_Record
+      stackable: False
+      animationWrapperOverrides: []
+      effectors:
+      - $type: gamedataApplyStatGroupEffector_Record
+        removeWithEffector: True
+        statGroup: 
+          $type: gamedataStatModifierGroup_Record
+          drawBasedOnStatType: False
+          optimiseCombinedModifiers: False
+          saveBasedOnStatType: False
+          statModsLimit: -1
+          relatedModifierGroups: []
+          statModifiers:
+            - $type: gamedataConstantStatModifier_Record
+              value: 0.25
+              modifierType: Additive
+              statType: BaseStats.BleedBonusDamage
+    loc_desc_key: LocKey#PerksApplyToMore-SlaughterhouseNewLvL1
+    loc_name_key: ''
+    pointsCost: 0
+    uiData: 
+      intValues: 
+        - 25
+  - NewPerks.Reflexes_Master_Perk_5_inline1
+
+NewPerks.Reflexes_Master_Perk_5_inline3:
+  prereqRecord: Prereqs.MeleeWeaponHeldPrereq
+
+
+
+#new LvL1
+
+#need a new base stat to calc the bonus
+BaseStats.BleedBonusDamage:
+  $type: gamedataStat_Record
+  canBeForcedByQuests: False
+  decimalPlaces: 2
+  displayPercent: False
+  displayPlus: True
+  enumComment: ''
+  enumName: BleedBonusDamage
+  improvementRelation: ImprovementRelation.Direct
+  inMeters: False
+  inSeconds: False
+  inSpeed: False
+  localizedDescription: ''
+  localizedName: LocKey#PerksApplyToMore-BleedBonusDamage
+  localizedStatDisplay: ''
+  max: -9999999
+  min: 9999999
+  multiplyBy100InText: False
+  roundValue: False
+  flags:
+    - EquipOnPlayer
+    - EquipOnNPC
+  substats: []
+  themes: []
+
+#need to calc the bonus
+
+
+# to do this cleanly we probably 
+BaseStatusEffect.Bleeding.packages:
+  - !append 
+    $type: gamedataGameplayLogicPackage_Record
+    stackable: False
+    UIData: None
+    animationWrapperOverrides: []
+    effectors:
+      - $type: gamedataModifyStatPoolValueEffector_Record
+        applicationTarget: Owner
+        setValue: False
+        usePercent: True
+        effectorClassName: ModifyStatPoolValueEffector
+        prereqRecord: 
+          $type: gamedataIPrereq_Record
+          prereqClassName: IsPlayerPrereq
+          invert: True
+        removeAfterActionCall: False
+        removeAfterPrereqCheck: False
+        statPoolUpdates:
+          - $type: gamedataCombinedStatModifier_Record
+            opSymbol: '*'
+            refObject: Player
+            refStat: BaseStats.BleedBonusDamage
+            value: 1
+            modifierType: Additive
+            statType: BaseStats.PhysicalDamage
+        statModifierGroups: []
+    items: []
+    statPools: []
+    stats: []

@@ -1,0 +1,4 @@
+#Fly Swatter
+#completely removed, no longer necessary
+NewPerks.BodyAttributeData.perks:
+  - !remove NewPerks.Body_Right_Perk_2_1

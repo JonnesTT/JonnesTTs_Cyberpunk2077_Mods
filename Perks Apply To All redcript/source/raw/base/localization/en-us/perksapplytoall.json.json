@@ -20,7 +20,7 @@
           "entries": [
             {
               "$type": "localizationPersistenceOnScreenEntry",
-              "femaleVariant": "\u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003E\u002B{float_0}% damage\u003C/\u003E when outside of Combat. Also provides a preview of estimated damage.",
+              "femaleVariant": "Provides a preview of estimated damage.",
               "maleVariant": "",
               "primaryKey": "87892",
               "secondaryKey": "Gameplay-RPG-CharDev-New_Perks-Descriptions-Cool-Cool_Right_Milestone_1"
@@ -31,6 +31,27 @@
               "maleVariant": "",
               "primaryKey": "87898",
               "secondaryKey": "Gameplay-RPG-CharDev-New_Perks-Descriptions-Cool-Cool_Left_Milestone_2_Level2"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "\u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003E\u002B{float_0}% reload speed\u003C/\u003E for your next reload after neutralizing an enemy.\\n\\nStacks {float_1} times. The stack resets whenever you reload.",
+              "maleVariant": "",
+              "primaryKey": "87902",
+              "secondaryKey": "Gameplay-RPG-CharDev-New_Perks-Descriptions-Cool-Cool_Left_Perk_2_2"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "\u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003E\u002B{float_0}% reload speed\u003C/\u003E.",
+              "maleVariant": "",
+              "primaryKey": "",
+              "secondaryKey": "PerksApplyToMore-Cool_Left_Perk_2_3-Desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Slick",
+              "maleVariant": "",
+              "primaryKey": "",
+              "secondaryKey": "PerksApplyToMore-Cool_Left_Perk_2_3-Name"
             },
             {
               "$type": "localizationPersistenceOnScreenEntry",
@@ -97,7 +118,7 @@
             },
             {
               "$type": "localizationPersistenceOnScreenEntry",
-              "femaleVariant": "\u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003E\u002B{float_0}% Sprint speed\u003C/\u003E",
+              "femaleVariant": "\u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003E\u002B{float_0}% Sprint speed\u003C/\u003E.",
               "maleVariant": "",
               "primaryKey": "89365",
               "secondaryKey": "Gameplay-RPG-CharDev-New_Perks-Descriptions-Body-Body_Right_Milestone_2_Level1"
@@ -129,6 +150,13 @@
               "maleVariant": "",
               "primaryKey": "89366",
               "secondaryKey": "Gameplay-RPG-CharDev-New_Perks-Descriptions-Body-Body_Right_Milestone_3_Level2"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "All attacks gain \u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003E\u002B+{float_0}% physical force\u003C/\u003E to knock back and knock down enemies more often.",
+              "maleVariant": "",
+              "primaryKey": "",
+              "secondaryKey": "PerksApplyToMore-Body_Master_Perk_5_NewLvL1"
             },
             {
               "$type": "localizationPersistenceOnScreenEntry",
@@ -227,6 +255,34 @@
               "maleVariant": "",
               "primaryKey": "87924",
               "secondaryKey": "Gameplay-RPG-CharDev-New_Perks-Descriptions-Cool-Cool_Left_Perk_3_2"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Unlocks a \u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003EUniversal Finisher\u003C/\u003E.\\n\\nPress \u003CInput context=\u0022InteractionActions\u0022 actionName=\u0022Choice1\u0022 color=\u0022MainColors.Blue\u0022 hold=\u0022Hide\u0022\u003E\u003C/\u003E.\\n\\nWhen their health is low, press \u003CInput context=\u0022InteractionActions\u0022 actionName=\u0022Choice1\u0022 color=\u0022MainColors.Blue\u0022 hold=\u0022Hide\u0022\u003E\u003C/\u003Eto pick up and \u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003Ethrow the enemy\u003C/\u003E, killing them and damaging other enemies where they land.\\n\\When another finisher is avalilble, you can activate Savge Sling by hold the button instead.",
+              "maleVariant": "",
+              "primaryKey": "88037",
+              "secondaryKey": "Gameplay-RPG-CharDev-New_Perks-Descriptions-Body-Body_Master_Perk_5"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Savage Sling",
+              "maleVariant": "",
+              "primaryKey": "88003",
+              "secondaryKey": "Gameplay-RPG-CharDev-New_Perks-Names-Body-Body_Master_Perk_5"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Bleed Bonus Damage",
+              "maleVariant": "",
+              "primaryKey": "",
+              "secondaryKey": "PerksApplyToMore-BleedBonusDamage"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "\u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003EBleeding\u003C/\u003E deals \u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003E{int_0}% more damage\u003C/\u003E to enemies.",
+              "maleVariant": "",
+              "primaryKey": "",
+              "secondaryKey": "PerksApplyToMore-SlaughterhouseNewLvL1"
             }
           ]
         }

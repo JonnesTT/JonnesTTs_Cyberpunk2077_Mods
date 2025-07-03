@@ -1,0 +1,7 @@
+NewPerks.Cool_Left_Perk_2_2_inline0:
+  $type: gamedataNewPerkLevelUIData_Record
+  floatValues:
+    - 10
+    - 2
+  intValues: []
+  nameValues: []

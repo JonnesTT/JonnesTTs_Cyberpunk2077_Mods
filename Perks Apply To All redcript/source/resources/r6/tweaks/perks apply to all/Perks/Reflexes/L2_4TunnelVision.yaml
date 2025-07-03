@@ -1,0 +1,9 @@
+
+#perk requirement removed: not necessary
+#weapon prereq set to ranged
+NewPerks.Reflexes_Left_Perk_2_4:
+  perkWeaponGroup: None
+  requiresPerks: []
+
+NewPerks.Reflexes_Left_Perk_2_4_inline3:
+  prereqRecord: Prereqs.RangedWeaponHeldPrereq

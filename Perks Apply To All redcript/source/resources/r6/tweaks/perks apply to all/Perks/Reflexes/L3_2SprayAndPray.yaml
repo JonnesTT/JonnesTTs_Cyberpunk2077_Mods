@@ -1,0 +1,10 @@
+#Perk Requirements Removed: Not Necessary
+#Perk Weapon Prereqs swapped for any ranged weapon
+NewPerks.Reflexes_Left_Perk_3_2:
+  perkWeaponGroup: None
+  requiresPerks: []
+
+NewPerks.Reflexes_Left_Perk_3_2_inline4:
+  nestedPrereqs:
+    - !remove Perks.RiflesAndSMGPrereq
+    - !append-once Prereqs.RangedWeaponHeldPrereq

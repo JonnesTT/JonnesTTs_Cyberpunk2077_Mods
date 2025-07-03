@@ -1,0 +1,12 @@
+#Killer Instinct
+NewPerks.Cool_Right_Milestone_1_inline3:
+  prereqRecord: 
+    $type: gamedataIPrereq_Record
+    prereqClassName: CombatPSMPrereq
+    stateName: InCombat
+    previousState: False
+    isInState: False
+  statGroup: None
+
+# NewPerks.Cool_Right_Milestone_1_inline5:
+#   statType: BaseStats.DamagePerHit

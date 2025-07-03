@@ -1,0 +1,8 @@
+#Rush of Blood
+# should apply to all dismemberments therefore remove perk requirement
+NewPerks.Body_Left_Perk_3_1:
+  perkWeaponGroup: None
+  requiresPerks: []
+
+NewPerks.Body_Left_Perk_3_1_inline3.prereqRecord: Prereqs.RangedWeaponHeldPrereq
+

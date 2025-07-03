@@ -1,0 +1,9 @@
+
+#Sideperks
+#bullet ballet
+NewPerks.Body_Left_Perk_2_1:
+  perkWeaponGroup: None
+  requiresPerks: []
+
+NewPerks.Body_Left_Perk_2_1_inline3:
+  prereqRecord: Prereqs.RangedWeaponHeldPrereq

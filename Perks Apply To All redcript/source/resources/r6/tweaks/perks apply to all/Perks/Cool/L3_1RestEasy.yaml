@@ -1,0 +1,21 @@
+#prior quick draw. effects moved to Reflexes_Left_Perk_2_2
+#Replaced with prior lvl 2 of Ready, Rested, Reloaded
+
+#have to inherit here because we're already inheriting the same perk in SpiceOfLife
+
+PerksApplyToMore.Cool_Left_Perk_3_1:
+  $base: NewPerks.Cool_Left_Perk_3_1
+  loc_desc_key: LocKey#87793
+  loc_name_key: LocKey#PatM_NewRRR
+  perkIcon: UIIcon.Reflexes_Left_Milestone_2
+  perkWeaponGroup: None
+  uiData: NewPerks.Reflexes_Left_Milestone_2_inline8
+  levels:
+    - NewPerks.Reflexes_Left_Milestone_2_inline7
+  requiresPerks: []
+
+
+NewPerks.CoolAttributeData:
+  perks:
+    - !remove NewPerks.Cool_Left_Perk_3_1
+    - !append PerksApplyToMore.Cool_Left_Perk_3_1

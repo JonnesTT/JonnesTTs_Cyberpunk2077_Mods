@@ -1,0 +1,146 @@
+#Milestone 3 Finisher: Bladerunner
+NewPerks.Reflexes_Right_Milestone_3:
+  levels:
+  # - NewPerks.Reflexes_Right_Milestone_3_inline0
+  - NewPerks.Reflexes_Right_Milestone_3_inline10
+  - NewPerks.Reflexes_Right_Milestone_3_inline16
+  perkWeaponGroup: None
+  requiresPerks: []
+
+
+#lvl1
+NewPerks.Reflexes_Right_Milestone_3_inline3:
+  statGroup: NewPerks.Reflexes_Right_Milestone_2_inline5
+
+NewPerks.Reflexes_Right_Milestone_3_inline0.loc_desc_key: LocKey#90272
+
+#lvl2
+NewPerks.Reflexes_Right_Milestone_3_inline13:
+  prereqRecord: Prereqs.MeleeWeaponHeldPrereq
+
+#lvl3
+#add all other base finishers here
+
+
+# modify hit conditions that turn strong attacks into finishers
+
+#new condition cuz we gonn use this a few times
+PerksApplyToAll.IsAttackMeleeCondition:
+  $type: gamedataHitPrereqCondition_Record
+  invert: False
+  onlyOncePerShot: False
+  type: Prereqs.WeaponType
+  weaponType: Melee
+
+#this mults strong attacks X3 if enemy is ready for finisher
+NewPerks.Reflexes_Right_Milestone_3_inline22.conditions:
+  - !remove NewPerks.Reflexes_Right_Milestone_3_inline24
+  - !append PerksApplyToAll.IsAttackMeleeCondition
+
+#this one adds hitflag "kill" to curcumvent dmg system and force a kill IF the enemy can be finisher-ed
+NewPerks.Reflexes_Right_Milestone_3_inline28.conditions:
+  - !remove NewPerks.Reflexes_Right_Milestone_3_inline30
+  - !append PerksApplyToAll.IsAttackMeleeCondition
+
+#inline33 handles force dismemberment. That should not apply to blunt weapons.
+# conclusion need to handle this differently. Likely best solution is to add that inline from each monowire and throwable if avalible
+
+#this one adds hitflag "FinisherTriggered" to the attack. if i read correctly this flag is used to init- the finisher animation as soon as the animation system can
+NewPerks.Reflexes_Right_Milestone_3_inline44.conditions:
+  - !remove NewPerks.Reflexes_Right_Milestone_3_inline46
+  - !append PerksApplyToAll.IsAttackMeleeCondition
+
+#this one adds hitflag "Special" to the attack. it should be used to protect the attack from being modified by other game functions
+NewPerks.Reflexes_Right_Milestone_3_inline50.conditions:
+  - !remove NewPerks.Reflexes_Right_Milestone_3_inline52
+  - !append PerksApplyToAll.IsAttackMeleeCondition
+
+#inline53 adds the stats for BladeFinishers
+#as I want the health regain on kill to be universal I pull it out of it's inline
+NewPerks.Reflexes_Right_Milestone_3_inline56.statModifiers:
+  - !remove NewPerks.Reflexes_Right_Milestone_3_inline57
+
+#and add it to the base record as always true
+NewPerks.Reflexes_Right_Milestone_3_inline53:
+  $type: gamedataApplyStatGroupEffector_Record
+  removeWithEffector: True
+  statGroup: 
+    $type: gamedataStatModifierGroup_Record
+    drawBasedOnStatType: False
+    optimiseCombinedModifiers: False
+    saveBasedOnStatType: False
+    statModsLimit: -1
+    relatedModifierGroups: []
+    statModifiers:
+      - NewPerks.Reflexes_Right_Milestone_3_inline57
+  effectorClassName: ApplyStatGroupEffector
+  prereqRecord: Prereqs.AlwaysTruePrereq
+  removeAfterActionCall: False
+  removeAfterPrereqCheck: False
+  statModifierGroups: []
+
+
+#now to add the finisher stats for other finishers
+
+
+
+
+NewPerks.Reflexes_Right_Milestone_3_inline18:
+  effectors:
+  - !append
+    $type: gamedataApplyStatGroupEffector_Record # blunt finisher available based on inline29 and 37. Created freshly to make sure we don't get any weird interaction
+    removeWithEffector: True
+    statGroup: 
+      $type: gamedataStatModifierGroup_Record
+      drawBasedOnStatType: False
+      optimiseCombinedModifiers: False
+      saveBasedOnStatType: False
+      statModsLimit: -1
+      relatedModifierGroups: []
+      statModifiers:
+        - NewPerks.Body_Master_Perk_5_inline34 #CanPerformBluntFinisher
+        - NewPerks.Body_Master_Perk_5_inline35 #TargetDistanceMax
+        # - NewPerks.Body_Master_Perk_5_inline41 #HealthThressholdIncrease #idk what this does but it's true everytime the rest is true.
+        # - NewPerks.Body_Master_Perk_5_inline36 #TargetHealthMax. is 20%
+        - $type: gamedataConstantStatModifier_Record #was weirdly coded. Replace!
+          value: 25
+          modifierType: Additive
+          statType: BaseStats.NewPerkFinisherBlunt_TargetHealthMax
+    effectorClassName: ApplyStatGroupEffector
+    prereqRecord: 
+    NewPerks.Body_Master_Perk_5_inline38:
+      $type: gamedataMultiPrereq_Record
+      aggregationType: AND
+      prereqClassName: gameMultiPrereq
+      nestedPrereqs:
+        - Prereqs.BluntWeaponHeldPrereq
+        - NewPerks.Body_Master_Perk_5_inline39 #Berserk Check
+    removeAfterActionCall: False
+    removeAfterPrereqCheck: False
+    statModifierGroups: []
+  - !append-once #blunt finisher available
+    $type: gamedataApplyStatGroupEffector_Record
+    removeWithEffector: True
+    statGroup: 
+      $type: gamedataStatModifierGroup_Record
+      drawBasedOnStatType: False
+      optimiseCombinedModifiers: False
+      saveBasedOnStatType: False
+      statModsLimit: -1
+      relatedModifierGroups: []
+      statModifiers:
+        # - NewPerks.Intelligence_Left_Perk_3_4_inline32 #Health Regain on Kill
+        - NewPerks.Intelligence_Left_Perk_3_4_inline33 #CanPerformMonowireFinisher
+        - NewPerks.Intelligence_Left_Perk_3_4_inline34 #TargetMaxDistance
+        - NewPerks.Intelligence_Left_Perk_3_4_inline35 #TargetMaxHealth
+        # - NewPerks.Intelligence_Left_Perk_3_4_inline36 #based on queue size. This should stay where it is.
+    effectorClassName: ApplyStatGroupEffector
+    prereqRecord: NewPerks.Intelligence_Left_Perk_3_4_inline29
+    removeAfterActionCall: False
+    removeAfterPrereqCheck: False
+    statModifierGroups: []
+    - NewPerks.Cool_Right_Perk_3_2_inline29 #adds throwable finishers
+
+
+
+
