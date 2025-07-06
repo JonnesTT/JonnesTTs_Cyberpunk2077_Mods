@@ -1,0 +1,39 @@
+# Pull! replaced with new custom perk "Slick"
+
+NewPerks.Cool_Left_Perk_3_2:
+  $type: gamedataNewPerk_Record
+  attribute: NewPerks.CoolAttributeData
+  binkPath: ''
+  category: NewPerks.SimpleNewPerkCategory
+  enumComment: Too cool for that
+  # enumName: Cool_Left_Perk_3_2
+  loc_desc_key: LocKey#PerksApplyToMore-Cool_Left_Perk_2_3-Slick-Desc
+  loc_name_key: LocKey#PerksApplyToMore-Cool_Left_Perk_2_3-Slick-Name
+  perkIcon: UIIcon.Gunslinger_Area_04_Perk_3 #likely want a custom icon
+  perkWeaponGroup: None
+  slot: NewPerks.Left_Perk_2_3
+  tier: NewPerks.AdeptNewPerkTier
+  levels:
+    - $type: gamedataNewPerkLevelData_Record
+      dataPackage: 
+        $type: gamedataGameplayLogicPackage_Record
+        stackable: False
+        animationWrapperOverrides: []
+        effectors: []
+        items: []
+        statPools: []
+        stats:
+          - $type: gamedataConstantStatModifier_Record
+            value: 0.2
+            modifierType: Additive
+            statType: BaseStats.ReloadSpeedPercentBonus
+      loc_desc_key: ''
+      loc_name_key: ''
+      pointsCost: 0
+  requiresPerks: []
+
+
+#UIData
+NewPerks.Cool_Left_Perk_3_2_inline0:
+  floatValues:
+    - 20

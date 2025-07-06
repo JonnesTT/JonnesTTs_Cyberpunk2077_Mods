@@ -1,0 +1,56 @@
+# Shoot to Chill
+#now provides stamina regen for each successful hit.
+#reuses the SE from Sharpshooter
+# this should allow players to quickly refuel on stamina IF they shoot enemies regularly
+
+NewPerks.Reflexes_Left_Perk_3_3:
+  perkWeaponGroup: None
+  requiresPerks: []
+  perkIcon: UIIcon.Reflexes_Left_Perk_3_4
+  loc_name_key: LocKey#87775 #name swapped with Reflexes 3_4 prior Shoot to Chill
+  loc_desc_key: LocKey#87811 #desc taken from Reflexes milestone 3 - sharpshooter
+  uiData: 
+    floatValues:
+    - 7 #per stack bonus
+    - 3 #duration
+    - 5 #num stacks
+
+BaseStatusEffect.Reflexes_Sharpshooter_Stamina_Stack_inline11:
+  displayName: LocKey#87775 #name taken with Reflexes 3_4 prior Shoot to Chill
+
+
+#se applicator
+NewPerks.Reflexes_Left_Perk_3_3_inline3:
+  statusEffect: BaseStatusEffect.Reflexes_Sharpshooter_Stamina_Stack
+
+#prereqs for SE applicator
+NewPerks.Reflexes_Left_Perk_3_3_inline4.nestedPrereqs:
+  - !remove NewPerks.ReflexesWeaponTypePrereq
+  - !append-once Prereqs.RangedWeaponHeldPrereq
+
+
+  
+#num max stacks
+BaseStatusEffect.Reflexes_Sharpshooter_Stamina_Stack_inline1:
+  value: 5 #base 7
+
+#Duration in Seconds
+BaseStatusEffect.Reflexes_Sharpshooter_Stamina_Stack_inline10:
+  value: 3 #base 2
+
+# #Regen Rate
+# #unmodified
+# BaseStatusEffect.Reflexes_Sharpshooter_Stamina_Stack_inline5: #StaminaRegenRateMult
+#   value: 0.0700000003 #base 0.07
+
+# #stamina regen delay
+# unmodified
+# BaseStatusEffect.Reflexes_Sharpshooter_Stamina_Stack_inline6: #StaminaRegenStartDelay
+#   value: -0.00999999978 #base 0.01
+
+
+
+BaseStatusEffect.Reflexes_Sharpshooter_Stamina_Stack_inline4.statModifiers:
+  - !remove BaseStatusEffect.Reflexes_Sharpshooter_Stamina_Stack_inline7
+  - !remove BaseStatusEffect.Reflexes_Sharpshooter_Stamina_Stack_inline8
+

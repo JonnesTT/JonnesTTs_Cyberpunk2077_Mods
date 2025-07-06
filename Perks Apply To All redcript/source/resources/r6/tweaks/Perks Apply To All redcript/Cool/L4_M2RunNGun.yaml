@@ -1,0 +1,64 @@
+
+
+#Run 'n' Gun
+#replaced with reworked salt in the wound, as "One, Two..."
+NewPerks.Cool_Master_Perk_2:
+  loc_desc_key: LocKey#87823
+  loc_name_key: LocKey#87784
+  perkIcon: UIIcon.Assault_Area_05_Perk_1
+  perkWeaponGroup: None
+  requiresPerks: []
+  uiData:
+    $type: gamedataNewPerkLevelUIData_Record
+    floatValues:
+      - 4
+      - 100
+      - 30
+  levels:
+    - NewPerks.Cool_Left_Milestone_2_inline1
+    - $type: gamedataNewPerkLevelData_Record
+      dataPackage:
+        $type: gamedataGameplayLogicPackage_Record
+        stackable: False
+        animationWrapperOverrides: []
+        effectors:
+        - $type: gamedataApplyEffectorEffector_Record
+          effectorToApply:
+            $type: gamedataEffector_Record
+            effectorClassName: ModifyDamageEffector
+            prereqRecord:
+              $type: gamedataHitPrereq_Record
+              callbackType: HitTriggered
+              ignoreSelfInflictedPressureWave: True
+              isSynchronous: True
+              pipelineStage: Process
+              pipelineType: Damage
+              prereqClassName: HitTriggeredPrereq
+              conditions:
+                - Perks.IsHitTargetAlive_inline0
+                - Perks.IsHitTargetAlive_inline1
+                - Perks.IsHitTargetAlive_inline2
+                - NewPerks.Reflexes_Master_Perk_1_inline7
+                - NewPerks.Reflexes_Master_Perk_1_inline8
+                - NewPerks.Reflexes_Master_Perk_1_inline9
+                - $type: gamedataHitPrereqCondition_Record
+                  invert: False
+                  onlyOncePerShot: True
+                  type: Prereqs.ConsecutiveHits
+                  consecutiveHitsRequired: 4
+                  timeOut: 30
+                  uniqueTarget: False 
+              processMiss: False
+            removeAfterActionCall: False
+            removeAfterPrereqCheck: False
+            statModifierGroups: []
+            operationType: Multiply
+            value: 2.0
+          effectorClassName: ApplyEffectorEffector
+          prereqRecord: Prereqs.RangedWeaponHeldPrereq
+          removeAfterActionCall: False
+          removeAfterPrereqCheck: False
+          statModifierGroups: []
+      loc_desc_key: ''
+      loc_name_key: ''
+      pointsCost: 0

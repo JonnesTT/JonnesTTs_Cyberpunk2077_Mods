@@ -34,7 +34,7 @@
             },
             {
               "$type": "localizationPersistenceOnScreenEntry",
-              "femaleVariant": "\u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003E\u002B{float_0}% reload speed\u003C/\u003E for your next reload after neutralizing an enemy.\\n\\nStacks {float_1} times. The stack resets whenever you reload.",
+              "femaleVariant": "\u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003E\u002B{float_0}% reload speed\u003C/\u003E for your next reload after neutralizing an enemy.\\n\\nStacks {float_1} times. The stack resets when you reload.",
               "maleVariant": "",
               "primaryKey": "87902",
               "secondaryKey": "Gameplay-RPG-CharDev-New_Perks-Descriptions-Cool-Cool_Left_Perk_2_2"
@@ -43,15 +43,15 @@
               "$type": "localizationPersistenceOnScreenEntry",
               "femaleVariant": "\u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003E\u002B{float_0}% reload speed\u003C/\u003E.",
               "maleVariant": "",
-              "primaryKey": "",
-              "secondaryKey": "PerksApplyToMore-Cool_Left_Perk_2_3-Desc"
+              "primaryKey": "0",
+              "secondaryKey": "PerksApplyToMore-Cool_Left_Perk_2_3-Slick-Desc"
             },
             {
               "$type": "localizationPersistenceOnScreenEntry",
               "femaleVariant": "Slick",
               "maleVariant": "",
-              "primaryKey": "",
-              "secondaryKey": "PerksApplyToMore-Cool_Left_Perk_2_3-Name"
+              "primaryKey": "0",
+              "secondaryKey": "PerksApplyToMore-Cool_Left_Perk_2_3-Slick-Name"
             },
             {
               "$type": "localizationPersistenceOnScreenEntry",
@@ -90,7 +90,7 @@
             },
             {
               "$type": "localizationPersistenceOnScreenEntry",
-              "femaleVariant": "Allows you to perform \u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003EFinishers from a greater distance\u003C/\u003E.\\n\\nEach hit with a thrown weapon also makes them more susceptible to Finishers.\\n\\nTo perform a Finisher, press \u003CInput context=\u0022InteractionActions\u0022 actionName=\u0022Choice1\u0022 color=\u0022MainColors.Blue\u0022 hold=\u0022Hide\u0022\u003E\u003C/\u003E when an enemy\u0027s Health is low.",
+              "femaleVariant": "Allows you to perform \u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003EFinishers from a greater distance\u003C/\u003E.\\n\\nEach hit with a thrown weapon also makes them more susceptible to Finishers.\\n\\nTo perform a Finisher.",
               "maleVariant": "",
               "primaryKey": "87939",
               "secondaryKey": "Gameplay-RPG-CharDev-New_Perks-Descriptions-Cool-Cool_Inbetween_Right_3"
@@ -155,8 +155,8 @@
               "$type": "localizationPersistenceOnScreenEntry",
               "femaleVariant": "All attacks gain \u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003E\u002B+{float_0}% physical force\u003C/\u003E to knock back and knock down enemies more often.",
               "maleVariant": "",
-              "primaryKey": "",
-              "secondaryKey": "PerksApplyToMore-Body_Master_Perk_5_NewLvL1"
+              "primaryKey": "0",
+              "secondaryKey": "PerksApplyToMore-Body_Master_Perk_5_-SavageSling-LvL1-Desc"
             },
             {
               "$type": "localizationPersistenceOnScreenEntry",
@@ -219,35 +219,56 @@
               "femaleVariant": "Rest Easy",
               "maleVariant": "",
               "primaryKey": "0",
-              "secondaryKey": "PatM_NewRRR"
+              "secondaryKey": "PerksApplyToMore-Cool_Left_Perk_3_1-RestEasy-name"
             },
             {
               "$type": "localizationPersistenceOnScreenEntry",
               "femaleVariant": "Weighted Vigor",
               "maleVariant": "",
               "primaryKey": "0",
-              "secondaryKey": "PatM_Reflexes_Left_Milestone_2_2_name"
+              "secondaryKey": "PerksApplyToMore-Reflexes_Left_Milestone_2-WeightedVigor-name"
             },
             {
               "$type": "localizationPersistenceOnScreenEntry",
               "femaleVariant": "\u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003EStamina regenerates faster\u003C/\u003E the less stamina you have left.",
               "maleVariant": "",
               "primaryKey": "0",
-              "secondaryKey": "PatM_Reflexes_Left_Milestone_2_2_desc"
+              "secondaryKey": "PerksApplyToMore-Reflexes_Left_Milestone_2-WeightedVigor-LvL2-desc"
             },
             {
               "$type": "localizationPersistenceOnScreenEntry",
               "femaleVariant": "\u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003E\u002B{float_0}% weapon swap speed\u003C/\u003E.",
               "maleVariant": "",
               "primaryKey": "0",
-              "secondaryKey": "PatM_NewSubmachineFunLvl1_Desc"
+              "secondaryKey": "PerksApplyToMore-Reflexes_Master_Perk_2-NewSubmachineFun-Lvl1-Desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Each missed shot grants a stack of \u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003EPractice Makes Perfect\u003C/\u003E.\\n\u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003E{float_0}% armor penetration\u003C/\u003E per stack.\\nStacks up to {int_0} times and lasts for {float_1} sec.\\n\\nNew stacks reset duration. All stacks are removed when duration ends.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "PerksApplyToMore-Reflexes_Left_3_4-PracticeMakesPerfect-Desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Each successful shot grants a stack of \u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003EShoot to Chill\u003C/\u003E.\\n\u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003E{float_0}% bonus to Stamina Regen Rate\u003C/\u003E per stack.\\nStacks up to {float_2} times and lasts for {float_1} sec.\\n\\nNew stacks reset duration. All stacks are removed when duration ends.",
+              "maleVariant": "",
+              "primaryKey": "87811",
+              "secondaryKey": "Gameplay-RPG-CharDev-New_Perks-Descriptions-Reflexes-Reflexes_Left_Milestone_3_Level3"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Each shot makes \u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003Eenemies bleed\u003C/\u003E for {float_0} sec. \\nStacks up to {int_0} times.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "PerksApplyToMore-Reflexes_Left_Milestone_3_Sharpshooter-LvL3-Desc"
             },
             {
               "$type": "localizationPersistenceOnScreenEntry",
               "femaleVariant": "\u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003E\u002B{float_0}% crit damage\u003C/\u003E",
               "maleVariant": "",
               "primaryKey": "0",
-              "secondaryKey": "PatM_NewOnslaughtLvL1_Desc"
+              "secondaryKey": "PerksApplyToMore-Body_Master_Perk_2-Onslaught-LvL1-Desc"
             },
             {
               "$type": "localizationPersistenceOnScreenEntry",
@@ -258,7 +279,7 @@
             },
             {
               "$type": "localizationPersistenceOnScreenEntry",
-              "femaleVariant": "Unlocks a \u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003EUniversal Finisher\u003C/\u003E.\\n\\nPress \u003CInput context=\u0022InteractionActions\u0022 actionName=\u0022Choice1\u0022 color=\u0022MainColors.Blue\u0022 hold=\u0022Hide\u0022\u003E\u003C/\u003E.\\n\\nWhen their health is low, press \u003CInput context=\u0022InteractionActions\u0022 actionName=\u0022Choice1\u0022 color=\u0022MainColors.Blue\u0022 hold=\u0022Hide\u0022\u003E\u003C/\u003Eto pick up and \u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003Ethrow the enemy\u003C/\u003E, killing them and damaging other enemies where they land.\\n\\When another finisher is avalilble, you can activate Savge Sling by hold the button instead.",
+              "femaleVariant": "Unlocks a \u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003EUniversal Finisher\u003C/\u003E.\\n\\nWhen their health is low, press \u003CInput context=\u0022InteractionActions\u0022 actionName=\u0022Choice1\u0022 color=\u0022MainColors.Blue\u0022 hold=\u0022Hide\u0022\u003E\u003C/\u003Eto pick up and \u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003Ethrow the enemy\u003C/\u003E, killing them and damaging other enemies where they land.\\n\\nWhen another finisher is avalilble, you can activate Savge Sling by holding \u003CInput context=\u0022InteractionActions\u0022 actionName=\u0022Choice1\u0022 color=\u0022MainColors.Blue\u0022 hold=\u0022Hide\u0022\u003E\u003C/\u003E instead.",
               "maleVariant": "",
               "primaryKey": "88037",
               "secondaryKey": "Gameplay-RPG-CharDev-New_Perks-Descriptions-Body-Body_Master_Perk_5"
@@ -274,15 +295,22 @@
               "$type": "localizationPersistenceOnScreenEntry",
               "femaleVariant": "Bleed Bonus Damage",
               "maleVariant": "",
-              "primaryKey": "",
-              "secondaryKey": "PerksApplyToMore-BleedBonusDamage"
+              "primaryKey": "0",
+              "secondaryKey": "PerksApplyToMore-BleedBonusDamage-Name"
             },
             {
               "$type": "localizationPersistenceOnScreenEntry",
               "femaleVariant": "\u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003EBleeding\u003C/\u003E deals \u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003E{int_0}% more damage\u003C/\u003E to enemies.",
               "maleVariant": "",
-              "primaryKey": "",
-              "secondaryKey": "PerksApplyToMore-SlaughterhouseNewLvL1"
+              "primaryKey": "0",
+              "secondaryKey": "PerksApplyToMore-Reflexes_Master_Perk_5-Slaughterhouse-LvL1-Desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "The more quickhacks you have queued on an enemy, the more susceptible they are to \u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003EFinishers\u003C/\u003E.\\n\\nFinishers also restore {float_0}% Health and {float_1} RAM.",
+              "maleVariant": "",
+              "primaryKey": "88174",
+              "secondaryKey": "Gameplay-RPG-CharDev-New_Perks-Descriptions-Intelligence-Intelligence_Left_Perk_3_4"
             }
           ]
         }

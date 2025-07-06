@@ -1,0 +1,8 @@
+#Like a feather
+NewPerks.Body_Left_Perk_2_4:
+  perkWeaponGroup: None
+  requiresPerks: []
+
+
+NewPerks.Body_Left_Perk_2_4_inline3:
+  prereqRecord: Prereqs.RangedWeaponHeldPrereq

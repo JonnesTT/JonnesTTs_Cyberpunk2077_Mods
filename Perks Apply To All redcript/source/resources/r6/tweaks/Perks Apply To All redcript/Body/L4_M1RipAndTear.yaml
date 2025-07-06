@@ -1,0 +1,39 @@
+
+
+#Rip and Tear
+NewPerks.Body_Master_Perk_1:
+  perkWeaponGroup: None
+  requiresPerks: []
+  levels:
+  - NewPerks.Body_Left_Milestone_3_inline6 #prior level2 of Spontaneous Obliteration
+  - NewPerks.Body_Master_Perk_1_inline1
+
+
+
+#new level 1
+NewPerks.Body_Left_Milestone_3_inline10.nestedPrereqs:
+  - !remove Perks.DemolitionPerkPrereq
+  - !append-once Prereqs.RangedWeaponHeldPrereq
+
+
+
+#level 2
+NewPerks.Body_Master_Perk_1_inline3:
+  prereqRecord: Prereqs.RangedWeaponHeldPrereq
+
+NewPerks.RipAndTearQuickmelee_Buff_inline5:
+  prereqRecord: Prereqs.RangedWeaponHeldPrereq
+
+NewPerks.Body_Master_Perk_1_inline10:
+  prereqRecord: Prereqs.RangedWeaponHeldPrereq
+  
+NewPerks.RipAndTearRanged_Buff_inline5:
+  prereqRecord: Prereqs.RangedWeaponHeldPrereq
+
+NewPerks.RipAndTearRanged_Buff_inline6:
+  value: 1.50
+
+NewPerks.Body_Master_Perk_1_inline0:
+  floatValues:
+    - 100
+    - 50

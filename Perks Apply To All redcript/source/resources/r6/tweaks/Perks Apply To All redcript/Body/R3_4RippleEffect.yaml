@@ -1,0 +1,8 @@
+#Ripple Effect
+
+#moved from inbetween slot to Right_Perk_3_4, requires T3 Milestone Quake
+NewPerks.Body_Inbetween_Right_3:
+  perkWeaponGroup: None
+  slot: NewPerks.Right_Perk_3_4
+  requiresPerks:
+  - NewPerks.Body_Right_Milestone_3

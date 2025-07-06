@@ -1,0 +1,32 @@
+
+# Long Shot
+# swapped with Head to Head to provide more free choices low on the tree
+NewPerks.Cool_Left_Perk_3_3:
+  perkWeaponGroup: None
+  uiData:
+    $type: gamedataNewPerkLevelUIData_Record
+    floatValues:
+      - 50
+      - 100
+  slot: NewPerks.Left_Perk_2_1
+  tier: NewPerks.AdeptNewPerkTier
+  requiresPerks: []
+
+NewPerks.WildWestPerkPrereq.nestedPrereqs:
+  - Prereqs.RangedWeaponHeldPrereq
+
+NewPerks.Cool_Left_Perk_3_3_inline1.effectors:
+  - NewPerks.Cool_Master_Perk_1_inline4
+
+NewPerks.Cool_Master_Perk_1_inline4:
+  $type: gamedataEffector_Record
+  effectorClassName: ModifyDamageWithDistance
+  prereqRecord: NewPerks.ComposureMasterPerkPrereq
+  removeAfterActionCall: False
+  removeAfterPrereqCheck: False
+  statModifierGroups: []
+  operationType: Multiply
+  percentMult: 1.50
+  maxDistance: 100
+  minDistance: 30
+  improveWithDistance: True

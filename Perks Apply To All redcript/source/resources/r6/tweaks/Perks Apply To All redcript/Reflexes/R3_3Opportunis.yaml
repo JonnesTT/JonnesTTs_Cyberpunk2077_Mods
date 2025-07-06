@@ -1,0 +1,8 @@
+#Opportunist. 
+NewPerks.Reflexes_Right_Perk_3_3:
+  perkWeaponGroup: None
+  requiresPerks: []
+
+NewPerks.Reflexes_Right_Perk_3_3_inline2:
+  prereqRecord: Prereqs.MeleeWeaponHeldPrereq
+

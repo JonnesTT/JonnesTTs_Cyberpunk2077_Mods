@@ -1,0 +1,57 @@
+# NewPerks.Intelligence_Left_Perk_3_4:
+  # loc_desc_key: LocKey#88174 #modified description
+
+
+#remove the stuff for strong attacks to trigger finishers
+NewPerks.Intelligence_Left_Perk_3_4_inline1.effectors:
+  - !remove NewPerks.Intelligence_Left_Perk_3_4_inline2
+  - !remove NewPerks.Intelligence_Left_Perk_3_4_inline8
+  - !remove NewPerks.Intelligence_Left_Perk_3_4_inline14
+  - !remove NewPerks.Intelligence_Left_Perk_3_4_inline22
+
+
+#prereq record of remaining thingi
+NewPerks.Intelligence_Left_Perk_3_4_inline29.nestedPrereqs:
+  - !remove Prereqs.NanoWiresHeldPrereq
+  - !append PerksApplyToMore.AnyFinisherUnlockedPrereq
+
+PerksApplyToMore.AnyFinisherUnlockedPrereq:
+  $type: gamedataMultiPrereq_Record
+  aggregationType: OR
+  prereqClassName: gameMultiPrereq
+  nestedPrereqs:
+    - PerksApplyToMore.RegularFinisherUnlockedPrereq
+    - PerksApplyToMore.NewSavageSlingFinisherUnlockedPrereq
+
+PerksApplyToMore.RegularFinisherUnlockedPrereq:
+  $type: gamedataPlayerIsNewPerkBoughtPrereq_Record
+  invert: false
+  level: 1
+  perkType: Reflexes_Right_Milestone_3
+  prereqClassName: PlayerIsNewPerkBoughtPrereq
+
+
+NewPerks.Intelligence_Left_Perk_3_4_inline31:
+  statModifiers:
+    - !remove NewPerks.Intelligence_Left_Perk_3_4_inline32
+    - !remove NewPerks.Intelligence_Left_Perk_3_4_inline33
+    - !remove NewPerks.Intelligence_Left_Perk_3_4_inline34
+    - !remove NewPerks.Intelligence_Left_Perk_3_4_inline35
+
+
+#and now we make it's ram regain universal
+BaseStatusEffect.Finisher_Healing_Buff_inline7:
+  prereqRecord: PerksApplyToMore.NewLiveWireAquiredPrereq
+  statPoolUpdates:
+    - BaseStatusEffect.Finisher_Healing_Buff_inline8
+  statModifierGroups: []
+
+
+
+#used in Takedown interactions
+PerksApplyToMore.NewLiveWireAquiredPrereq:
+  $type: gamedataPlayerIsNewPerkBoughtPrereq_Record
+  invert: False
+  level: 1
+  perkType: Intelligence_Left_Perk_3_4
+  prereqClassName: PlayerIsNewPerkBoughtPrereq

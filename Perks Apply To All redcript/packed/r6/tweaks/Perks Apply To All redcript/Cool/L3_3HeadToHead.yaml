@@ -1,0 +1,15 @@
+
+
+#Head to Head
+# swapped with Long Shot to provide more early choices
+NewPerks.Cool_Left_Perk_2_1:
+  perkWeaponGroup: None
+  slot: NewPerks.Left_Perk_3_3
+  tier: NewPerks.ExpertNewPerkTier
+
+
+NewPerks.DeadlyFocusPrereq:
+  nestedPrereqs:
+    - !remove Prereqs.CoolPerksGunsHeldPrereq
+    - !append-once Prereqs.RangedWeaponHeldPrereq
+

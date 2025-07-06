@@ -1,0 +1,22 @@
+#Clapback
+NewPerks.Body_Right_Perk_2_3:
+  perkWeaponGroup: None
+  requiresPerks: []
+
+NewPerks.Body_Right_Perk_2_3_inline3:
+  prereqRecord: Prereqs.MeleeWeaponHeldPrereq
+
+NewPerks.Body_Right_Perk_2_3_inline11:
+  prereqRecord: Prereqs.MeleeWeaponHeldPrereq
+
+
+#this one never checks whether it's on cooldown. It just always stuns. The knockdown is on CD though.
+NewPerks.Body_Right_Perk_2_3_inline16:
+  prereqRecord: Prereqs.MeleeWeaponHeldPrereq
+
+
+
+# #associated Cooldown SE
+# BaseStatusEffect.Body_Right_Perk_2_3_Cooldown_inline1: #MaxDuration
+#   value: 10
+# #unused but likely necessary to balance

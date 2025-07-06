@@ -1,0 +1,12 @@
+
+
+#Pull!
+# swapped with High Noon
+NewPerks.Cool_Left_Perk_2_3:
+  perkWeaponGroup: None
+  slot: NewPerks.Left_Perk_3_2
+  tier: NewPerks.ExpertNewPerkTier
+  # enumName: Cool_Left_Perk_2_3
+
+#removing this record will also break Cool_Left_Perk_2_3 Slick.
+# To prevent that, remove it's enum record

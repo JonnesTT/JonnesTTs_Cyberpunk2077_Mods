@@ -1,7 +1,11 @@
 AdjustableDetectionDistance\localization\en-us.json
+base\icons\perksapplytomoreicons_1080.xbm
+base\icons\perksapplytomoreicons_1080p.xbm
+base\icons\perksapplytomoreicons.xbm
 base\localization\en-us.json
 base\localization\en-us\onscreens\en-us.json
 base\localization\en-us\perksapplytoall.json
 base\localization\en-us\perksapplytomore.json
 ConfigurableTechandSmartTimers\localization\en-us.json
 LouderLocomotion\localization\en-us.json
+none

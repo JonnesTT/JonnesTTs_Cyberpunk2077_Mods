@@ -1,0 +1,8 @@
+#california reaper
+NewPerks.Cool_Left_Perk_3_4:
+  perkWeaponGroup: None
+  requiresPerks: []
+
+NewPerks.CoolGunHeadshotWeakspotKillPrereq.nestedPrereqs:
+  - !remove Prereqs.CoolPerksGunsHeldPrereq
+  - !append-once Prereqs.RangedWeaponHeldPrereq

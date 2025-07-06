@@ -1,0 +1,90 @@
+# Practice makes Perfect
+#rework goals -> buff inaccurate weapons + allow setup for one shot builds
+# -> solution armor pen per miss
+#Practice makes Perfect
+# prior: Shoot to Chill
+NewPerks.Reflexes_Left_Perk_3_4:
+  requiresPerks: []
+  perkWeaponGroup: None
+  loc_name_key: LocKey#91187 #name swapped with Left 3_3 Practice Makes Perfect
+  loc_desc_key: LocKey#PerksApplyToMore-Reflexes_Left_3_4-PracticeMakesPerfect-Desc
+  perkIcon: UIIcon.Assault_Area_07_Perk_2
+  uiData:
+    $type: gamedataNewPerkLevelUIData_Record
+    floatValues:
+      - 3 #armour pen ammount
+      - 5 #uptime of each stack
+    intValues: 
+      - 10 #num max stack
+    nameValues: []
+  
+
+
+NewPerks.Reflexes_Left_Perk_3_4_inline4:
+  nestedPrereqs:
+  - Prereqs.RangedWeaponHeldPrereq
+  - $type: gamedataHitPrereq_Record
+    callbackType: HitTriggered
+    ignoreSelfInflictedPressureWave: True
+    isSynchronous: True
+    pipelineStage: Process
+    pipelineType: Damage
+    prereqClassName: HitOrMissTriggeredPrereq
+    conditions: 
+    - $type: gamedataHitPrereqCondition_Record
+      type: 
+        $type: gamedataHitPrereqConditionType_Record
+        enumName: MissTriggeredPrereqCondition
+      invert: False
+      onlyOncePerShot: False 
+    processMiss: True
+
+
+BaseStatusEffect.Reflexes_Sharpshooter_AP_Stack:
+  duration:
+    $type: gamedataStatModifierGroup_Record
+    drawBasedOnStatType: False
+    optimiseCombinedModifiers: False
+    saveBasedOnStatType: False
+    statModsLimit: -1
+    relatedModifierGroups: []
+    statModifiers:
+      - $type: gamedataConstantStatModifier_Record
+        value: 5
+        modifierType: Additive
+        statType: BaseStats.MaxDuration
+  maxStacks:
+    $type: gamedataStatModifierGroup_Record
+    drawBasedOnStatType: False
+    optimiseCombinedModifiers: False
+    saveBasedOnStatType: False
+    statModsLimit: -1
+    relatedModifierGroups: []
+    statModifiers:
+      - $type: gamedataConstantStatModifier_Record
+        value: 10
+        modifierType: Additive
+        statType: BaseStats.MaxStacks
+  uiData:
+    $type: gamedataStatusEffectUIData_Record
+    description: ''
+    displayName: LocKey#91187
+    fluffText: ''
+    iconPath: PerksApplyToMore_PracticeMakesPerfectSE #idk feel free to tell me a better icon #seemingly don't exist.
+    priority: 6
+    floatValues: []
+    intValues: []
+    nameValues: []
+    stats: []
+
+
+BaseStatusEffect.Reflexes_Sharpshooter_AP_Stack_inline7: #CanWeaponIgnoreArmor amount per stack
+  value: 0.03 #base 0.04 aka 4%
+
+
+
+# custom icon record
+UIIcon.PerksApplyToMore_PracticeMakesPerfectSE:
+  $type: gamedataUIIcon_Record
+  atlasPartName: practice_makes_perfect_buff_icon
+  atlasResourcePath: base\icons\perksapplytomore_icons.inkatlas

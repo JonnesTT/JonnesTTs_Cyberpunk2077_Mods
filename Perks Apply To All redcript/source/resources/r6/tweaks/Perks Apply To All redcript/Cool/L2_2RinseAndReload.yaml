@@ -1,0 +1,37 @@
+#rinse and reload
+NewPerks.Cool_Left_Perk_2_2:
+  perkWeaponGroup: None
+  requiresPerks: []
+
+#effector 1 applies SE with bonus
+#prereq record of effector 1 
+NewPerks.RelaxedPerkPrereq.nestedPrereqs:
+    - !remove Prereqs.CoolPerksGunsHeldPrereq
+    - !append-once Prereqs.RangedWeaponHeldPrereq
+    - !remove Perks.PlayerIsAiming
+
+# effector 2 removes SE with bonus
+#effector 2 prereq record (hidden in the RelaxedCoolPerkSE)
+BaseStatusEffect.RelaxedCoolPerkSE_inline6:
+  prereqRecord: Prereqs.RangedWeaponHeldPrereq
+
+
+# balance wise
+# I want this to incentivise killing more enemies before reloading. Therefore, increase stack size 
+BaseStatusEffect.RelaxedCoolPerkSE_inline4: #MaxStacks
+  value: 5 #base: 2
+
+
+#should be human-noticable from 2 stacks onward and is a straight buff after 3
+BaseStatusEffect.RelaxedCoolPerkSE_inline8:
+  $type: gamedataConstantStatModifier_Record
+  value: -0.07 #base -0.10
+  modifierType: Additive
+  statType: BaseStats.ReloadTimeBonus
+
+
+NewPerks.Cool_Left_Perk_2_2_inline0:
+  $type: gamedataNewPerkLevelUIData_Record
+  floatValues:
+    - 7 #PerStackBonus
+    - 5 #MaxStacks

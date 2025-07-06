@@ -1,0 +1,170 @@
+
+#Gets a Pre-Level based on Reflexes Milestone 3 (Sharpshooter) Lvl 1 to fit new skilltree style
+#LvL2 replaced with reworked "Run 'n' Gun", based on Cool Master 2 "Run 'n' Gun" no inheritence used
+NewPerks.Reflexes_Master_Perk_1:
+  loc_desc_key: LocKey#87953
+  loc_name_key: LocKey#87954
+  perkIcon: UIIcon.Cool_Master_Perk_2
+  perkWeaponGroup: None
+  uiData: NewPerks.Cool_Master_Perk_2_inline0
+  levels:
+    - NewPerks.Reflexes_Left_Milestone_3_inline0
+    - PerksApplyToMore.NewReflexes_Left_Milestone_3_LvL2
+  requiresPerks: []
+
+#New Lvl1Prereq swapped from Perk Weapons to All Ranged
+NewPerks.Reflexes_Left_Milestone_3_inline3.prereqRecord: Prereqs.RangedWeaponHeldPrereq
+
+# design notes:
+# want to a "move, shoot, move" pattern => no CD. This needs to form a continous loop
+# => optimised duration to regen just enough stamina while shooting
+
+PerksApplyToMore.NewReflexes_Left_Milestone_3_LvL2:
+  $type: gamedataNewPerkLevelData_Record
+  dataPackage:
+    $type: gamedataGameplayLogicPackage_Record
+    stackable: False
+    animationWrapperOverrides: []
+    effectors:
+      - $type: gamedataApplyStatusEffectEffector_Record
+        applicationTarget: Player
+        count: 1
+        instigator: ''
+        inverted: False
+        removeWithEffector: False
+        statusEffect: PerksApplyToMore.RunNGunBuff
+        useCountWhenRemoving: False
+        effectorClassName: ApplyStatusEffectEffector
+        prereqRecord: 
+          $type: gamedataMultiPrereq_Record
+          aggregationType: OR
+          prereqClassName: gameMultiPrereq
+          nestedPrereqs:
+            - $type: gamedataIPrereq_Record
+              prereqClassName: DetailedLocomotionPSMPrereq
+              stateName: Sprint
+              previousState: True
+              isInState: False
+            - $type: gamedataIPrereq_Record
+              prereqClassName: DetailedLocomotionPSMPrereq
+              stateName: Dodge
+              isInState: True
+              previousState: False
+            - $type: gamedataIPrereq_Record
+              prereqClassName: DetailedLocomotionPSMPrereq
+              stateName: DodgeAir
+              previousState: False
+              isInState: True
+            - $type: gamedataIPrereq_Record
+              prereqClassName: DetailedLocomotionPSMPrereq
+              stateName: Slide
+              previousState: True
+              isInState: False
+            - $type: gamedataIPrereq_Record
+              prereqClassName: DetailedLocomotionPSMPrereq
+              stateName: SlideFall
+              previousState: True
+              isInState: False
+            - $type: gamedataIPrereq_Record
+              prereqClassName: DetailedLocomotionPSMPrereq
+              stateName: CrouchSprint
+              previousState: True
+              isInState: False
+        removeAfterActionCall: False
+        removeAfterPrereqCheck: False
+        statModifierGroups: []
+    items: []
+    statPools: []
+    stats: []
+  loc_desc_key: ''
+  loc_name_key: ''
+  pointsCost: 0
+
+
+#The applied buff.
+PerksApplyToMore.RunNGunBuff:
+  $type: gamedataStatusEffect_Record
+  duration: 
+    $type: gamedataStatModifierGroup_Record
+    drawBasedOnStatType: False
+    optimiseCombinedModifiers: False
+    saveBasedOnStatType: False
+    statModsLimit: -1
+    relatedModifierGroups: []
+    statModifiers:
+      - $type: gamedataConstantStatModifier_Record
+        value: 2.0
+        modifierType: Additive
+        statType: BaseStats.MaxDuration
+  dynamicDuration: False
+  isAffectedByTimeDilationNPC: True
+  isAffectedByTimeDilationPlayer: True
+  maxStacks: RTDB.StatusEffect_inline0
+  reapplyPackagesOnMaxStacks: True
+  removeAllStacksWhenDurationEnds: False
+  removeOnStoryTier: False
+  replicated: False
+  savable: True
+  statusEffectType: BaseStatusEffectTypes.Misc
+  stopActiveSfxOnDeactivate: True
+  uiData: 
+    $type: gamedataStatusEffectUIData_Record
+    description: ''
+    displayName: LocKey#87954
+    fluffText: ''
+    iconPath: perks_sensory_protocol
+    priority: 6
+    floatValues: []
+    intValues: []
+    nameValues: []
+    stats: []
+  debugTags: []
+  gameplayTags:
+    - Buff
+  immunityStats: []
+  packages:
+    - $type: gamedataGameplayLogicPackage_Record
+      stackable: False
+      animationWrapperOverrides: []
+      effectors:
+        - $type: gamedataApplyStatGroupEffector_Record
+          applicationTarget: Weapon
+          removeWithEffector: True
+          statGroup: 
+            $type: gamedataStatModifierGroup_Record
+            drawBasedOnStatType: False
+            optimiseCombinedModifiers: False
+            saveBasedOnStatType: False
+            statModsLimit: -1
+            relatedModifierGroups: []
+            statModifiers:
+              - $type: gamedataConstantStatModifier_Record
+                value: 5
+                modifierType: Additive
+                statType: BaseStats.StaminaCostReduction
+          effectorClassName: ApplyStatGroupEffector
+          prereqRecord: Prereqs.RangedWeaponHeldPrereq
+          removeAfterActionCall: False
+          removeAfterPrereqCheck: False
+          statModifierGroups: []
+          reapplyOnWeaponChange: False
+      items: []
+      statPools: []
+      stats: []
+  SFX: []
+  VFX: []
+
+#UIData
+#new description has new values
+NewPerks.Cool_Master_Perk_2_inline0:
+  floatValues: 
+  - 25
+  - 75
+  intValues: 
+  - 2
+  
+# unused. Test
+# NewPerks.HandgunNotAimingPrereq:
+#   nestedPrereqs:
+#     - !remove Prereqs.HandgunHeldPrereq
+#     - !append-once Prereqs.RangedWeaponHeldPrereq

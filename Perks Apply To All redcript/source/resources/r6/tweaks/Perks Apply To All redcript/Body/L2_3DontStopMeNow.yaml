@@ -1,0 +1,36 @@
+
+#Don't stop me now
+NewPerks.Body_Left_Perk_2_3:
+  perkWeaponGroup: None
+  requiresPerks: []
+
+  
+NewPerks.Body_Left_Perk_2_3_inline4:
+  nestedPrereqs:
+    - !remove Perks.DemolitionPerkPrereq
+    - !append-once Prereqs.RangedWeaponHeldPrereq
+
+#a slight buff to when it is active. I feel like I don't use it enough.
+NewPerks.Body_Left_Perk_2_3_inline5:
+  $type: gamedataStatPrereq_Record
+  comparisonType: LessOrEqual
+  notifyOnAnyChange: False
+  notifyOnlyOnStateFulfilled: False
+  objectToCheck: Owner
+  statType: StaminaRatio
+  valueToCheck: 0.5 #base 0.33
+  prereqClassName: StatPrereq
+  statModifiers: []
+
+
+NewPerks.Body_Left_Perk_2_3_inline7:
+  value: 25
+
+NewPerks.Body_Left_Perk_2_3_inline8:
+  value: 15
+
+NewPerks.Body_Left_Perk_2_3_inline0:
+  floatValues:
+  - 50 #stamina limit
+  - 25
+  - 15

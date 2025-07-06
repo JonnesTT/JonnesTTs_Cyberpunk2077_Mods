@@ -1,0 +1,32 @@
+# spice of life
+# replaced with Quick Draw.
+
+NewPerks.Reflexes_Left_Perk_2_2:
+  loc_desc_key: LocKey#87921
+  loc_name_key: LocKey#87759
+  perkWeaponGroup: None
+  uiData: NewPerks.Cool_Left_Perk_3_1_inline0
+  levels:
+    - NewPerks.Cool_Left_Perk_3_1_inline1
+  requiresPerks: []  
+
+
+NewPerks.Cool_Left_Perk_3_1_inline5: #EquipDuration
+  value: -0.15 #base -.3
+
+NewPerks.Cool_Left_Perk_3_1_inline6: #UnequipDuration
+  value: -0.15 #base -.3
+
+
+NewPerks.Cool_Left_Perk_3_1_inline3:
+  prereqRecord: Prereqs.RangedWeaponHeldPrereq
+
+NewPerks.Cool_Left_Perk_3_1_inline7:
+  prereqRecord: Prereqs.RangedWeaponHeldPrereq
+
+NewPerks.Cool_Left_Perk_3_1_inline8: #stamina regained
+  statPoolValue: 25 #base 50
+
+NewPerks.Cool_Left_Perk_3_1_inline0.floatValues:
+  - 15 #SwapSpeed
+  - 25 #Stamina Regained

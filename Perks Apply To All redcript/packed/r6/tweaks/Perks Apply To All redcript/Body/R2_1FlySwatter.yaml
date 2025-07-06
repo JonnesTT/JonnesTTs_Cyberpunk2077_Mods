@@ -1,0 +1,7 @@
+#Fly Swatter
+#completely removed, no longer necessary
+NewPerks.BodyAttributeData.perks:
+  - !remove NewPerks.Body_Right_Perk_2_1
+
+# NewPerks.Body_Right_Perk_2_1:
+#   enumName: None #used as reference from script files #freeing up space for potential new perks. Remove this action if this perks record is reused

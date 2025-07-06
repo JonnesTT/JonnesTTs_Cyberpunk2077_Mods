@@ -1,0 +1,21 @@
+
+
+#Close-Quarters Carnage
+#applies to all hits, doesn't just increase Spontaneous Obliteration ods => remove perk requirements
+NewPerks.Body_Left_Perk_3_4:
+  perkWeaponGroup: None
+  requiresPerks: []
+
+
+NewPerks.Body_Left_Perk_3_4_inline3.prereqRecord: Prereqs.RangedWeaponHeldPrereq
+
+
+# very minor buff
+# basically just raises chances for most common pellet counts to the next multiple of 10%.
+# 6 hits-> ≈50% from ≈47% 20 hits (only on guts) to ≈90% from ≈88%
+NewPerks.Body_Left_Perk_3_4_inline5: #ExecuteDismemberProximityChance
+  value: 0.11 #base 0.1
+
+#UI values
+NewPerks.Body_Left_Perk_3_4_inline0.floatValues:
+  - 11

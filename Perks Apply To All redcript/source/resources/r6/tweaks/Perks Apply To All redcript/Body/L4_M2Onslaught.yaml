@@ -1,0 +1,60 @@
+
+#Onslaught
+#potentially make this only trigger on quickmelee/low range kills to stop snipers from abusing it. Would be fun to go doomy.
+NewPerks.Body_Master_Perk_2:
+  perkWeaponGroup: None
+  requiresPerks: []
+  levels:
+  - PerksApplyToMore.NewOnslaughtLvL1
+  - NewPerks.Body_Master_Perk_2_inline1
+
+
+#lvl 1
+PerksApplyToMore.NewOnslaughtLvL1:
+  $type: gamedataNewPerkLevelData_Record
+  dataPackage: 
+    $type: gamedataGameplayLogicPackage_Record
+    stackable: False
+    animationWrapperOverrides: []
+    effectors:
+      - $type: gamedataApplyStatGroupEffector_Record
+        applicationTarget: Weapon
+        removeWithEffector: True
+        statGroup: 
+          $type: gamedataStatModifierGroup_Record
+          drawBasedOnStatType: False
+          optimiseCombinedModifiers: False
+          saveBasedOnStatType: False
+          statModsLimit: -1
+          relatedModifierGroups: []
+          statModifiers:
+            - $type: gamedataConstantStatModifier_Record
+              value: 15
+              modifierType: Additive
+              statType: BaseStats.CritDamage
+        effectorClassName: ApplyStatGroupEffector
+        prereqRecord: Prereqs.RangedWeaponHeldPrereq
+        removeAfterActionCall: False
+        removeAfterPrereqCheck: False
+        statModifierGroups: []
+        reapplyOnWeaponChange: False
+    items: []
+    statPools: []
+    stats: []    
+  loc_desc_key: LocKey#PerksApplyToMore-Body_Master_Perk_2-Onslaught-LvL1-Desc
+  loc_name_key: ''
+  pointsCost: 0
+  uiData:
+    $type: gamedataNewPerkLevelUIData_Record
+    floatValues:
+      - 15
+
+
+
+#lvl 2
+NewPerks.Body_Master_Perk_2_inline3:
+  prereqRecord: Prereqs.RangedWeaponHeldPrereq
+
+# want this to also apply to quickmelee kills
+NewPerks.Body_Master_Perk_2_inline5.conditions: #checks whether is not quickmelee
+  - !remove NewPerks.Body_Master_Perk_2_inline6

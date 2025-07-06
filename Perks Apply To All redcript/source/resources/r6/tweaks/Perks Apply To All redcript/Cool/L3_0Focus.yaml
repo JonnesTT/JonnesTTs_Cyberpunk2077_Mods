@@ -1,0 +1,42 @@
+
+#milestone left 2 
+# focus swapped for Deadeye
+NewPerks.Cool_Left_Milestone_2:
+  perkWeaponGroup: None
+  slot: NewPerks.Left_Milestone_3
+  tier: NewPerks.ExpertNewPerkTier
+  timeDilationStrength: 0.30
+  focusedStaminaCost: 20
+
+
+#Duplicate Declaration. Fun
+NewPerks.Cool_Left_Milestone_2_inline0:
+  floatValues:
+    - 2.0
+    - 30
+NewPerks.Cool_Left_Milestone_2_inline9:
+  floatValues:
+    - 2.0
+    - 30
+
+#lvl 1
+NewPerks.Cool_Left_Milestone_2_inline4.prereqRecord: Prereqs.RangedWeaponHeldPrereq
+
+#lvl 2
+#balance
+
+
+
+BaseStatusEffect.FocusedCoolPerkSE_inline1:
+  value: 2.0
+
+BaseStatusEffect.FocusedCoolPerkSE:
+  isAffectedByTimeDilationNPC: False
+  isAffectedByTimeDilationPlayer: False
+  gameplayTags:
+    - Buff
+    - TDEffect
+    - FocusedCoolPerkSE
+  packages: 
+    - !remove BaseStatusEffect.FocusedCoolPerkSE_inline3
+

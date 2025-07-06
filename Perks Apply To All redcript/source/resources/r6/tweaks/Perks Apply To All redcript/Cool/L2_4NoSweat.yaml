@@ -1,0 +1,25 @@
+
+#No Sweat
+
+#No longer necessary as head to head can be used to chain quickscopes, that is as long as you do have stamina for regular shots.
+#Replaced with Spice of Life. Name should remain the same though.
+
+
+NewPerks.Cool_Left_Perk_2_4:
+  loc_desc_key: LocKey#87794
+  perkIcon: UIIcon.Reflexes_Left_Perk_2_2
+  perkWeaponGroup: None
+  uiData: NewPerks.Reflexes_Left_Perk_2_2_inline0
+  levels:
+    - NewPerks.Reflexes_Left_Perk_2_2_inline1
+  requiresPerks: []
+  
+
+NewPerks.Reflexes_Left_Perk_2_2_inline3:
+  prereqRecord: Prereqs.RangedWeaponHeldPrereq
+
+NewPerks.Reflexes_Left_Perk_2_2_inline7:
+  prereqRecord: Prereqs.RangedWeaponHeldPrereq
+
+BaseStatusEffect.Reflexes_Left_Perk_2_2_Swap_Buff_inline13:
+  displayName: LocKey#87906

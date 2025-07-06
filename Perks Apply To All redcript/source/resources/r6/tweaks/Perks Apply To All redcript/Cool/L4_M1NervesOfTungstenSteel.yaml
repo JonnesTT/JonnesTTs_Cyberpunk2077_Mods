@@ -1,0 +1,133 @@
+
+#milestone 4
+#master
+#Nerves of Tungsten Steel
+NewPerks.Cool_Master_Perk_1:
+  perkWeaponGroup: None
+  requiresPerks: []
+  levels:
+  - NewPerks.Cool_Left_Milestone_3_inline8
+  - NewPerks.Cool_Master_Perk_1_inline1
+
+
+#new lvl 1
+#cycle time buff is applied in script files
+NewPerks.Cool_Left_Milestone_3_inline8:
+  dataPackage: None
+
+PerksApplyToMore.Deadeye_CycleTimeBuff:
+  $type: gamedataStatusEffect_Record
+  duration: BaseStats.InfiniteDuration
+  dynamicDuration: False
+  isAffectedByTimeDilationNPC: False
+  isAffectedByTimeDilationPlayer: False
+  maxStacks: 
+    $type: gamedataStatModifierGroup_Record
+    drawBasedOnStatType: False
+    optimiseCombinedModifiers: False
+    saveBasedOnStatType: False
+    statModsLimit: -1
+    statModifiers:
+      - !append-once
+        $type: gamedataConstantStatModifier_Record
+        value: 1
+        modifierType: Additive
+        statType: BaseStats.MaxStacks
+  reapplyPackagesOnMaxStacks: False
+  removeAllStacksWhenDurationEnds: False
+  removeOnStoryTier: False
+  replicated: False
+  savable: True
+  statusEffectType: BaseStatusEffectTypes.Misc
+  stopActiveSfxOnDeactivate: True
+  gameplayTags:
+    - Buff
+    - Deadeye_CycleTimeBuff
+  packages:
+    - !append-once
+      $type: gamedataGameplayLogicPackage_Record
+      stackable: False
+      effectors:
+        - !append-once
+          $type: gamedataApplyStatGroupEffector_Record
+          applicationTarget: Weapon
+          removeWithEffector: True
+          statGroup:   
+            $type: gamedataStatModifierGroup_Record
+            drawBasedOnStatType: False
+            optimiseCombinedModifiers: False
+            saveBasedOnStatType: False
+            statModsLimit: -1
+            statModifiers:
+            - !append-once
+              $type: gamedataConstantStatModifier_Record
+              value: -0.25
+              modifierType: Additive
+              statType: BaseStats.CycleTimeBonus
+          effectorClassName: ApplyStatGroupEffector
+          removeAfterActionCall: False
+          removeAfterPrereqCheck: False
+          reapplyOnWeaponChange: False
+
+
+#UI data
+NewPerks.Cool_Left_Milestone_3_inline9:
+  floatValues:
+    - 25
+
+
+NewPerks.Cool_Master_Perk_1_inline3:
+  prereqRecord: 
+    $type: gamedataMultiPrereq_Record
+    aggregationType: AND
+    prereqClassName: gameMultiPrereq
+    nestedPrereqs:
+      - Prereqs.RangedWeaponHeldPrereq
+      - $type: gamedataMultiPrereq_Record
+        aggregationType: OR
+        prereqClassName: gameMultiPrereq
+        nestedPrereqs:
+          - $type: gamedataHitPrereq_Record
+            callbackType: HitTriggered
+            ignoreSelfInflictedPressureWave: True
+            isSynchronous: True
+            pipelineStage: Process
+            pipelineType: All
+            prereqClassName: HitTriggeredPrereq
+            conditions:
+              - Perks.IsHitTargetAlive_inline0
+              - Perks.IsHitTargetAlive_inline1
+              - Perks.IsHitTargetAlive_inline2
+              - NewPerks.WeakspotOrHeadshotRangedHitPrereqAllowProjection_inline1
+              - NewPerks.WeakspotOrHeadshotRangedHitPrereqAllowProjection_inline2
+              - PerksApplyToMore.NotStealthHit
+            processMiss: False
+          - $type: gamedataHitPrereq_Record
+            callbackType: HitTriggered
+            ignoreSelfInflictedPressureWave: True
+            isSynchronous: True
+            pipelineStage: Process
+            pipelineType: All
+            prereqClassName: HitTriggeredPrereq
+            conditions:
+              - Perks.IsHitTargetAlive_inline0
+              - Perks.IsHitTargetAlive_inline1
+              - Perks.IsHitTargetAlive_inline2
+              - NewPerks.WeakspotOrHeadshotRangedHitPrereqAllowProjection_inline4
+              - NewPerks.WeakspotOrHeadshotRangedHitPrereqAllowProjection_inline5
+              - PerksApplyToMore.NotStealthHit
+            processMiss: False
+
+
+PerksApplyToMore.NotStealthHit:
+  $type: gamedataHitPrereqCondition_Record
+  invert: True
+  onlyOncePerShot: False
+  type: Prereqs.HitFlag
+  hitFlag: StealthHit
+  invertHitFlag: False
+
+
+#so apparently this also gave extra damage based on distance (up to +25% on +35m)
+NewPerks.Cool_Master_Perk_1_inline2.effectors:
+  - !remove NewPerks.Cool_Master_Perk_1_inline4
