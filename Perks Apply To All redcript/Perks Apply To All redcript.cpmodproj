@@ -5,8 +5,4 @@
   <Author>JonnesTT</Author>
   <Email />
   <Version>1.0.0</Version>
-  <OpenProjectFiles>base\gameplay\gui\common\icons\abilities_tooltips_icons.inkatlas</OpenProjectFiles>
-  <OpenProjectFiles>base\gameplay\gui\widgets\healthbar\atlas_buffinfo.inkatlas</OpenProjectFiles>
-  <OpenProjectFiles>base\icons\perksapplytomoreicons.inkatlas</OpenProjectFiles>
-  <OpenProjectFiles>base\icons\perksapplytomore_icons.inkatlas</OpenProjectFiles>
 </CP77Mod>

@@ -20,15 +20,13 @@ public class MissTriggeredPrereqCondition extends BaseHitPrereqCondition
 private func CreateHitCondition( record : ref<HitPrereqCondition_Record> ) -> ref<BaseHitPrereqCondition>
 {
 	let condition : ref<BaseHitPrereqCondition>;
-	let typeName : CName;
-	typeName = record.Type().EnumName();
-	if ( Equals(typeName, n"MissTriggeredPrereqCondition") )
+	if ( Equals(record.Type().EnumName(), n"MissTriggeredPrereqCondition") )
 	{
 		// LogChannel(n"DEBUG", "Generated new MissTriggeredPrereqCondition");
 		condition = new MissTriggeredPrereqCondition();
 		return condition;
 	}
-	wrappedMethod(record);
+	return wrappedMethod(record);
 }
 
 

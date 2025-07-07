@@ -25,11 +25,10 @@ NewPerks.Reflexes_Left_Perk_3_3_inline3:
 
 #prereqs for SE applicator
 NewPerks.Reflexes_Left_Perk_3_3_inline4.nestedPrereqs:
-  - !remove NewPerks.ReflexesWeaponTypePrereq
-  - !append-once Prereqs.RangedWeaponHeldPrereq
+  - Prereqs.RangedWeaponHeldPrereq
+  - PerksApplyToMore.IsRangedOrSharpshooterBleedHitPrereq
 
 
-  
 #num max stacks
 BaseStatusEffect.Reflexes_Sharpshooter_Stamina_Stack_inline1:
   value: 5 #base 7

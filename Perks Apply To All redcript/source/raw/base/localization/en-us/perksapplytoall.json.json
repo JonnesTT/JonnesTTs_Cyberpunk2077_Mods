@@ -195,6 +195,13 @@
             },
             {
               "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Unlocks \u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003EMelee Finishers\u003C/\u003E.\\n\\nTo activate Press \u003CInput context=\u0022InteractionActions\u0022 actionName=\u0022Choice1\u0022 color=\u0022MainColors.Blue\u0022 hold=\u0022Hide\u0022\u003E\u003C/\u003E when an enemy\u0027s Health is low.\\n\\nAll finishers restore {float_0}% Health.",
+              "maleVariant": "",
+              "primaryKey": "87819",
+              "secondaryKey": "Gameplay-RPG-CharDev-New_Perks-Descriptions-Reflexes-Reflexes_Right_Milestone_3_Level3"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
               "femaleVariant": "\u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003EEach {float_0}th hit deals {float_1}% bonus damage.\u003C/\u003E\nThe count resets after {float_2} seconds.",
               "maleVariant": "",
               "primaryKey": "87823",
@@ -258,7 +265,7 @@
             },
             {
               "$type": "localizationPersistenceOnScreenEntry",
-              "femaleVariant": "Each shot makes \u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003Eenemies bleed\u003C/\u003E for {float_0} sec. \\nStacks up to {int_0} times.",
+              "femaleVariant": "Each shot makes \u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003Eenemies bleed\u003C/\u003E for {float_0} sec.\\nThis bleed activates any perk effect usually requiring bullets to hit.\\nStacks up to {int_0} times.",
               "maleVariant": "",
               "primaryKey": "0",
               "secondaryKey": "PerksApplyToMore-Reflexes_Left_Milestone_3_Sharpshooter-LvL3-Desc"
@@ -276,6 +283,13 @@
               "maleVariant": "",
               "primaryKey": "87924",
               "secondaryKey": "Gameplay-RPG-CharDev-New_Perks-Descriptions-Cool-Cool_Left_Perk_3_2"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Your guns have\u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003Eno bullet spread\u003C/\u003E above {float_0}% Stamina",
+              "maleVariant": "",
+              "primaryKey": "87920",
+              "secondaryKey": "Gameplay-RPG-CharDev-New_Perks-Descriptions-Cool-Cool_Left_Milestone_3_Level3"
             },
             {
               "$type": "localizationPersistenceOnScreenEntry",

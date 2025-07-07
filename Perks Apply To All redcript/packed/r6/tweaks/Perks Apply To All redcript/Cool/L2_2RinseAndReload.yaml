@@ -7,8 +7,9 @@ NewPerks.Cool_Left_Perk_2_2:
 #prereq record of effector 1 
 NewPerks.RelaxedPerkPrereq.nestedPrereqs:
     - !remove Prereqs.CoolPerksGunsHeldPrereq
-    - !append-once Prereqs.RangedWeaponHeldPrereq
-    - !remove Perks.PlayerIsAiming
+    - !append Prereqs.RangedWeaponHeldPrereq
+    - !remove Perks.PlayerIsAiming #no longer requires aiming
+
 
 # effector 2 removes SE with bonus
 #effector 2 prereq record (hidden in the RelaxedCoolPerkSE)
