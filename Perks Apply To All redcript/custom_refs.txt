@@ -1,5 +1,6 @@
 AdjustableDetectionDistance\localization\en-us.json
 base\icons\perksapplytomore_icons_1080.xbm
+base\icons\perksapplytomore_icons.inkatlas
 base\icons\perksapplytomore_icons.xbm
 base\icons\perksapplytomoreicons_1080.xbm
 base\icons\perksapplytomoreicons_1080p.xbm
