@@ -1,2 +1,5 @@
+# exported files
 *.zip
-*.py
+
+# tool, specifically the one to generate inkatlases
+generate_inkatlas.py
