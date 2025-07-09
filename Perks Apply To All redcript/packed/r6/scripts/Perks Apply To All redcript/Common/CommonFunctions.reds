@@ -8,5 +8,5 @@ public func IsSavageSlingUnlocked(player : ref<GameObject>) -> Bool
 
 public func IsSharpshooterBleed(attackData : ref<AttackData>) -> Bool
 {
-  return attackData.attackDefinition.GetRecord().GetID() == t"PerksApplyToMore.SharpshooterBleed_Attack";
+  return attackData.attackDefinition.GetRecord().GetID() == t"PerksApplyToMore.SharpshooterBleed_Ticker";
 }

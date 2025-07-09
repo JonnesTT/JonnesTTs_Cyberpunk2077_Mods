@@ -1,0 +1,106 @@
+PerksApplyToMore.SharpshooterBleedDuration:
+    - $type: gamedataConstantStatModifier_Record
+      value: 3 # short duration forces to start shooting again soon rather than rely on DOT alone
+      modifierType: Additive
+      statType: BaseStats.MaxDuration
+
+
+# I don't want this to scew too hard to fast firing weapons (which already benefit more from on-hits)
+# -> keep the ticker uncoupled from stack count
+# -> second status effect with 0 or 1 damage should still activate ticker. +++ Test this!
+
+PerksApplyToMore.SharpshooterBleed:
+  $base: BaseStatusEffect.Bleeding
+  duration: 
+    $base: BaseStatusEffect.Bleeding_inline1
+    statModifiers:
+      - PerksApplyToMore.SharpshooterBleedDuration #base duration seperate because reused
+      - BaseStatusEffect.Bleeding_inline3 #duration increase per +bleed duration the player has 1 to 1
+  maxStacks: 
+    $type: gamedataStatModifierGroup_Record
+    drawBasedOnStatType: False
+    optimiseCombinedModifiers: False
+    saveBasedOnStatType: False
+    statModsLimit: -1
+    relatedModifierGroups: []
+    statModifiers:
+      - $type: gamedataConstantStatModifier_Record
+        value: 5 # stack count >1 to incentivise multi-hit weapons. Keep it low though to help most with semi auto/slow firing weapons
+        modifierType: Additive
+        statType: BaseStats.MaxStacks
+  packages:
+    - $base: BaseStatusEffect.Bleeding_inline5
+      effectors:
+        - $base: BaseStatusEffect.Bleeding_inline8
+          attackRecord:   
+            $base: Attacks.PhysicalDamageOverTime
+            statModifiers:
+              - !remove Attacks.PhysicalDamageOverTime_inline0
+              - !append 
+                $type: gamedataConstantStatModifier_Record
+                value: 0.02 #"very low" is at 0.01, base at 0.04. high 0.08. (all on a 0.5 tick) As we're stacking 5x and want this to be a STRONG bleed I assume max 10%/second may be a lot
+                modifierType: Multiplier
+                statType: BaseStats.PhysicalDamage
+      stats:
+        - BaseStatusEffect.Bleeding_inline6 #speed reduction
+        - BaseStatusEffect.Bleeding_inline7 #prevents enemy sprinting on regular enemies
+    - $type: gamedataGameplayLogicPackage_Record #this is the on-hit ticker
+      stackable: False #makes sure it doesn't increase with stack count
+      animationWrapperOverrides: []
+      effectors:
+        - $type: gamedataContinuousAttackEffector_Record
+          attackRecord: PerksApplyToMore.SharpshooterBleed_Ticker #attack has to be named record, script checks
+          delayTime: 0.5 # how often it activates onhits
+          timeDilationDriver: Effectors.TDD_World
+          effectorClassName: TriggerContinuousAttackEffector
+          prereqRecord: Prereqs.AlwaysTruePrereq
+          removeAfterActionCall: False
+          removeAfterPrereqCheck: False
+          statModifierGroups: []
+      stats: []
+
+
+
+#need to define attack record individually so I can target it for scripted checks
+# check is IsSharpshooterBleed() in r6\scripts\Perks Apply To All redcript\CommonFunctions.reds
+PerksApplyToMore.SharpshooterBleed_Ticker:
+  $base: Attacks.PhysicalDamageOverTime
+  statModifiers:
+    - $type: gamedataConstantStatModifier_Record
+      value: 0.0
+      modifierType: Multiplier
+      statType: BaseStats.PhysicalDamage
+
+
+          
+
+
+
+#prototype unfinished Want to try an unstackable effector first
+# PerksApplyToMore.SharpshooterBleed_OnHitTicker:
+#   $base: BaseStatusEffect.Bleeding
+#   duration: 
+#     $base: BaseStatusEffect.Bleeding_inline1
+#     statModifiers:
+#     - PerksApplyToMore.SharpshooterBleedDuration #base duration seperate because reused
+#     - BaseStatusEffect.Bleeding_inline3 #duration increase per +bleed duration the player has 1 to 1
+#   packages:
+#     - $base: BaseStatusEffect.Bleeding_inline5
+#       stackable: True
+#       animationWrapperOverrides: []
+#       effectors:
+#         - BaseStatusEffect.Bleeding_inline8:
+#           $type: gamedataContinuousAttackEffector_Record
+#           attackRecord: Attacks.PhysicalDamageOverTime
+#           delayTime: 0.5 # how often on-hits trigger
+#           timeDilationDriver: Effectors.TDD_World
+#           effectorClassName: TriggerContinuousAttackEffector
+#           prereqRecord: Prereqs.AlwaysTruePrereq
+#           removeAfterActionCall: False
+#           removeAfterPrereqCheck: False
+#           statModifierGroups: []
+#       items: []
+#       statPools: []
+#       stats:
+#         - BaseStatusEffect.Bleeding_inline6
+#         - BaseStatusEffect.Bleeding_inline7

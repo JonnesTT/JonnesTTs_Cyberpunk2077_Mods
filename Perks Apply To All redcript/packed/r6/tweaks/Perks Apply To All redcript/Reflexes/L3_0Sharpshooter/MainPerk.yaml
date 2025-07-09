@@ -1,0 +1,54 @@
+#Sharpshooter
+#perk requirements removed: not necessary
+#lvel 1 removed: to fit reworked tree style
+NewPerks.Reflexes_Left_Milestone_3:
+  perkWeaponGroup: None
+  requiresPerks: []
+  levels:
+  - !remove NewPerks.Reflexes_Left_Milestone_3_inline0
+
+
+#lvl1
+# moved to Reflexes Milestone 1 as lvl 1
+
+#lvl2
+NewPerks.Reflexes_Left_Milestone_3_inline11.prereqRecord: Prereqs.RangedWeaponHeldPrereq
+
+#lvl3
+#Rework time
+#original perk doesn't incentivise a reflexes playstyle (instead of using movement youre best of continuing to shoot) therefore
+# if instead the main perk applied a stacking bleed, it would incentivise non-shooting actions
+# then replace the crit stack with stamina stacks.
+# potentially move the crit stacks to body with more stacks and a lower value.
+
+
+#let's swap this for a bleed on enemy
+NewPerks.Reflexes_Left_Milestone_3_inline21:
+  effectors:
+    - $type: gamedataAddStatusEffectToAttackEffector_Record #adds the bleed ticks
+      isRandom: False
+      stacks: 1
+      statusEffect: PerksApplyToMore.SharpshooterBleed
+      effectorClassName: AddStatusEffectToAttackEffector
+      prereqRecord: 
+        $base: NewPerks.Reflexes_Left_Milestone_3_inline23
+        nestedPrereqs:
+          - !remove NewPerks.ReflexesWeaponTypePrereq
+          - !append-once Prereqs.RangedWeaponHeldPrereq
+      removeAfterActionCall: False
+      removeAfterPrereqCheck: False
+      statModifierGroups: []
+
+#UIData
+NewPerks.Reflexes_Left_Milestone_3_inline19:
+  loc_desc_key: LocKey#PerksApplyToMore-Reflexes_Left_Milestone_3_Sharpshooter-LvL3-Desc
+  uiData: 
+    $type: gamedataNewPerkLevelUIData_Record
+    floatValues:
+      - 3 #duration
+    intValues: 
+      - 5 #num max stacks
+      - 1 #on-hit buff stacks gained per second (1/delayTime of attack record)
+
+
+

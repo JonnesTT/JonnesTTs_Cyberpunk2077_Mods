@@ -1,0 +1,23 @@
+#new prereq used in on-hit effects to activate based on this bleed
+PerksApplyToMore.IsRangedOrSharpshooterBleedHitPrereq:
+  $type: gamedataMultiPrereq_Record
+  aggregationType: OR
+  prereqClassName: gameMultiPrereq
+  nestedPrereqs:
+    - NewPerks.Reflexes_Left_Perk_3_3_inline5
+    - $base: NewPerks.Reflexes_Left_Perk_3_3_inline5
+      conditions:
+        - Perks.IsHitTargetAlive_inline0
+        - Perks.IsHitTargetAlive_inline1
+        - Perks.IsHitTargetAlive_inline2
+        - NewPerks.Reflexes_Left_Perk_3_3_inline8
+        - PerksApplyToMore.IsSharpshooterBleedPrereqCondition
+
+#and a prebuilt prereq condition just in case (defined in script files)
+PerksApplyToMore.IsSharpshooterBleedPrereqCondition:
+  $type: gamedataHitPrereqCondition_Record
+  type: 
+    $type: gamedataHitPrereqConditionType_Record
+    enumName: IsSharpshooterBleedHitPrereqCondition
+  invert: False
+  onlyOncePerShot: False 
