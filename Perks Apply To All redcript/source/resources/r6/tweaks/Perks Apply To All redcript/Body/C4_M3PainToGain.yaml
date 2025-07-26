@@ -1,0 +1,4 @@
+NewPerks.Body_Master_Perk_3:
+  levels:
+    - NewPerks.Body_Central_Milestone_3_inline0
+    - NewPerks.Body_Master_Perk_3_inline1

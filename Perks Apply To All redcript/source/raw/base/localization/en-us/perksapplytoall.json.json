@@ -3,7 +3,7 @@
     "WolvenKitVersion": "8.16.1",
     "WKitJsonVersion": "0.0.9",
     "GameVersion": 2200,
-    "ExportedDateTime": "2025-06-28T04:21:41.8775849Z",
+    "ExportedDateTime": "2025-07-22T20:00:07.4888874Z",
     "DataType": "CR2W",
     "ArchiveFileName": "D:\\Projects\\Modding Projects\\Cyberpunk 2077\\Project files\\Perks Apply To All redcript\\source\\archive\\base\\localization\\en-us\\perksapplytoall.json"
   },
@@ -69,7 +69,7 @@
             },
             {
               "$type": "localizationPersistenceOnScreenEntry",
-              "femaleVariant": "\u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003E+{float_0}% Firerate\u003C/\u003E for semi-automatic weapons.",
+              "femaleVariant": "\u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003E\u002B{float_0}% Firerate\u003C/\u003E for semi-automatic weapons.",
               "maleVariant": "",
               "primaryKey": "89409",
               "secondaryKey": "Gameplay-RPG-CharDev-New_Perks-Descriptions-Cool-Cool_Left_Milestone_3_Level2"
@@ -101,6 +101,55 @@
               "maleVariant": "",
               "primaryKey": "90266",
               "secondaryKey": "Gameplay-RPG-CharDev-New_Perks-Descriptions-Reflexes-Reflexes_Left_Milestone_2_Level1"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "\u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003E\u002B{float_0}% max. Health\u003C/\u003E",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "PerksApplyToMore-Body_Milestone_2-DontStopMeNow-Lvl1-Desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Gain a stack of \u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003EHavin\u0027 a good time!\u003C/\u003E every time you hit an enemy.\\n\\nYou gain \u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003E{float_0}% Mitigation Strength\u003C/\u003E for each stack.\\nStacks last for {float_1} seconds and stack up to {int_0} times.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "PerksApplyToMore-Body_Milestone_2-DontStopMeNow-Lvl2-Desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "When using \u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003EBlood Pump\u003C/\u003E cyberware or a Health Item:\\n\u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003E\u002B{float_0}% Mitigation Chance\u003C/\u003E for {float_1} sec.",
+              "maleVariant": "",
+              "primaryKey": "88008",
+              "secondaryKey": "Gameplay-RPG-CharDev-New_Perks-Descriptions-Body-Body_Central_Perk_1_4"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Havin\u0027 a good time!",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "PerksApplyToMore-Body_Central_Milestone_2-DontStopMeNowSE-Name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Carry On, Carry On",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "PerksApplyToMore-Body_Central_Perk_2_1-CarryOnCarryOn-Lvl1-Name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Each Stack of \u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003EHavin\u0027 a good time!\u003C/\u003E also grants \u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003E{float_0}% Mitigation Chance\u003C/\u003E.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "PerksApplyToMore-Body_Central_Perk_2_1-CarryOnCarryOn-Lvl1-Desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "When \u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003EAdrenaline Rush\u003C/\u003E is active:\\n\u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003EGain immunity\u003C/\u003E to movement penalties and non-damaging status effects as well as \u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003E{float_0}% movement speed\u003C/\u003E.",
+              "maleVariant": "",
+              "primaryKey": "88027",
+              "secondaryKey": "Gameplay-RPG-CharDev-New_Perks-Descriptions-Body-Body_Central_Perk_3_2"
             },
             {
               "$type": "localizationPersistenceOnScreenEntry",
@@ -153,7 +202,7 @@
             },
             {
               "$type": "localizationPersistenceOnScreenEntry",
-              "femaleVariant": "All attacks gain \u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003E\u002B+{float_0}% physical force\u003C/\u003E to knock back and knock down enemies more often.",
+              "femaleVariant": "All attacks gain \u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003E\u002B\u002B{float_0}% physical force\u003C/\u003E to knock back and knock down enemies more often.",
               "maleVariant": "",
               "primaryKey": "0",
               "secondaryKey": "PerksApplyToMore-Body_Master_Perk_5_-SavageSling-LvL1-Desc"
@@ -286,7 +335,7 @@
             },
             {
               "$type": "localizationPersistenceOnScreenEntry",
-              "femaleVariant": "Your guns have\u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003Eno bullet spread\u003C/\u003E above {float_0}% Stamina",
+              "femaleVariant": "Your guns have \u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003ENo Bullet Spread\u003C/\u003E above {float_0}% Stamina",
               "maleVariant": "",
               "primaryKey": "87920",
               "secondaryKey": "Gameplay-RPG-CharDev-New_Perks-Descriptions-Cool-Cool_Left_Milestone_3_Level3"

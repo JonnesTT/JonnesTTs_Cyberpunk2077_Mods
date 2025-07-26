@@ -1,5 +1,0 @@
-#sideperks left 2
-#deep breath. 
-# now that focus naturally grants time dilation this is not necessary. Remove it.
-NewPerks.CoolAttributeData.perks:
-  - !remove NewPerks.Cool_Inbetween_Left_2

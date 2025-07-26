@@ -15,7 +15,7 @@ public func OnItemEquipped( slot : TweakDBID, item : ItemID )
   let ts = GameInstance.GetTransactionSystem( gameInstance );
   let player = GetPlayer(gameInstance);
 
-  if (PlayerDevelopmentSystem.GetData( player ).IsNewPerkBought( gamedataNewPerkType.Cool_Left_Milestone_3 ) < 2)
+  if (PlayerDevelopmentSystem.GetData( player ).IsNewPerkBought( gamedataNewPerkType.Cool_Left_Milestone_2 ) < 2)
   {
       return;
   }

@@ -1,65 +1,31 @@
-
 #lets collect all the base stats for finishers here. Because you unlock them WITH the finishers. You won't be able to use them without them.
-Character.Player_Puppet_Base:
-  statModifierGroups:
-  - !append PerksApplyToMore.FinisherBaseStats
 
-
-
-
-
-PerksApplyToMore.FinisherBaseStats:
-  $type: gamedataStatModifierGroup_Record
-  drawBasedOnStatType: False
-  optimiseCombinedModifiers: False
-  saveBasedOnStatType: False
-  statModsLimit: -1
-  relatedModifierGroups: []
+Character.Player_Stat_Pools_Modifier:
   statModifiers:
-    - NewPerks.Body_Master_Perk_5_inline35 #NewPerkFinisherBlunt_TargetDistanceMax #is 4
-    - NewPerks.Body_Master_Perk_5_inline36 #NewPerkFinisherBlunt_TargetHealthMax #is 20
-    - NewPerks.Body_Master_Perk_5_inline41 #BluntFinisherHealthThresholdIncrease for some reason seperate under the same conditions in vanilla #is 20
-    - NewPerks.Reflexes_Right_Milestone_3_inline59 #NewPerkFinisherReflexes_TargetDistanceMax #is 5
-    - NewPerks.Reflexes_Right_Milestone_3_inline60 #NewPerkFinisherReflexes_TargetHealthMax #is 25
-    - NewPerks.Intelligence_Left_Perk_3_4_inline34 #NewPerkFinisherMonowire_TargetDistanceMax #is 7
-    - NewPerks.Intelligence_Left_Perk_3_4_inline35 #NewPerkFinisherMonowire_TargetHealthMax #is 25
-    - NewPerks.Cool_Right_Perk_3_2_inline35 #NewPerkFinisherCool_TargetDistanceMax #is 4
-    - NewPerks.Cool_Right_Perk_3_2_inline36 #NewPerkFinisherCool_TargetHealthMax #is 35
+    - !append NewPerks.Body_Master_Perk_5_inline35 #NewPerkFinisherBlunt_TargetDistanceMax #is 4
+    - !append NewPerks.Body_Master_Perk_5_inline36 #NewPerkFinisherBlunt_TargetHealthMax #is 20
+    - !append NewPerks.Body_Master_Perk_5_inline41 #BluntFinisherHealthThresholdIncrease for some reason seperate under the same conditions in vanilla #is 20
+    - !append NewPerks.Reflexes_Right_Milestone_3_inline59 #NewPerkFinisherReflexes_TargetDistanceMax #is 5
+    - !append NewPerks.Reflexes_Right_Milestone_3_inline60 #NewPerkFinisherReflexes_TargetHealthMax #is 25
+    - !append NewPerks.Intelligence_Left_Perk_3_4_inline34 #NewPerkFinisherMonowire_TargetDistanceMax #is 7
+    - !append NewPerks.Intelligence_Left_Perk_3_4_inline35 #NewPerkFinisherMonowire_TargetHealthMax #is 25
+    - !append NewPerks.Cool_Right_Perk_3_2_inline35 #NewPerkFinisherCool_TargetDistanceMax #is 4
+    - !append NewPerks.Cool_Right_Perk_3_2_inline36 #NewPerkFinisherCool_TargetHealthMax #is 35
 
 
+#setting this to 0 makes space for health regen out of combat through items and perks
+# Character.Player_Stat_Pools_Modifier_inline29:
+#   $type: gamedataConstantStatModifier_Record
+#   value: 1
+#   modifierType: Additive
+#   statType: BaseStats.HealthOutOfCombatRegenEnabled
 
-  
-    # - $type: gamedataConstantStatModifier_Record
-    #   value: 4
-    #   modifierType: Additive
-    #   statType: BaseStats.NewPerkFinisherBlunt_TargetDistanceMax
-    # - $type: gamedataConstantStatModifier_Record #was weirdly coded. Replace!
-    #   value: 25
-    #   modifierType: Additive
-    #   statType: BaseStats.NewPerkFinisherBlunt_TargetHealthMax
-    # - $type: gamedataConstantStatModifier_Record
-    #   value: 5
-    #   modifierType: Additive
-    #   statType: BaseStats.NewPerkFinisherReflexes_TargetDistanceMax
-    # - $type: gamedataConstantStatModifier_Record
-    #   value: 25
-    #   modifierType: Additive
-    #   statType: BaseStats.NewPerkFinisherReflexes_TargetHealthMax
-    # - $type: gamedataConstantStatModifier_Record
-    #   value: 7
-    #   modifierType: Additive
-    #   statType: BaseStats.NewPerkFinisherMonowire_TargetDistanceMax
-    # - type: gamedataConstantStatModifier_Record
-    #   value: 25
-    #   modifierType: Additive
-    #   statType: BaseStats.NewPerkFinisherMonowire_TargetHealthMax
-    # - $type: gamedataConstantStatModifier_Record
-    #   value: 4
-    #   modifierType: Additive
-    #   statType: BaseStats.NewPerkFinisherCool_TargetDistanceMax
-    # - $type: gamedataConstantStatModifier_Record
-    #   value: 35
-    #   modifierType: Additive
-    #   statType: BaseStats.NewPerkFinisherCool_TargetHealthMax
+# this the stat to add to for perks
+# Character.Player_Stat_Pools_Modifier_inline37:
+#   $type: gamedataConstantStatModifier_Record
+#   value: 3
+#   modifierType: Additive
+#   statType: BaseStats.HealthOutOfCombatRegenRateBase
 
-
+#dot resistance
+#gamedataStatType.DamageOverTimeResistance

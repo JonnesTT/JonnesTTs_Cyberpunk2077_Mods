@@ -1,0 +1,19 @@
+#has to be loaded last sadly. Any seperate addition meant to add to this mod may have to use more Zs to load in after
+NewPerks.BodyAttributeData.perks:
+  - !remove NewPerks.Body_Left_Perk_2_3 #Don't stop me now # moved to Central_Milestone_2
+  - !remove NewPerks.Body_Inbetween_Left_3 #Bloodlust, has been moved to Central_Perk_3_4
+  - !append NewPerks.Body_Central_Milestone_2
+  - !remove NewPerks.Body_Central_Perk_1_4 #dorph head, moved to Body_Central_Perk_2_3
+  - !append NewPerks.Body_Central_Perk_2_3
+  - !append NewPerks.Body_Central_Perk_2_1 #CarryOnCarryOn custom new perk
+  - !remove NewPerks.Body_Right_Perk_2_1 #Fly Swatter #completely removed, no longer necessary
+  - !remove NewPerks.Body_Right_Perk_2_4 #Breakthrough moved up a level to Body_Right_Perk_3_3
+  - !append NewPerks.Body_Right_Perk_3_3
+  - !remove NewPerks.Body_Inbetween_Right_3 #Ripple Effect moved from inbetween slot to Right_Perk_3_4
+  - !append NewPerks.Body_Right_Perk_3_4
+  
+
+NewPerks.CoolAttributeData.perks:
+  - !remove NewPerks.Cool_Inbetween_Left_2 #deep breath. # now that focus naturally grants time dilation this is not necessary. Remove it.
+
+

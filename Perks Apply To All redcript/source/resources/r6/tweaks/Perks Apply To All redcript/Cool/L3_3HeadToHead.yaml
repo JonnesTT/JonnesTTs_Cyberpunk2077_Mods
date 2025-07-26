@@ -2,10 +2,26 @@
 
 #Head to Head
 # swapped with Long Shot to provide more early choices
-NewPerks.Cool_Left_Perk_2_1:
+
+
+NewPerks.Cool_Left_Perk_3_3:
+  $type: gamedataNewPerk_Record
+  attribute: NewPerks.CoolAttributeData
+  binkPath: ''
+  category: NewPerks.SimpleNewPerkCategory
+  enumComment: Vision Boost
+  enumName: Cool_Left_Perk_3_3
+  loc_desc_key: LocKey#87899
+  loc_name_key: LocKey#87900
+  perkIcon: UIIcon.ColdBlood_Area_05_Perk_1
   perkWeaponGroup: None
   slot: NewPerks.Left_Perk_3_3
   tier: NewPerks.ExpertNewPerkTier
+  levels:
+    - NewPerks.Cool_Left_Perk_2_1_inline0
+  requiresPerks:
+    - NewPerks.Cool_Left_Milestone_3
+
 
 
 NewPerks.DeadlyFocusPrereq:

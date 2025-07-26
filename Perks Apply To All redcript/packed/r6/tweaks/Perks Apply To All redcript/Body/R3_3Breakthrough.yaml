@@ -1,12 +1,23 @@
 #Breakthrough
 # moved up a level
-NewPerks.Body_Right_Perk_2_4:
+NewPerks.Body_Right_Perk_3_3:
+  $type: gamedataNewPerk_Record
+  attribute: NewPerks.BodyAttributeData
+  binkPath: ''
+  category: NewPerks.SimpleNewPerkCategory
+  enumComment: Power Blows
+  enumName: Body_Right_Perk_3_3
+  loc_desc_key: LocKey#88020
+  loc_name_key: LocKey#87986
+  perkIcon: UIIcon.Brawling_Area_05_Perk_1
   perkWeaponGroup: None
   slot: NewPerks.Right_Perk_3_3
+  tier: NewPerks.ExpertNewPerkTier
+  uiData: NewPerks.Body_Right_Perk_2_4_inline0
+  levels:
+    - NewPerks.Body_Right_Perk_2_4_inline1
   requiresPerks: []
-
 
 
 NewPerks.Body_Right_Perk_2_4_inline3:
   prereqRecord: Prereqs.MeleeWeaponHeldPrereq
-

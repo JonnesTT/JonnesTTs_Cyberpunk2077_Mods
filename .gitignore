@@ -1,5 +1,7 @@
 # exported files
 *.zip
+# packed folder
+*\packed
 
-# tool, specifically the one to generate inkatlases
+# tools, specifically the one to generate inkatlases
 generate_inkatlas.py

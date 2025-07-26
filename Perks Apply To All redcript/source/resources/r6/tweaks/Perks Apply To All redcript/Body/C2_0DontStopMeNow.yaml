@@ -1,0 +1,214 @@
+
+#Don't stop me now
+
+# grant tanky for being agressive
+# -> per attack bonus
+# (I'll replicate this for augment 1, which grants mitigation chance)
+
+#moved check PerkListChanges
+
+# -> gained lvl 1 +5% health
+NewPerks.Body_Central_Milestone_2:
+  $type: gamedataNewPerk_Record
+  attribute: NewPerks.BodyAttributeData
+  binkPath: ''
+  category: NewPerks.SimpleNewPerkCategory
+  enumComment: Stacking mitigation strength per hit dealt
+  enumName: Body_Central_Milestone_2
+  loc_desc_key: None
+  loc_name_key: LocKey#87978
+  perkIcon: UIIcon.Athletics_Area_01_Perk_1
+  perkWeaponGroup: None
+  slot: NewPerks.Central_Milestone_2
+  tier: NewPerks.AdeptNewPerkTier
+  uiData: NewPerks.Body_Left_Perk_2_3_inline0
+  levels:
+    - $type: gamedataNewPerkLevelData_Record
+      dataPackage: 
+        $type: gamedataGameplayLogicPackage_Record
+        stackable: False
+        animationWrapperOverrides: []
+        effectors:
+          - $type: gamedataApplyStatGroupEffector_Record
+            applicationTarget: Weapon
+            removeWithEffector: True
+            statGroup: 
+              $type: gamedataStatModifierGroup_Record
+              drawBasedOnStatType: False
+              optimiseCombinedModifiers: False
+              saveBasedOnStatType: False
+              statModsLimit: -1
+              relatedModifierGroups: []
+              statModifiers:
+                - $type: gamedataConstantStatModifier_Record
+                  value: 0.05
+                  modifierType: Multiplier
+                  statType: BaseStats.Health
+            effectorClassName: ApplyStatGroupEffector
+            prereqRecord: Prereqs.AlwaysTruePrereq
+            removeAfterActionCall: False
+            removeAfterPrereqCheck: False
+            statModifierGroups: []
+            reapplyOnWeaponChange: False
+        items: []
+        statPools: []
+        stats: []
+      loc_desc_key: LocKey#PerksApplyToMore-Body_Milestone_2-DontStopMeNow-Lvl1-Desc
+      loc_name_key: ''
+      pointsCost: 0
+      uiData:
+        $type: gamedataNewPerkLevelUIData_Record
+        floatValues:
+          - 5 #% bonus health
+        intValues: []
+        nameValues: []
+    - NewPerks.Body_Left_Perk_2_3_inline1
+  requiresPerks: []
+
+
+
+
+  
+  
+
+  
+  
+
+
+#lvl2
+# gives mitigation strength for each hit
+
+NewPerks.Body_Left_Perk_2_3_inline2:
+  effectors:
+  - $base: Perks.ApplyStatusEffectOnPlayer #should stack for attack hit
+    prereqRecord: 
+      $base: Prereqs.ORPrereq
+      nestedPrereqs: #either
+      - $type: gamedataHitPrereq_Record #attack doesn't have DamageOverTime flag
+        callbackType: HitTriggered
+        ignoreSelfInflictedPressureWave: True
+        isSynchronous: True
+        pipelineStage: Process
+        pipelineType: Damage
+        prereqClassName: HitTriggeredPrereq
+        conditions:
+          - Perks.IsHitTargetAlive_inline0
+          - Perks.IsHitTargetAlive_inline1
+          - Perks.IsHitTargetAlive_inline2
+          - $base: Prereqs.HitFlagHitPrereqCondition #has two different properties that both invert the output
+            invert: True
+            hitFlag: DamageOverTime
+        processMiss: False
+      - $type: gamedataHitPrereq_Record #attack is sharpshooterbleed-ticker
+        callbackType: HitTriggered
+        ignoreSelfInflictedPressureWave: True
+        isSynchronous: True
+        pipelineStage: Process
+        pipelineType: Damage
+        prereqClassName: HitTriggeredPrereq
+        conditions:
+          - Perks.IsHitTargetAlive_inline0
+          - Perks.IsHitTargetAlive_inline1
+          - Perks.IsHitTargetAlive_inline2
+          - PerksApplyToMore.IsSharpshooterBleedHitPrereqCondition
+        processMiss: False
+    statusEffect: PerksApplyToMore.DontStopMeNow_SE
+
+PerksApplyToMore.DontStopMeNow_SE:
+  $base: BaseStatusEffect.Stat_Buff
+  duration: 
+    $base: BaseStatusEffect.Stat_Buff_inline1
+    statModifiers:
+      - $base: BaseStatusEffect.Stat_Buff_inline2
+        value: 10 #duration in seconds
+  maxStacks: 
+    $type: gamedataStatModifierGroup_Record #not allowed to inherit from RTDB :(
+    drawBasedOnStatType: False
+    optimiseCombinedModifiers: False
+    saveBasedOnStatType: False
+    statModsLimit: -1
+    relatedModifierGroups: []
+    statModifiers:
+      - $type: gamedataConstantStatModifier_Record
+        value: 999 #not sure how many
+        modifierType: Additive
+        statType: BaseStats.MaxStacks
+  statusEffectType: BaseStatusEffectTypes.PassiveBuff
+  gameplayTags: 
+    - Buff
+  packages: 
+    - $type: gamedataGameplayLogicPackage_Record
+      stackable: False
+      animationWrapperOverrides: []
+      effectors:
+        - $type: gamedataApplyStatGroupEffector_Record
+          removeWithEffector: True
+          statGroup: 
+            $type: gamedataStatModifierGroup_Record
+            drawBasedOnStatType: False
+            optimiseCombinedModifiers: False
+            saveBasedOnStatType: False
+            statModsLimit: -1
+            relatedModifierGroups: []
+            statModifiers:
+              - $type: gamedataConstantStatModifier_Record
+                value: 0.3 #caps out at 134 stacks
+                modifierType: Additive
+                statType: BaseStats.MitigationStrength
+          effectorClassName: ApplyStatGroupEffector
+          prereqRecord: Prereqs.AlwaysTruePrereq
+          removeAfterActionCall: False
+          removeAfterPrereqCheck: False
+          statModifierGroups: []
+        - $type: gamedataApplyStatGroupEffector_Record
+          removeWithEffector: True
+          statGroup: 
+            $type: gamedataStatModifierGroup_Record
+            drawBasedOnStatType: False
+            optimiseCombinedModifiers: False
+            saveBasedOnStatType: False
+            statModsLimit: -1
+            relatedModifierGroups: []
+            statModifiers:
+              - $type: gamedataConstantStatModifier_Record
+                value: 0.5 #caps out at 200 stacks
+                modifierType: Additive
+                statType: BaseStats.MitigationChance
+          effectorClassName: ApplyStatGroupEffector
+          prereqRecord: 
+            $type: gamedataPlayerIsNewPerkBoughtPrereq_Record
+            invert: False
+            level: 1
+            perkType: Body_Central_Perk_2_1 #actually C2_1CarryOnCarryOn
+            prereqClassName: PlayerIsNewPerkBoughtPrereq
+          removeAfterActionCall: False
+          removeAfterPrereqCheck: False
+          statModifierGroups: []
+      items: []
+      statPools: []
+      stats: []
+  VFX: [] #filled at $base
+  uiData:
+    $type: gamedataStatusEffectUIData_Record
+    description: ''
+    displayName: LocKey#PerksApplyToMore-Body_Central_Milestone_2-DontStopMeNowSE-Name
+    fluffText: ''
+    iconPath: Athletics_Area_01_Perk_1
+    priority: 6
+    floatValues: []
+    intValues: []
+    nameValues: []
+    stats: []
+
+#moved Lvl2 description to it's level record
+# it works without but this is cleaner
+NewPerks.Body_Left_Perk_2_3_inline1:
+  loc_desc_key: LocKey#PerksApplyToMore-Body_Milestone_2-DontStopMeNow-Lvl2-Desc
+  uiData:
+    $type: gamedataNewPerkLevelUIData_Record
+    floatValues:
+      - 0.3 #mitigation strength
+      - 10 #duration
+    intValues: 
+      - 999 #max stacks
+    nameValues: []

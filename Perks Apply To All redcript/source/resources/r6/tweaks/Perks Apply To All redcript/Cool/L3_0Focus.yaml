@@ -1,12 +1,31 @@
 
 #milestone left 2 
 # focus swapped for Deadeye
-NewPerks.Cool_Left_Milestone_2:
+
+NewPerks.Cool_Left_Milestone_3:
+  $type: gamedataNewPerk_Record
+  attribute: NewPerks.CoolAttributeData
+  binkPath: base\movies\tutorials\700x394\perk_cool_focus.bk2
+  category: NewPerks.MilestoneNewPerkCategory
+  enumComment: Focus
+  enumName: Cool_Left_Milestone_3
+  loc_desc_key: LocKey#87898
+  loc_name_key: LocKey#87897
+  perkIcon: UIIcon.Gunslinger_Area_03_Perk_2
   perkWeaponGroup: None
   slot: NewPerks.Left_Milestone_3
   tier: NewPerks.ExpertNewPerkTier
+  uiData: NewPerks.Cool_Left_Milestone_2_inline0
+  levels:
+    - NewPerks.Cool_Left_Milestone_2_inline1
+    - NewPerks.Cool_Left_Milestone_2_inline8
+  requiresPerks: []
   timeDilationStrength: 0.30
   focusedStaminaCost: 20
+  
+  
+  
+  
 
 
 #Duplicate Declaration. Fun

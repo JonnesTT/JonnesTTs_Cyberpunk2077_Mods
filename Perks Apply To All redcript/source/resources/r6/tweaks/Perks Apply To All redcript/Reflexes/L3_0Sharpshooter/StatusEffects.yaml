@@ -1,8 +1,8 @@
 PerksApplyToMore.SharpshooterBleedDuration:
-    - $type: gamedataConstantStatModifier_Record
-      value: 3 # short duration forces to start shooting again soon rather than rely on DOT alone
-      modifierType: Additive
-      statType: BaseStats.MaxDuration
+  $type: gamedataConstantStatModifier_Record
+  value: 3 # short duration forces to start shooting again soon rather than rely on DOT alone
+  modifierType: Additive
+  statType: BaseStats.MaxDuration
 
 
 # I don't want this to scew too hard to fast firing weapons (which already benefit more from on-hits)

@@ -2,11 +2,21 @@
 
 #Pull!
 # swapped with High Noon
-NewPerks.Cool_Left_Perk_2_3:
+NewPerks.Cool_Left_Perk_3_2:
+  $type: gamedataNewPerk_Record
+  attribute: NewPerks.CoolAttributeData
+  binkPath: ''
+  category: NewPerks.SimpleNewPerkCategory
+  enumComment: Too Cool For That
+  enumName: Cool_Left_Perk_3_2
+  loc_desc_key: LocKey#87904
+  loc_name_key: LocKey#87903
+  perkIcon: UIIcon.Cool_Left_Perk_2_3
   perkWeaponGroup: None
   slot: NewPerks.Left_Perk_3_2
   tier: NewPerks.ExpertNewPerkTier
-  # enumName: Cool_Left_Perk_2_3
-
-#removing this record will also break Cool_Left_Perk_2_3 Slick.
-# To prevent that, remove it's enum record
+  uiData: NewPerks.Cool_Left_Perk_3_2_inline0
+  levels:
+    - NewPerks.Cool_Left_Perk_2_3_inline0
+  requiresPerks:
+    - NewPerks.Cool_Left_Milestone_3

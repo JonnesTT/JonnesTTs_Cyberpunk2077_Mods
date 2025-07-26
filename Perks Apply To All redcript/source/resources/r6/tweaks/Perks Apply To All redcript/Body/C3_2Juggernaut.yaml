@@ -1,0 +1,17 @@
+# I want this to be THE juggernaut experience in one go. Either that or augment each other.
+# for the time being, this perk provides resistance to CC and movespeed
+
+NewPerks.Body_Central_Perk_3_2_inline2.effectors:
+  - Effectors.JuggernautEffector #goofy ah implementation. I'd rather have an OvershieldActivePrereq than this. Both of these
+  - Effectors.UnstoppableEffector 
+
+
+BaseStatusEffect.JuggernautBuff_inline0.effectors:
+  - !remove BaseStatusEffect.JuggernautBuff_inline1 #remove damage bonus
+
+# # unchanged but might buff max speed to make it more noticable
+# BaseStatusEffect.JuggernautBuff_inline5:
+#   value: 0.200000003
+#   statType: BaseStats.MaxSpeed
+
+

@@ -11,10 +11,10 @@ PerksApplyToMore.IsRangedOrSharpshooterBleedHitPrereq:
         - Perks.IsHitTargetAlive_inline1
         - Perks.IsHitTargetAlive_inline2
         - NewPerks.Reflexes_Left_Perk_3_3_inline8
-        - PerksApplyToMore.IsSharpshooterBleedPrereqCondition
+        - PerksApplyToMore.IsSharpshooterBleedHitPrereqCondition
 
 #and a prebuilt prereq condition just in case (defined in script files)
-PerksApplyToMore.IsSharpshooterBleedPrereqCondition:
+PerksApplyToMore.IsSharpshooterBleedHitPrereqCondition:
   $type: gamedataHitPrereqCondition_Record
   type: 
     $type: gamedataHitPrereqConditionType_Record

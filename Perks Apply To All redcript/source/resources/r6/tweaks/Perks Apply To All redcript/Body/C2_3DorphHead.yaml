@@ -1,0 +1,33 @@
+#Dorph-Head
+
+#cool idea, painfully overpowered thanks to biomon. We gotta nerf it sadly.
+BaseStatusEffect.Body_Central_Perk_1_4_MitigationBuff_inline3.value: 50
+
+NewPerks.Body_Central_Perk_1_4_inline0.floatValues:
+  - 50
+  - 2
+
+# a second nerf, moved up a bracket to support the new C2_0 Don't Stop Me Now
+NewPerks.Body_Central_Perk_2_3:
+  $type: gamedataNewPerk_Record
+  attribute: NewPerks.BodyAttributeData
+  binkPath: ''
+  category: NewPerks.SimpleNewPerkCategory
+  enumComment: Using healing item or cyberware increase mitigation chance and strength by 10% for short duration
+  enumName: Body_Central_Perk_2_3
+  loc_desc_key: LocKey#88008
+  loc_name_key: LocKey#87974
+  perkIcon: UIIcon.Brawling_Area_02_Perk_1 #reused from C1_2 Comback Kid
+  slot: NewPerks.Central_Perk_2_3
+  tier: NewPerks.AdeptNewPerkTier
+  uiData: NewPerks.Body_Central_Perk_1_4_inline0
+  levels:
+    - NewPerks.Body_Central_Perk_1_4_inline1
+  requiresPerks:
+    - NewPerks.Body_Central_Milestone_1
+
+
+#aaand clear out slot and enum records to not clash with 
+NewPerks.Body_Central_Perk_1_4:
+  enumName: ''
+  slot: None

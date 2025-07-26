@@ -1,0 +1,38 @@
+NewPerks.Body_Central_Perk_2_1:
+  $type: gamedataNewPerk_Record
+  attribute: NewPerks.BodyAttributeData
+  binkPath: '' #none made
+  category: NewPerks.SimpleNewPerkCategory #side perks
+  loc_desc_key: LocKey#PerksApplyToMore-Body_Central_Perk_2_1-CarryOnCarryOn-Lvl1-Desc 
+  loc_name_key: LocKey#PerksApplyToMore-Body_Central_Perk_2_1-CarryOnCarryOn-Lvl1-Name 
+  perkIcon: UIIcon.Athletics_Area_10_Perk_1 #replaced with icon from Unstoppable Force
+  slot: NewPerks.Central_Perk_2_1 
+  tier: NewPerks.AdeptNewPerkTier
+  enumName: Body_Central_Perk_2_1
+  perkWeaponGroup: None
+  uiData: 
+    $type: gamedataNewPerkLevelUIData_Record
+    floatValues:
+      - 0.5 #mitigation chance
+    intValues: []
+    nameValues: []
+  levels:
+    - $type: gamedataNewPerkLevelData_Record
+      dataPackage: #handled by StatusEffect in C2_0DontStopMeNow
+        $type: gamedataGameplayLogicPackage_Record
+        stackable: False
+        animationWrapperOverrides: []
+        effectors: 
+          - None
+        items: []
+        statPools: []
+        stats: []
+      loc_desc_key: LocKey#PerksApplyToMore-Body_Central_Perk_2_1-CarryOnCarryOn-Lvl1-Desc
+      loc_name_key: LocKey#PerksApplyToMore-Body_Central_Perk_2_1-CarryOnCarryOn-Lvl1-Name
+      pointsCost: 0
+  requiresPerks: 
+    - NewPerks.Body_Central_Milestone_2 #don't stop me now 
+
+
+#added to perk list
+# check PerkListChanges

@@ -1,8 +1,21 @@
 #Ripple Effect
 
 #moved from inbetween slot to Right_Perk_3_4, requires T3 Milestone Quake
-NewPerks.Body_Inbetween_Right_3:
+NewPerks.Body_Right_Perk_3_4:
+  $type: gamedataNewPerk_Record
+  attribute: NewPerks.BodyAttributeData
+  binkPath: ''
+  category: NewPerks.SimpleNewPerkCategory
+  enumComment: Schadenfreude
+  enumName: Body_Right_Perk_3_4
+  loc_desc_key: LocKey#88029
+  loc_name_key: LocKey#87995
+  perkIcon: UIIcon.Body_Inbetween_Right_3
   perkWeaponGroup: None
   slot: NewPerks.Right_Perk_3_4
+  tier: NewPerks.ExpertNewPerkTier
+  uiData: NewPerks.Body_Inbetween_Right_3_inline0
+  levels:
+    - NewPerks.Body_Inbetween_Right_3_inline1
   requiresPerks:
   - NewPerks.Body_Right_Milestone_3

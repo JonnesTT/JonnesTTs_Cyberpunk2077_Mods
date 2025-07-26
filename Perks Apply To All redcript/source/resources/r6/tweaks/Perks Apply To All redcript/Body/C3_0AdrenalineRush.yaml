@@ -1,0 +1,15 @@
+#removed perk requirement, not necessary
+#removed level 1, moved to Master3 Pain to Gain
+#increased adrenaline limit to 100% Why? Because creating unbalanced moments is generally more fun.
+#if I nerf this it'll be the %gained not the %max
+
+NewPerks.Body_Central_Milestone_3:
+  levels:
+  - !remove NewPerks.Body_Central_Milestone_3_inline0
+  requiresPerks: []
+  overshieldPercentage: 1.0
+
+NewPerks.Body_Central_Milestone_3_inline9:
+  floatValues:
+    - 100
+    - 50

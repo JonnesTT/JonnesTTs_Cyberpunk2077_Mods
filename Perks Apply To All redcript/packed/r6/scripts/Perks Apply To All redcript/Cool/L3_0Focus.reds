@@ -5,16 +5,16 @@ protected func OnEnter( stateContext : ref<StateContext>, scriptInterface : ref<
 {
 
   wrappedMethod(stateContext, scriptInterface);
-  if(PlayerDevelopmentSystem.GetInstance( scriptInterface.executionOwner ).IsNewPerkBought( scriptInterface.executionOwner, gamedataNewPerkType.Cool_Left_Milestone_2 ) == 2)
+  if(PlayerDevelopmentSystem.GetInstance( scriptInterface.executionOwner ).IsNewPerkBought( scriptInterface.executionOwner, gamedataNewPerkType.Cool_Left_Milestone_3 ) == 2)
   {
-    if(GameInstance.GetStatPoolsSystem( scriptInterface.owner.GetGame() ).GetStatPoolValue( Cast(this.m_executionOwner.GetEntityID()), gamedataStatPoolType.Stamina ) > TDB.GetFloat( t"NewPerks.Cool_Left_Milestone_2.focusedStaminaThreshold" ) )
+    if(GameInstance.GetStatPoolsSystem( scriptInterface.owner.GetGame() ).GetStatPoolValue( Cast(this.m_executionOwner.GetEntityID()), gamedataStatPoolType.Stamina ) > TDB.GetFloat( t"NewPerks.Cool_Left_Milestone_3.focusedStaminaThreshold" ) )
     {
       if( this.m_weapon == null )
       {
         return;
       }
 
-      let timeDilationFocusedPerk : Float = FromVariant<Float>(TweakDBInterface.GetFlat(t"NewPerks.Cool_Left_Milestone_2.timeDilationStrength"));
+      let timeDilationFocusedPerk : Float = FromVariant<Float>(TweakDBInterface.GetFlat(t"NewPerks.Cool_Left_Milestone_3.timeDilationStrength"));
 
       if ( !GameInstance.GetTimeSystem( scriptInterface.owner.GetGame() ).IsTimeDilationActive( ) && ( this.m_weapon.IsRanged() || this.m_weapon.IsThrowable() ) )
       {
@@ -56,7 +56,7 @@ protected func OnExit( stateContext : ref<StateContext>, scriptInterface : ref<S
     if ( FocusSE.GetRemainingDuration() < (FocusSE.GetTotalDuration()-focusGracePeriod) )
     {
       // focus stamina discount removed. 
-      PlayerStaminaHelpers.ModifyStamina( ( scriptInterface.executionOwner as PlayerPuppet ), (0.0 - TDB.GetFloat( t"NewPerks.Cool_Left_Milestone_2.focusedStaminaCost" ) ) );
+      PlayerStaminaHelpers.ModifyStamina( ( scriptInterface.executionOwner as PlayerPuppet ), (0.0 - TDB.GetFloat( t"NewPerks.Cool_Left_Milestone_3.focusedStaminaCost" ) ) );
     }
   }
   

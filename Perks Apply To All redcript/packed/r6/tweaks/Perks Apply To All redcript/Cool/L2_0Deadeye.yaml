@@ -2,13 +2,26 @@
 
 # Deadeye
 # swapped with focus
-NewPerks.Cool_Left_Milestone_3:
+NewPerks.Cool_Left_Milestone_2:
+  $type: gamedataNewPerk_Record
+  attribute: NewPerks.CoolAttributeData
+  binkPath: base\movies\tutorials\700x394\perk_cool_deadeye.bk2
+  category: NewPerks.MilestoneNewPerkCategory
+  enumComment: Deadeye
+  enumName: Cool_Left_Milestone_2
+  loc_desc_key: LocKey#87920
+  loc_name_key: LocKey#87919
+  perkIcon: UIIcon.Cool_Left_Milestone_3
   perkWeaponGroup: None
-  requiresPerks: []
   slot: NewPerks.Left_Milestone_2
   tier: NewPerks.AdeptNewPerkTier
+  uiData: NewPerks.Cool_Left_Milestone_3_inline0
   levels:
-  - !remove NewPerks.Cool_Left_Milestone_3_inline8
+  - NewPerks.Cool_Left_Milestone_3_inline1
+  - NewPerks.Cool_Left_Milestone_3_inline17
+  # - NewPerks.Cool_Left_Milestone_3_inline8 #prior lvl2 removed
+  requiresPerks: []
+
   # enumName: Cool_Left_Milestone_3 #used as reference from script files
 
 
