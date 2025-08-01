@@ -17,14 +17,13 @@ NewPerks.Body_Central_Perk_2_3:
   enumName: Body_Central_Perk_2_3
   loc_desc_key: LocKey#88008
   loc_name_key: LocKey#87974
-  perkIcon: UIIcon.Brawling_Area_02_Perk_1 #reused from C1_2 Comback Kid
+  perkIcon: UIIcon.ColdBlood_Area_07_Perk_2
   slot: NewPerks.Central_Perk_2_3
   tier: NewPerks.AdeptNewPerkTier
   uiData: NewPerks.Body_Central_Perk_1_4_inline0
   levels:
     - NewPerks.Body_Central_Perk_1_4_inline1
-  requiresPerks:
-    - NewPerks.Body_Central_Milestone_1
+  requiresPerks: []
 
 
 #aaand clear out slot and enum records to not clash with 

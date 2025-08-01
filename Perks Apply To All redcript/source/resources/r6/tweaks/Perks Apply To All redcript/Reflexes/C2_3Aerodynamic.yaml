@@ -1,0 +1,13 @@
+# C3_3Aeordynamic pulled down one bracket
+NewPerks.Reflexes_Central_Perk_2_3:
+  enumComment: Like the Wind
+  enumName: Reflexes_Central_Perk_2_3
+  loc_desc_key: LocKey#87818
+  loc_name_key: LocKey#87779
+  perkIcon: UIIcon.Gunslinger_Area_06_Perk_2
+  slot: NewPerks.Central_Perk_2_3
+  tier: NewPerks.AdeptNewPerkTier
+  uiData: NewPerks.Reflexes_Central_Perk_3_3_inline0
+  levels:
+    - NewPerks.Reflexes_Central_Perk_3_3_inline1
+  requiresPerks: []

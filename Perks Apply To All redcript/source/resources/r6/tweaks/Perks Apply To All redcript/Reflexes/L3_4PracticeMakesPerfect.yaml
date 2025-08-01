@@ -70,7 +70,7 @@ BaseStatusEffect.Reflexes_Sharpshooter_AP_Stack:
     description: ''
     displayName: LocKey#91187
     fluffText: ''
-    iconPath: PerksApplyToMore_PracticeMakesPerfectSE #idk feel free to tell me a better icon #seemingly don't exist.
+    iconPath: Assault_Area_07_Perk_2 #idk feel free to tell me a better icon #seemingly don't exist.
     priority: 6
     floatValues: []
     intValues: []
@@ -83,8 +83,8 @@ BaseStatusEffect.Reflexes_Sharpshooter_AP_Stack_inline7: #CanWeaponIgnoreArmor a
 
 
 
-# custom icon record
-UIIcon.PerksApplyToMore_PracticeMakesPerfectSE:
-  $type: gamedataUIIcon_Record
-  atlasPartName: practice_makes_perfect_buff_icon
-  atlasResourcePath: base\icons\perksapplytomore_icons.inkatlas
+# # custom icon record
+# UIIcon.PerksApplyToMore_PracticeMakesPerfectSE:
+#   $type: gamedataUIIcon_Record
+#   atlasPartName: practice_makes_perfect_buff_icon
+#   atlasResourcePath: base\icons\perksapplytomore_icons.inkatlas

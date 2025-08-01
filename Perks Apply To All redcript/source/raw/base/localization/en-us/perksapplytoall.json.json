@@ -3,7 +3,7 @@
     "WolvenKitVersion": "8.16.1",
     "WKitJsonVersion": "0.0.9",
     "GameVersion": 2200,
-    "ExportedDateTime": "2025-07-22T20:00:07.4888874Z",
+    "ExportedDateTime": "2025-07-31T12:49:54.0495917Z",
     "DataType": "CR2W",
     "ArchiveFileName": "D:\\Projects\\Modding Projects\\Cyberpunk 2077\\Project files\\Perks Apply To All redcript\\source\\archive\\base\\localization\\en-us\\perksapplytoall.json"
   },
@@ -269,6 +269,48 @@
               "maleVariant": "",
               "primaryKey": "87824",
               "secondaryKey": "Gameplay-RPG-CharDev-New_Perks-Descriptions-Reflexes-Reflexes_Master_Perk_2"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "\u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003E\u002B{float_0} Stamina\u003C/\u003E from performing \u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003EAir Dashes\u003C/\u003E and double or charged jumps.\\n\\n\u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003EAir Dashes\u003C/\u003E do not cost Stamina.",
+              "maleVariant": "",
+              "primaryKey": "87825",
+              "secondaryKey": "Gameplay-RPG-CharDev-New_Perks-Descriptions-Reflexes-Reflexes_Master_Perk_3"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "\u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003E\u002B{float_0}% sprint and crouchsprint speed\u003C/\u003E.",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "PerksApplyToMore-Reflexes_Central_Milestone_2-Aerobics-Lvl1-Desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Sprinting and Crouchsprinting \u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003Edoes not consume stamina.\u003C/\u003E",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "PerksApplyToMore-Reflexes_Central_Milestone_2-Aerobics-Lvl2-Desc"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Aerobics",
+              "maleVariant": "",
+              "primaryKey": "0",
+              "secondaryKey": "PerksApplyToMore-Reflexes_Central_Milestone_2-Aerobics-Name"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "\u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003E\u002B{float_0}% Mitigation Chance\u003C/\u003E while \u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003EDodging or Dashing\u003C/\u003E.\\n\\n\u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003EMitigation\u003C/\u003E - grants a chance to reduce incoming damage by current Mitigation Strength (default: 50%).",
+              "maleVariant": "",
+              "primaryKey": "87799",
+              "secondaryKey": "Gameplay-RPG-CharDev-New_Perks-Descriptions-Reflexes-Reflexes_Central_Perk_2_2"
+            },
+            {
+              "$type": "localizationPersistenceOnScreenEntry",
+              "femaleVariant": "Allows you to shoot while \u003CRich color=\u0022TooltipText.cyberwareDescriptionHighlightColor\u0022 style=\u0022Semi-Bold\u0022\u003EDodging or Dashing\u003C/\u003E.",
+              "maleVariant": "",
+              "primaryKey": "87803",
+              "secondaryKey": "Gameplay-RPG-CharDev-New_Perks-Descriptions-Reflexes-Reflexes_Central_Perk_2_4"
             },
             {
               "$type": "localizationPersistenceOnScreenEntry",

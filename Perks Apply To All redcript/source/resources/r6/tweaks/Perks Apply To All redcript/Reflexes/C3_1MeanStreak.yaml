@@ -1,0 +1,22 @@
+#new record
+NewPerks.Reflexes_Central_Perk_3_1:
+  $type: gamedataNewPerk_Record
+  attribute: NewPerks.ReflexesAttributeData
+  binkPath: ''
+  category: NewPerks.SimpleNewPerkCategory
+  enumComment: Deadly Acrobatics
+  enumName: Reflexes_Central_Perk_3_1
+  loc_desc_key: LocKey#87798
+  loc_name_key: LocKey#87763
+  perkIcon: UIIcon.Gunslinger_Area_09_Perk_1
+  uiData: NewPerks.Reflexes_Central_Perk_2_3_inline0
+  slot: NewPerks.Central_Perk_3_1
+  tier: NewPerks.ExpertNewPerkTier
+  levels:
+    - NewPerks.Reflexes_Central_Perk_2_3_inline1
+  requiresPerks:
+    - NewPerks.Reflexes_Central_Milestone_3
+  
+  
+  
+  

@@ -1,0 +1,5 @@
+# was gonna nerf it but it only applies DURING a dash
+# might rework to an extend effect briefly after a dash is completed. THEN I'll nerf it.
+
+NewPerks.Reflexes_Central_Perk_2_2:
+  requiresPerks: []

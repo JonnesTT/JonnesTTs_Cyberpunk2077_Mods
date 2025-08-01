@@ -13,6 +13,12 @@ NewPerks.BodyAttributeData.perks:
   - !append NewPerks.Body_Right_Perk_3_4
   
 
+NewPerks.ReflexesAttributeData.perks:
+- !append NewPerks.Reflexes_Central_Perk_3_1 #Mean streak #moved up a braket
+- !remove NewPerks.Reflexes_Inbetween_Right_2 #Flash and Thunderclap Moved to Reflexes_Right_Perk_2_3
+- !append NewPerks.Reflexes_Right_Perk_2_4
+
+
 NewPerks.CoolAttributeData.perks:
   - !remove NewPerks.Cool_Inbetween_Left_2 #deep breath. # now that focus naturally grants time dilation this is not necessary. Remove it.
 

@@ -1,0 +1,17 @@
+NewPerks.Reflexes_Master_Perk_3:
+  levels:
+    - NewPerks.Reflexes_Central_Milestone_3_inline6 #+20% Dash Speed
+    - NewPerks.Reflexes_Master_Perk_3_inline0
+  requiresPerks: []
+
+
+# add charge jumps to the mix
+NewPerks.Reflexes_Master_Perk_3_inline4.nestedPrereqs:
+  - !append
+    $type: gamedataIPrereq_Record
+    prereqClassName: DetailedLocomotionPSMPrereq
+    stateName: ChargeJump
+    isInState: True
+    previousState: False
+
+#dunno how I'm gonna handle wall jumps but I DO want them in here

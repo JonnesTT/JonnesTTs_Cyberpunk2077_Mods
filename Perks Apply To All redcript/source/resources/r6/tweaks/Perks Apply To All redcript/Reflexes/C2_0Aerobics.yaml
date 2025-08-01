@@ -1,0 +1,94 @@
+#full rework
+# this one will provide boosts to sprinting.
+# lvl 1 sprint and sneak-sprint speed
+# lvl 2 sprint and sneak spint don't use stamina
+
+
+# NewPerks.Reflexes_Central_Milestone_2:
+#   binkPath: base\movies\tutorials\700x394\perk_reflexes_dash.bk2
+#   category: NewPerks.MilestoneNewPerkCategory
+#   enumComment: Dash
+#   loc_desc_key: LocKey#87797
+#   loc_name_key: LocKey#87762
+#   requiresPerks:
+#     - NewPerks.Reflexes_Central_Milestone_1
+
+
+NewPerks.Reflexes_Central_Milestone_2:
+  binkPath: '' #base\movies\tutorials\700x394\perk_reflexes_dash.bk2 reuse in new slot
+  enumComment: Free Sprinting
+  loc_desc_key: '' #was set with duplicate of lvl 2
+  loc_name_key: LocKey#PerksApplyToMore-Reflexes_Central_Milestone_2-Aerobics-Name
+  requiresPerks: []
+  # perkIcon: UIIcon.Reflexes_Central_Milestone_2 #unchanged
+
+
+#lvl 1
+NewPerks.Reflexes_Central_Milestone_2_inline0:
+  loc_desc_key: LocKey#PerksApplyToMore-Reflexes_Central_Milestone_2-Aerobics-Lvl1-Desc
+  uiData: 
+    $type: gamedataNewPerkLevelUIData_Record
+    floatValues:
+      - 20
+    intValues: []
+    nameValues: []
+
+NewPerks.Reflexes_Central_Milestone_2_inline3:
+  $type: gamedataApplyStatGroupEffector_Record
+  removeWithEffector: True
+  statGroup: 
+    $type: gamedataStatModifierGroup_Record
+    drawBasedOnStatType: False
+    optimiseCombinedModifiers: False
+    saveBasedOnStatType: False
+    statModsLimit: -1
+    relatedModifierGroups: []
+    statModifiers:
+      - $type: gamedataConstantStatModifier_Record
+        value: 0.20
+        modifierType: AdditiveMultiplier
+        statType: BaseStats.MaxSpeed
+  effectorClassName: ApplyStatGroupEffector
+  prereqRecord: 
+    $type: gamedataMultiPrereq_Record
+    aggregationType: OR
+    prereqClassName: gameMultiPrereq
+    nestedPrereqs:
+    - Perks.IsPlayerSprinting
+    - Perks.IsPlayerCrouchSprinting
+  removeAfterActionCall: False
+  removeAfterPrereqCheck: False
+  statModifierGroups: []
+
+
+#lvl2
+NewPerks.Reflexes_Central_Milestone_2_inline6:
+  loc_desc_key: LocKey#PerksApplyToMore-Reflexes_Central_Milestone_2-Aerobics-Lvl2-Desc
+
+NewPerks.Reflexes_Central_Milestone_2_inline7:
+  $type: gamedataGameplayLogicPackage_Record
+  stackable: False
+  animationWrapperOverrides: []
+  effectors: 
+    - $type: gamedataApplyStatGroupEffector_Record
+      removeWithEffector: True
+      statGroup: 
+        $type: gamedataStatModifierGroup_Record
+        drawBasedOnStatType: False
+        optimiseCombinedModifiers: False
+        saveBasedOnStatType: False
+        statModsLimit: -1
+        relatedModifierGroups: []
+        statModifiers:
+          - $type: gamedataConstantStatModifier_Record
+            value: 1
+            modifierType: Additive
+            statType: BaseStats.IsSprintStaminaFree
+      effectorClassName: ApplyStatGroupEffector
+      prereqRecord: Prereqs.AlwaysTruePrereq
+      removeAfterActionCall: False
+      removeAfterPrereqCheck: False
+      statModifierGroups: []
+  items: []
+  statPools: []
+  stats: []

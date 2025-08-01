@@ -1,0 +1,22 @@
+NewPerks.Reflexes_Central_Milestone_3:
+  $type: gamedataNewPerk_Record
+  attribute: NewPerks.ReflexesAttributeData
+  binkPath: base\movies\tutorials\700x394\perk_reflexes_airdash.bk2
+  category: NewPerks.MilestoneNewPerkCategory
+  enumComment: Dash
+  enumName: Reflexes_Central_Milestone_3
+  loc_desc_key: ''
+  loc_name_key: LocKey#87762 #reused from C2_0Dash
+  perkIcon: UIIcon.Reflexes_Central_Milestone_3
+  levels:
+    - NewPerks.Reflexes_Central_Milestone_3_inline0
+    # - NewPerks.Reflexes_Central_Milestone_3_inline6 #dash speed. Moved up a level as new LvL1 of Tailwind
+    - NewPerks.Reflexes_Central_Milestone_3_inline12
+  requiresPerks: [] #no longer an augment of dash, no perkReqs needed
+
+
+#lvl 3
+# replaced with base dash
+NewPerks.Reflexes_Central_Milestone_3_inline12:
+  loc_desc_key: LocKey#87797 #reused from C2_0Dash
+  #datapackage empty. done fully in code, again :(

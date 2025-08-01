@@ -1,0 +1,9 @@
+#Mad dash is handled in script files
+NewPerks.Reflexes_Central_Perk_3_3:
+  enumComment: Mad Dash
+  loc_desc_key: LocKey#87802
+  loc_name_key: LocKey#87765
+  perkIcon: UIIcon.Reflexes_Central_Perk_2_3
+  uiData: NewPerks.Reflexes_Central_Perk_2_1_inline0
+  levels:
+    - NewPerks.Reflexes_Central_Perk_2_1_inline1

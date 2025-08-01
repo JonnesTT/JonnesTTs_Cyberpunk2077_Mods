@@ -1,0 +1,9 @@
+#Air Dash
+NewPerks.Reflexes_Central_Perk_3_2:
+  binkPath: base\movies\tutorials\700x394\perk_reflexes_airdash.bk2
+  enumComment: AirDash
+  loc_desc_key: LocKey#87816
+  loc_name_key: LocKey#87777
+  perkIcon: UIIcon.Reflexes_Central_Milestone_3
+  levels:
+    - NewPerks.Reflexes_Central_Milestone_3_inline12

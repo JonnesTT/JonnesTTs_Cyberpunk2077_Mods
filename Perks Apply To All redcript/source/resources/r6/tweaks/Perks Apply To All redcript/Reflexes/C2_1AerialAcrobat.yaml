@@ -1,0 +1,13 @@
+# C3_2Aerial Acrobat pulled down one bracket
+NewPerks.Reflexes_Central_Perk_2_1:
+  enumComment: The Art of Falling
+  enumName: Reflexes_Central_Perk_2_1 #original used in script check
+  loc_desc_key: LocKey#87817
+  loc_name_key: LocKey#87778
+  perkIcon: UIIcon.Reflexes_Central_Perk_3_2
+  slot: NewPerks.Central_Perk_2_1
+  tier: NewPerks.AdeptNewPerkTier
+  uiData: None
+  levels:
+    - NewPerks.Reflexes_Central_Perk_3_2_inline0
+  requiresPerks: []
